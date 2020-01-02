@@ -33,6 +33,8 @@ file(GLOB_RECURSE MPDR_HEADERS "DoorRandomizer/*.h")
 file(GLOB_RECURSE MPDR_FORMS "DoorRandomizer/*.ui")
 file(GLOB_RECURSE TS_FILES "LanguagePacks/*.ts")
 
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT mpdr-qt)
+
 set(MPDR_DIRS "")
 foreach (_headerFile ${MPDR_HEADERS})
     get_filename_component(_dir ${_headerFile} PATH)
@@ -46,6 +48,26 @@ add_executable(mpdr-qt
     ${MPDR_HEADERS}
     ${TS_FILES}
   )
+
+### randomprime
+
+include(ExternalProject)
+
+# Set default ExternalProject root directory
+set_directory_properties(PROPERTIES EP_PREFIX ${CMAKE_BINARY_DIR}/Rust)
+
+# add randomprime as a CMake target
+ExternalProject_Add(
+    randomprime
+    DOWNLOAD_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND cargo build COMMAND cargo build --release
+    BINARY_DIR "${CMAKE_SOURCE_DIR}/randomprime"
+    INSTALL_COMMAND ""
+    USES_TERMINAL_BUILD ON
+    LOG_BUILD ON)
+
+add_dependencies(mpdr-qt randomprime)
 
 target_link_libraries(mpdr-qt PRIVATE Qt5::Widgets)
 target_include_directories(mpdr-qt PRIVATE ${MPDR_DIRS})
