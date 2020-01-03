@@ -111,6 +111,7 @@ void RandomizerGUI::on_buttonUseTime_clicked()
 void RandomizerGUI::on_actionOpen_preset_triggered()
 {
     QString path = QFileDialog::getOpenFileName(this,tr("Open a preset file..."),"",tr("Preset files (*.json)"),nullptr,QFileDialog::ReadOnly);
+    if(path.isNull()) return;
     QFile preset_file(path);
     if(preset_file.open(QIODevice::ReadOnly)) {
         QByteArray data = preset_file.readAll();
@@ -144,6 +145,7 @@ void RandomizerGUI::on_actionSave_preset_triggered()
 {
     save_to_preset();
     QString path = QFileDialog::getSaveFileName(this,tr("Save preset file to..."),"",tr("Preset files (*.json)"),nullptr);
+    if(path.isNull()) return;
     QJsonObject preset_json;
     preset->serialize(preset_json);
     QFile preset_file(path);
