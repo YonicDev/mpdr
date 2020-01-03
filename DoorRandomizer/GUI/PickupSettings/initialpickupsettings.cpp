@@ -2,14 +2,15 @@
 #include "ui_initialpickupsettings.h"
 #include <stdio.h>
 
-InitialPickupSettings::InitialPickupSettings(QWidget *parent, uint64_t starting_pickups) :
+InitialPickupSettings::InitialPickupSettings(QWidget *parent, Preset *main_preset) :
     QDialog(parent),
     ui(new Ui::InitialPickupSettings)
 {
     ui->setupUi(this);
     QList<QObject*> groups = this->children();
+    preset = main_preset;
 
-    set_bitfield(starting_pickups);
+    set_bitfield(preset->starting_pickups);
 
     foreach(QObject* group,groups) {
         QGroupBox* box = qobject_cast<QGroupBox*>(group);
@@ -110,5 +111,5 @@ void InitialPickupSettings::write_to_bitfield() {
 
 void InitialPickupSettings::on_buttonBox_accepted()
 {
-    emit closed_ok(bitfield);
+    preset->starting_pickups = bitfield;
 }

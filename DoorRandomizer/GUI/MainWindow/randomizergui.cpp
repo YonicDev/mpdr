@@ -68,13 +68,8 @@ void RandomizerGUI::load_from_preset() {
 
 void RandomizerGUI::on_pickupsButton_clicked()
 {
-    InitialPickupSettings *dialog = new InitialPickupSettings(this,preset->starting_pickups);
-    dialog->connect(dialog,SIGNAL(closed_ok(uint64_t)),this,SLOT(set_starting_pickups(uint64_t)));
+    InitialPickupSettings *dialog = new InitialPickupSettings(this,preset);
     dialog->open();
-}
-
-void RandomizerGUI::set_starting_pickups(uint64_t pickups_num) {
-    preset->starting_pickups = pickups_num;
 }
 
 void RandomizerGUI::on_buttonBrowseInput_clicked()

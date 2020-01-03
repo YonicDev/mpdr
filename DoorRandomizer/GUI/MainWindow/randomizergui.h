@@ -17,9 +17,6 @@ public:
     RandomizerGUI(QWidget *parent = nullptr);
     ~RandomizerGUI();
 
-public slots:
-    void set_starting_pickups(uint64_t);
-
 private slots:
 
     void on_pickupsButton_clicked();
