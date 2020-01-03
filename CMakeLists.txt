@@ -75,7 +75,7 @@ set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 if(MSVC)
     set(RANDOMPRIME_LIB "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/randomprime.lib")
 elseif(UNIX)
-    set(RANDOMPRIME_LIB "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/randomprime.a")
+    set(RANDOMPRIME_LIB "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/librandomprime.a")
 endif()
 
 target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets ${RANDOMPRIME_LIB})
