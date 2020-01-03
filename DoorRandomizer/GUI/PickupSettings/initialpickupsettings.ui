@@ -16,6 +16,9 @@
   <property name="windowTitle">
    <string>Configure starting pickups</string>
   </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
@@ -39,7 +42,7 @@
          <bool>false</bool>
         </property>
         <property name="text">
-         <string>Power</string>
+         <string comment="power-beam">Power</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -239,7 +242,7 @@
          <bool>false</bool>
         </property>
         <property name="text">
-         <string>Power</string>
+         <string comment="power-suit">Power</string>
         </property>
         <property name="checked">
          <bool>true</bool>

@@ -2,16 +2,25 @@
 <ui version="4.0">
  <class>PatchSettingsPanel</class>
  <widget class="QDialog" name="PatchSettingsPanel">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>636</width>
-    <height>261</height>
+    <width>652</width>
+    <height>282</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Patches configuration</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -160,7 +169,7 @@
          <bool>false</bool>
         </property>
         <property name="text">
-         <string>Browse</string>
+         <string>Browse...</string>
         </property>
        </widget>
       </item>

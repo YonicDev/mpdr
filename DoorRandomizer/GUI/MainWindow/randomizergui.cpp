@@ -117,22 +117,22 @@ void RandomizerGUI::on_actionOpen_preset_triggered()
         } else {
             switch(parse) {
                 case -1:
-                    QMessageBox::critical(this,"Error","This is not a MPDR preset.");
+                    QMessageBox::critical(this,tr("Error"),tr("This is not a MPDR preset."));
                 break;
                 case -2:
-                    QMessageBox::critical(this,"Error","Error parsing the MPDR preset.");
+                    QMessageBox::critical(this,tr("Error"),tr("Error parsing the MPDR preset."));
                 break;
                 case -3:
-                    QMessageBox::critical(this,"Error","Data within the MPDR might be corrupt.");
+                    QMessageBox::critical(this,tr("Error"),tr("Data within the MPDR profile might be corrupt."));
                 break;
                 case -4:
-                    QMessageBox::critical(this,"Error","MPDR presets of version 1 are currently unsupported.");
+                    QMessageBox::critical(this,tr("Error"),tr("MPDR presets of version 1 are currently unsupported."));
                 break;
             }
         }
         preset_file.close();
     } else {
-        QMessageBox::critical(this,"Error","Could not open preset.");
+        QMessageBox::critical(this,tr("Error"),tr("Could not open preset."));
     }
 }
 
@@ -150,8 +150,7 @@ void RandomizerGUI::on_actionSave_preset_triggered()
         preset_file.write(doc.toJson());
         preset_file.close();
     } else {
-        qWarning("Could not open file");
-        QMessageBox::critical(this,"Error","Could not save preset.");
+        QMessageBox::critical(this,tr("Error"),tr("Could not save preset."));
     }
 
 }

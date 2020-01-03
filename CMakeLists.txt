@@ -11,19 +11,6 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.
-# Check http://doc.qt.io/qt-5/deployment-android.html for more information.
-# They need to be set before the find_package(Qt5 ...) call.
-
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
-
 find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 
 ### add project files
@@ -41,12 +28,24 @@ foreach (_headerFile ${MPDR_HEADERS})
     list(APPEND MPDR_DIRS ${_dir})
 endforeach()
 
+# translations
+# To make a new translation file, fill the NEW_TS variable with "LanguagePacks/mpdr_x.ts"
+# where "x" is the locale for a corresponding language.
+# Run CMake, build the project and empty the NEW_TS variable again so that it can
+# compile the program correctly.
+
+set(NEW_TS "")
+set_source_files_properties(${NEW_TS} PROPERTIES OUTPUT_LOCATION "LanguagePacks")
+set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "LanguagePacks")
+qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES} ${NEW_TS} OPTIONS -source-language en)
+qt5_add_translation(QM_FILES ${TS_FILES} ${NEW_TS})
+
 # add the executable
 add_executable(mpdr-qt
     ${MPDR_SOURCES}
     ${MPDR_FORMS}
     ${MPDR_HEADERS}
-    ${TS_FILES}
+    ${QM_FILES}
   )
 
 ### randomprime
@@ -80,5 +79,3 @@ endif()
 
 target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets ${RANDOMPRIME_LIB})
 target_include_directories(mpdr-qt PUBLIC ${MPDR_DIRS})
-
-qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})

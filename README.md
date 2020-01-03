@@ -2,6 +2,8 @@
 
 This program allows you to change the types of doors in Metroid Prime randomly.
 
+This is the Qt version of MPDR, which will eventually replace the previous version working in wxWidgets.
+
 ## Usage
 
 MPDR takes a disc file (ISO/GCM only) of Metroid Prime NTSC 0-00 version of the game,
@@ -13,14 +15,14 @@ to these types:
 * **White** (Ice Beam only)
 * **Red** (Plasma Beam only)
 
-**NOTE:** Although Metroid Prime NTSC 0-02 version is also supported, it has not been properly tested.
+> **NOTE 1:** Although Metroid Prime NTSC 0-02 version is also supported, it has not been properly tested.
 
-Doors from Pirate Frigate and Impact Crater will not be randomized.
+> **NOTE 2:** Doors from Pirate Frigate and Impact Crater will not be randomized. Currently, vertical doors (placed on the ground or the ceiling) can't be randomized either.
 
 The amount of doors of any given color can be adjusted with **door weights**.
 These adjust the chance of any door to be that particular color, and are given in percentages, grouped by areas (Tallon Overworld, Chozo Ruins, Magmoor Caverns, Phendrana Drifts and Phazon Mines).
 
-You can save your configuration of seed and door weights with JSON presets.
+You can save your configuration with JSON presets.
 
 ## Q & A
 
@@ -29,55 +31,51 @@ You can save your configuration of seed and door weights with JSON presets.
 * **Q: But can I use the save files from the Item Randomizer?**
   * A: Yes, although this might be subject to change in the future.
 * **Q: What platforms does it support?**
-  * A: Currently it supports Windows 10 64-bit, although it is also designed to work with Mac OS and 64-bit versions of Linux eventually.
+  * A: Currently it supports Windows 10 and Linux,  although it is also designed to work with Mac OS eventually. 32-bit versions are not supported.
 * **Q: Are all configurations clearable?**
   * A: In theory, yes, so long as the Blue door weight remains high enough.
 * **Q: Will you support Metroid Prime 2?**
   * A: Not at this moment.
 
-***
-The following sections are meant for those who are interested in building the program from the source code rather than downloading it.
+## Translation
+
+The Qt version of MPDR can be localized using the same guidelines from the [Qt Linguist manual](https://doc.qt.io/qt-5/qtlinguist-index.html).
+
+MPDR will automatically determine which language to use from the system's current locale. In the future, an option to switch languages may be added.
+
+> **WARNING:** If a language is missing support or is unfinished, the missing translations will fallback to English (United States).
+
+To add a new language, you have two options:
+
+* **Generate a fresh translation file by [building the project](https://github.com/YonicDev/mpdr-qt#build).** You'll have to modify the `CMakeLists.txt` before building the program. The file itself has guidelines on how to do it.
+* **Copy one of the existing translation files.** This is NOT recommended as some translation files might become updated as the program is developed.
+
+> **NOTE:** The logs produced by the backend ([randomprime](https://github.com/YonicDev/randomprime), the actual randomizer) cannot be translated.
+
+If you have an issue with translation such as requesting an disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
 
 ## Build
-Although MPDR has been designed to be cross-platform, the setup and build configurations have only been documented for Windows.
 
-> **NOTE:** Automatization of this process with CMake is on the works. It is not guaranteed to build correctly as documentation is not fully implemented yet!
+The following sections are meant for those who are interested in building the program from the source code rather than downloading it.
 
-Currently only Windows 10 has been tested.
-
-**NOTE:** 32-bit builds are supported, but non-functional.
+Although MPDR has been designed to be cross-platform, the setup and build configurations have only been tested for Windows and Linux (Ubuntu).
 
 ### Requirements
 
-* **[CMake](https://cmake.org/download/) 3.10** or higher.
-* **Visual Studio 2017** or 2019 with C++ support and the **Windows SDK 10.0.14393.0** or newer.
+* **[CMake](https://cmake.org/download/) 3.5** or higher.
+* **[Qt 5](https://www.qt.io/download)**, recommended with Qt Creator.
 * **The [Rust](https://www.rust-lang.org/install.html) language:** Install the `nightly` toolchain alongside the `powerpc-unknown-linux-gnu` target, as indicated [here](https://github.com/YonicDev/randomprime/blob/master/compile_to_ppc/README.md).
-* **Libraries:** [wxWidgets](https://github.com/wxWidgets/wxWidgets) and the Door Randomizer fork of [randomprime](https://github.com/YonicDev/randomprime).
 
-### CMake
-Run the following commands in either cmd or PowerShell:
+### Procedure
 
-```posh
-> mkdir mpdr
-> cd mpdr
-> git clone --recurse-submodules "https://github.com/YonicDev/mpdr"
-> mkdir build
-> cd build
-> cmake .. -G "Visual Studio 15 2017 Win64"
+Run the following command in your command line to clone the repository:
 
+```sh
+$ git clone --recurse-submodules "https://github.com/YonicDev/mpdr"
 ```
 
-Then open the generated MPDR solution in Visual Studio and simply Compile & Run. You may choose either Debug or Release configuration.
+Then open the `CMakeLists.txt` file in Qt Creator to create the project. After configuring the project you simply have to hit the Build & Run button.
 
-> For Debug configuration, please follow the manual configuration as it will fail to compile without some adjustments.
+> If you are prompted to select kits, you may select Clang or MSVC (Windows) / GCC (Linux), or both.
 
-### Manual configuration
-
-If the automatic configuration didn't compile, follow these instructions.
-
-Apart from linking the libraries, the following configuration must be used:
-* Import properties from the **wxWidgets** library.
-> **NOTE:** Make sure to use the Release static libraries for Debug configuration!
-* **Preprocessor definitions:** `_CRT_SECURE_NO_DEPRECATE` and `_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING`
-* In Debug configuration, use **DLL Multiprocess (/MD)** as linking runtime libraries.
-* **Additional libraries:** `ws2_32.lib` and `userenv.lib`.
+You may choose either Debug or Release configuration.
