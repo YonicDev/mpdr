@@ -35,8 +35,8 @@ endforeach()
 # compile the program correctly.
 
 set(NEW_TS "")
-set_source_files_properties(${NEW_TS} PROPERTIES OUTPUT_LOCATION "LanguagePacks")
-set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "LanguagePacks")
+set_source_files_properties(${NEW_TS} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/LanguagePacks")
+set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/LanguagePacks")
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES} ${NEW_TS} OPTIONS -source-language en)
 qt5_add_translation(QM_FILES ${TS_FILES} ${NEW_TS})
 
