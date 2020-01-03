@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>RandomizerGUI</string>
+   <string>Metroid Prime Door Randomizer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -94,7 +94,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="group_weights">
       <property name="title">
        <string>Door weights</string>
       </property>

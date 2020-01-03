@@ -21,20 +21,20 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="groupBox_Beams">
      <property name="title">
       <string>Beams</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="3">
-       <widget class="QCheckBox" name="checkBox_3">
+       <widget class="QCheckBox" name="checkBox_IceBeam">
         <property name="text">
          <string>Ice</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox">
+       <widget class="QCheckBox" name="checkBox_PowerBeam">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -50,14 +50,14 @@
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QCheckBox" name="checkBox_2">
+       <widget class="QCheckBox" name="checkBox_WaveBeam">
         <property name="text">
          <string>Wave</string>
         </property>
        </widget>
       </item>
       <item row="0" column="4">
-       <widget class="QCheckBox" name="checkBox_4">
+       <widget class="QCheckBox" name="checkBox_PlasmaBeam">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -70,42 +70,42 @@
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox_5">
+       <widget class="QCheckBox" name="checkBox_SuperMissile">
         <property name="text">
          <string>Supermissile</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_19">
+       <widget class="QCheckBox" name="checkBox_ChargeBeam">
         <property name="text">
          <string>Charge</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QCheckBox" name="checkBox_18">
+       <widget class="QCheckBox" name="checkBox_WaveBuster">
         <property name="text">
          <string>Wavebuster</string>
         </property>
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QCheckBox" name="checkBox_20">
+       <widget class="QCheckBox" name="checkBox_IceSpreader">
         <property name="text">
          <string>Ice Spreader</string>
         </property>
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QCheckBox" name="checkBox_21">
+       <widget class="QCheckBox" name="checkBox_Flamethrower">
         <property name="text">
          <string>Flamethrower</string>
         </property>
        </widget>
       </item>
       <item row="1" column="4">
-       <widget class="QCheckBox" name="checkBox_22">
+       <widget class="QCheckBox" name="checkBox_PhazonBeam">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -121,13 +121,13 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_5">
+    <widget class="QGroupBox" name="groupBox_Visors">
      <property name="title">
       <string>Visors</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_6">
+       <widget class="QCheckBox" name="checkBox_VisorCombat">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -140,7 +140,10 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_7">
+       <widget class="QCheckBox" name="checkBox_VisorScan">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Scan</string>
         </property>
@@ -150,14 +153,14 @@
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QCheckBox" name="checkBox_8">
+       <widget class="QCheckBox" name="checkBox_VisorThermal">
         <property name="text">
          <string>Thermal</string>
         </property>
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QCheckBox" name="checkBox_9">
+       <widget class="QCheckBox" name="checkBox_VisorXRay">
         <property name="text">
          <string>X-Ray</string>
         </property>
@@ -173,28 +176,28 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_10">
+       <widget class="QCheckBox" name="checkBox_BallMorph">
         <property name="text">
          <string>Morph Ball</string>
         </property>
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QCheckBox" name="checkBox_12">
+       <widget class="QCheckBox" name="checkBox_BallSpider">
         <property name="text">
          <string>Spider Ball</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_11">
+       <widget class="QCheckBox" name="checkBox_BallBoost">
         <property name="text">
          <string>Boost Ball</string>
         </property>
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QCheckBox" name="checkBox_24">
+       <widget class="QCheckBox" name="checkBox_BallBombs">
         <property name="text">
          <string>Bombs</string>
         </property>
@@ -210,28 +213,28 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
       <item row="0" column="3">
-       <widget class="QCheckBox" name="checkBox_15">
+       <widget class="QCheckBox" name="checkBox_SuitPhazon">
         <property name="text">
          <string>Phazon</string>
         </property>
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QCheckBox" name="checkBox_14">
+       <widget class="QCheckBox" name="checkBox_SuitGravity">
         <property name="text">
          <string>Gravity</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_13">
+       <widget class="QCheckBox" name="checkBox_SuitVaria">
         <property name="text">
          <string>Varia</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_23">
+       <widget class="QCheckBox" name="checkBox_SuitPower">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -253,14 +256,14 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_16">
+       <widget class="QCheckBox" name="checkBox_SpaceJump">
         <property name="text">
          <string>Space Jump Boots</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_17">
+       <widget class="QCheckBox" name="checkBox_GrappleBeam">
         <property name="text">
          <string>Grapple Beam</string>
         </property>
@@ -283,9 +286,9 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QSpinBox" name="spinBox">
+       <widget class="QSpinBox" name="spinBox_Missiles">
         <property name="maximum">
-         <number>255</number>
+         <number>250</number>
         </property>
         <property name="singleStep">
          <number>5</number>
@@ -300,7 +303,7 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QSpinBox" name="spinBox_2">
+       <widget class="QSpinBox" name="spinBox_ETanks">
         <property name="maximum">
          <number>14</number>
         </property>
@@ -314,7 +317,7 @@
        </widget>
       </item>
       <item row="0" column="5">
-       <widget class="QSpinBox" name="spinBox_3">
+       <widget class="QSpinBox" name="spinBox_PowerBombs">
         <property name="maximum">
          <number>8</number>
         </property>
@@ -326,27 +329,12 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLCDNumber" name="lcdNumber">
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
-       <property name="smallDecimalPoint">
-        <bool>false</bool>
-       </property>
-       <property name="digitCount">
-        <number>32</number>
-       </property>
-       <property name="mode">
-        <enum>QLCDNumber::Bin</enum>
-       </property>
-       <property name="segmentStyle">
-        <enum>QLCDNumber::Flat</enum>
-       </property>
-       <property name="value" stdset="0">
-        <double>2147483647.000000000000000</double>
-       </property>
-       <property name="intValue" stdset="0">
-        <number>2147483647</number>
+       <property name="readOnly">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -373,8 +361,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>228</x>
-     <y>496</y>
+     <x>238</x>
+     <y>484</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -389,8 +377,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>296</x>
-     <y>502</y>
+     <x>306</x>
+     <y>484</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -399,9 +387,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>checkBox_15</sender>
+   <sender>checkBox_SuitPhazon</sender>
    <signal>toggled(bool)</signal>
-   <receiver>checkBox_22</receiver>
+   <receiver>checkBox_PhazonBeam</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">

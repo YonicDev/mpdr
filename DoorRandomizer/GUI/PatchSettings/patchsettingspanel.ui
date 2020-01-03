@@ -23,14 +23,14 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QCheckBox" name="checkBox_2">
+         <widget class="QCheckBox" name="checkBox_skiphudmemos">
           <property name="text">
            <string>Skip item collected messages</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_3">
+         <widget class="QCheckBox" name="checkBox_skipfrigate">
           <property name="text">
            <string>Skip Pirate Frigate</string>
           </property>
@@ -40,7 +40,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_5">
+         <widget class="QCheckBox" name="checkBox_skipcrater">
           <property name="text">
            <string>Skip Impact Crater</string>
           </property>
@@ -116,7 +116,7 @@
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="checkBox_bomblockpick">
           <property name="text">
            <string>Power bomb lock-picking</string>
           </property>
@@ -134,7 +134,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_4">
+       <widget class="QCheckBox" name="checkBox_fixflaaghra">
         <property name="text">
          <string>Fix Flaaghra music files</string>
         </property>
@@ -155,14 +155,17 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="browseButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Browse</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QCheckBox" name="checkBox_6">
+       <widget class="QCheckBox" name="checkBox_keepattractmode">
         <property name="text">
          <string>Keep Attract mode</string>
         </property>
@@ -195,8 +198,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>227</x>
-     <y>315</y>
+     <x>236</x>
+     <y>251</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -211,8 +214,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>295</x>
-     <y>321</y>
+     <x>304</x>
+     <y>251</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>

@@ -1,0 +1,51 @@
+{
+    "door_weights": {
+        "chozo_ruins": [
+            80,
+            0,
+            15,
+            5,
+            25
+        ],
+        "magmoor_caverns": [
+            25,
+            25,
+            25,
+            25,
+            25
+        ],
+        "phazon_mines": [
+            20,
+            25,
+            25,
+            20,
+            20
+        ],
+        "phendrana_drifts": [
+            25,
+            10,
+            15,
+            50,
+            20
+        ],
+        "tallon_overworld": [
+            90,
+            5,
+            0,
+            5,
+            80
+        ]
+    },
+    "mpdrp_version": 2,
+    "patch_settings": {
+        "fix_flaaghra_music": false,
+        "skip_crater": false,
+        "skip_frigate": true,
+        "skip_hudmemos": false,
+        "stagger_suit_damage": false,
+        "trilogy_iso": "",
+        "varia_heat_protection": false
+    },
+    "seed": 555,
+    "starting_pickups": 0
+}
