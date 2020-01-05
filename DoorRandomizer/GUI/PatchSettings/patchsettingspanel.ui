@@ -126,6 +126,9 @@
         </item>
         <item row="2" column="0">
          <widget class="QCheckBox" name="checkBox_bomblockpick">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Power bomb lock-picking</string>
           </property>

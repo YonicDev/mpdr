@@ -13,7 +13,7 @@ Preset::Preset() {
     input_iso = "";
     output_iso = "";
     seed = static_cast<int32_t>(time(nullptr));
-    starting_pickups = 0;
+    starting_pickups = 1;
     additional_settings.skip_frigate = true;
     additional_settings.skip_crater = false;
     additional_settings.skip_hudmemos = false;
