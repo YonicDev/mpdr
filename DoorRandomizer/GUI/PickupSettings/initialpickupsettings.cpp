@@ -45,27 +45,29 @@ void InitialPickupSettings::read_from_bitfield() {
     for(int i=0;i<64;i++)buffer[63-i]=(bitfield>>i)&1?'1':'0';
     buffer[64] = NULL;
 
-    set_numericfield(ui->spinBox_Missiles,bitfield>>0 &0xff);
-    set_numericfield(ui->spinBox_ETanks,bitfield>>8 & ((1 << 4)-1));
-    set_numericfield(ui->spinBox_PowerBombs,bitfield>>12 & ((1 << 4)-1));
-    set_checkbox(ui->checkBox_WaveBeam,bitfield>>16 &1);
-    set_checkbox(ui->checkBox_IceBeam,bitfield>>17 &1);
-    set_checkbox(ui->checkBox_PlasmaBeam,bitfield>>18 &1);
-    set_checkbox(ui->checkBox_ChargeBeam,bitfield>>19 &1);
-    set_checkbox(ui->checkBox_BallMorph,bitfield>>20 &1);
-    set_checkbox(ui->checkBox_BallBombs,bitfield>>21 &1);
-    set_checkbox(ui->checkBox_BallSpider,bitfield>>22 &1);
-    set_checkbox(ui->checkBox_BallBoost,bitfield>>23 &1);
-    set_checkbox(ui->checkBox_SuitVaria,bitfield>>24 &1);
-    set_checkbox(ui->checkBox_SuitGravity,bitfield>>25 &1);
-    set_checkbox(ui->checkBox_SuitPhazon,bitfield>>26 &1);
-    set_checkbox(ui->checkBox_VisorThermal,bitfield>>27 &1);
-    set_checkbox(ui->checkBox_VisorXRay,bitfield>>28 &1);
-    set_checkbox(ui->checkBox_SpaceJump,bitfield>>29 &1);
-    set_checkbox(ui->checkBox_GrappleBeam,bitfield>>30 &1);
-    set_checkbox(ui->checkBox_SuperMissile,bitfield>>31 &1);
-    set_checkbox(ui->checkBox_WaveBuster,bitfield>>32 &1);
-
+    set_checkbox(ui->checkBox_VisorScan,bitfield>>0 &1);
+    set_numericfield(ui->spinBox_Missiles,bitfield>>1 &0xff);
+    set_numericfield(ui->spinBox_ETanks,bitfield>>9 & ((1 << 4)-1));
+    set_numericfield(ui->spinBox_PowerBombs,bitfield>>13 & ((1 << 4)-1));
+    set_checkbox(ui->checkBox_WaveBeam,bitfield>>17 &1);
+    set_checkbox(ui->checkBox_IceBeam,bitfield>>18 &1);
+    set_checkbox(ui->checkBox_PlasmaBeam,bitfield>>19 &1);
+    set_checkbox(ui->checkBox_ChargeBeam,bitfield>>20 &1);
+    set_checkbox(ui->checkBox_BallMorph,bitfield>>21 &1);
+    set_checkbox(ui->checkBox_BallBombs,bitfield>>22 &1);
+    set_checkbox(ui->checkBox_BallSpider,bitfield>>23 &1);
+    set_checkbox(ui->checkBox_BallBoost,bitfield>>24 &1);
+    set_checkbox(ui->checkBox_SuitVaria,bitfield>>25 &1);
+    set_checkbox(ui->checkBox_SuitGravity,bitfield>>26 &1);
+    set_checkbox(ui->checkBox_SuitPhazon,bitfield>>27 &1);
+    set_checkbox(ui->checkBox_VisorThermal,bitfield>>28 &1);
+    set_checkbox(ui->checkBox_VisorXRay,bitfield>>29 &1);
+    set_checkbox(ui->checkBox_SpaceJump,bitfield>>30 &1);
+    set_checkbox(ui->checkBox_GrappleBeam,bitfield>>31 &1);
+    set_checkbox(ui->checkBox_SuperMissile,bitfield>>32 &1);
+    set_checkbox(ui->checkBox_WaveBuster,bitfield>>33 &1);
+    // TODO: Add Ice Spreader, Flamethrower and Phazon Beam
+    // and possibly combat visor and regular suit
     ui->lineEdit->setText(buffer);
 }
 
@@ -80,27 +82,29 @@ void InitialPickupSettings::set_numericfield(QSpinBox *field, uint64_t value) {
 
 void InitialPickupSettings::write_to_bitfield() {
     bitfield =
-            static_cast<uint64_t>(ui->spinBox_Missiles->value() << 0) |
-            static_cast<uint64_t>(ui->spinBox_ETanks->value() << 8) |
-            static_cast<uint64_t>(ui->spinBox_PowerBombs->value())<< 12 |
-            static_cast<uint64_t>(ui->checkBox_WaveBeam->isChecked()) << 16 |
-            static_cast<uint64_t>(ui->checkBox_IceBeam->isChecked()) << 17 |
-            static_cast<uint64_t>(ui->checkBox_PlasmaBeam->isChecked()) << 18 |
-            static_cast<uint64_t>(ui->checkBox_ChargeBeam->isChecked()) << 19 |
-            static_cast<uint64_t>(ui->checkBox_BallMorph->isChecked()) << 20 |
-            static_cast<uint64_t>(ui->checkBox_BallBombs->isChecked()) << 21 |
-            static_cast<uint64_t>(ui->checkBox_BallSpider->isChecked()) << 22 |
-            static_cast<uint64_t>(ui->checkBox_BallBoost->isChecked()) << 23 |
-            static_cast<uint64_t>(ui->checkBox_SuitVaria->isChecked()) << 24 |
-            static_cast<uint64_t>(ui->checkBox_SuitGravity->isChecked()) << 25 |
-            static_cast<uint64_t>(ui->checkBox_SuitPhazon->isChecked()) << 26 |
-            static_cast<uint64_t>(ui->checkBox_VisorThermal->isChecked()) << 27 |
-            static_cast<uint64_t>(ui->checkBox_VisorXRay->isChecked()) << 28 |
-            static_cast<uint64_t>(ui->checkBox_SpaceJump->isChecked()) << 29 |
-            static_cast<uint64_t>(ui->checkBox_GrappleBeam->isChecked()) << 30 |
-            static_cast<uint64_t>(ui->checkBox_SuperMissile->isChecked()) << 31 |
-            static_cast<uint64_t>(ui->checkBox_WaveBuster->isChecked()) << 32;
+            static_cast<uint64_t>(ui->checkBox_VisorScan->isChecked() << 0) |
+            static_cast<uint64_t>(ui->spinBox_Missiles->value() << 1) |
+            static_cast<uint64_t>(ui->spinBox_ETanks->value() << 9) |
+            static_cast<uint64_t>(ui->spinBox_PowerBombs->value())<< 13 |
+            static_cast<uint64_t>(ui->checkBox_WaveBeam->isChecked()) << 17 |
+            static_cast<uint64_t>(ui->checkBox_IceBeam->isChecked()) << 18 |
+            static_cast<uint64_t>(ui->checkBox_PlasmaBeam->isChecked()) << 19 |
+            static_cast<uint64_t>(ui->checkBox_ChargeBeam->isChecked()) << 20 |
+            static_cast<uint64_t>(ui->checkBox_BallMorph->isChecked()) << 21 |
+            static_cast<uint64_t>(ui->checkBox_BallBombs->isChecked()) << 22 |
+            static_cast<uint64_t>(ui->checkBox_BallSpider->isChecked()) << 23 |
+            static_cast<uint64_t>(ui->checkBox_BallBoost->isChecked()) << 24 |
+            static_cast<uint64_t>(ui->checkBox_SuitVaria->isChecked()) << 25 |
+            static_cast<uint64_t>(ui->checkBox_SuitGravity->isChecked()) << 26 |
+            static_cast<uint64_t>(ui->checkBox_SuitPhazon->isChecked()) << 27 |
+            static_cast<uint64_t>(ui->checkBox_VisorThermal->isChecked()) << 28 |
+            static_cast<uint64_t>(ui->checkBox_VisorXRay->isChecked()) << 29 |
+            static_cast<uint64_t>(ui->checkBox_SpaceJump->isChecked()) << 30 |
+            static_cast<uint64_t>(ui->checkBox_GrappleBeam->isChecked()) << 31 |
+            static_cast<uint64_t>(ui->checkBox_SuperMissile->isChecked()) << 32 |
+            static_cast<uint64_t>(ui->checkBox_WaveBuster->isChecked()) << 33;
             // TODO: Add Ice Spreader, Flamethrower and Phazon Beam
+            // and possibly combat visor and regular suit
 
             static char buffer[65];
             for(int i=0;i<64;i++)buffer[63-i]=(bitfield>>i)&1?'1':'0';
