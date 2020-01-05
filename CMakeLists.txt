@@ -85,7 +85,7 @@ set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 if(MSVC)
     set(RANDOMPRIME_LIB Qt5::WinExtras "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/randomprime.lib" ws2_32 userenv advapi32)
 elseif(UNIX)
-    set(RANDOMPRIME_LIB "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/librandomprime.a")
+    set(RANDOMPRIME_LIB "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/librandomprime.a" libdl.so pthread.so)
 endif()
 
 target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets ${RANDOMPRIME_LIB})
