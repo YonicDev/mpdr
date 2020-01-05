@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     if(qt_translator.load(qt_translations_path + QString("qtbase_%1.qm").arg(locale)))
         a.installTranslator(&qt_translator);
     if(app_translator.load(QString("LanguagePacks/mpdr_%1.qm").arg(locale))) {
-        qDebug() << a.installTranslator(&app_translator);
+        a.installTranslator(&app_translator);
     }
 
     RandomizerGUI w;

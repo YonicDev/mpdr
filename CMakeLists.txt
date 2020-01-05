@@ -68,6 +68,13 @@ ExternalProject_Add(
 
 add_dependencies(mpdr-qt randomprime)
 
+#compiler definitions
+if(MSVC)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS=1,_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING=1)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} /MD")
+endif()
+
 #find library
 set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 

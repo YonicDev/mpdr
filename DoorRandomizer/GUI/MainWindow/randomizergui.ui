@@ -945,12 +945,10 @@
        </layout>
       </item>
       <item>
-       <widget class="QTableWidget" name="tableWidget">
-        <column>
-         <property name="text">
-          <string>Type</string>
-         </property>
-        </column>
+       <widget class="QTableWidget" name="logTable">
+        <property name="showGrid">
+         <bool>false</bool>
+        </property>
         <column>
          <property name="text">
           <string>Timestamp</string>

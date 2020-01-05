@@ -6,9 +6,11 @@
 #include <QFileDialog>
 #include <QJsonDocument>
 #include <QMessageBox>
+#include <QDateTime>
 
 #include "./initialpickupsettings.h"
 #include "./patchsettingspanel.h"
+#include <randomizer.h>
 
 RandomizerGUI::RandomizerGUI(QWidget *parent)
     : QMainWindow(parent)
@@ -17,10 +19,20 @@ RandomizerGUI::RandomizerGUI(QWidget *parent)
     ui->setupUi(this);
     preset = new Preset();
     load_from_preset();
+    QHeaderView *header = ui->logTable->horizontalHeader();
+    header->setStretchLastSection(true);
+
+    Randomizer *randomizer = new Randomizer;
+    randomizer->moveToThread(&worker_thread);
+    connect(&worker_thread,&QThread::finished,randomizer,&QObject::deleteLater,Qt::ConnectionType::QueuedConnection);
+    connect(this,&RandomizerGUI::run_thread,randomizer,&Randomizer::randomize,Qt::ConnectionType::QueuedConnection);
+    connect(randomizer,&Randomizer::send_message,this,&RandomizerGUI::process_message,Qt::ConnectionType::QueuedConnection);
 }
 
 RandomizerGUI::~RandomizerGUI()
 {
+    if(worker_thread.isRunning())
+        worker_thread.terminate();
     delete preset;
     delete ui;
 }
@@ -35,6 +47,8 @@ void RandomizerGUI::save_to_preset() {
         }
     }
     preset->seed = static_cast<int32_t>(ui->seedField->value());
+    preset->input_iso = ui->lineInputFile->text();
+    preset->output_iso = ui->lineOutputFile->text();
 }
 
 void RandomizerGUI::load_from_preset() {
@@ -47,6 +61,8 @@ void RandomizerGUI::load_from_preset() {
         }
     }
     ui->seedField->setValue(static_cast<int32_t>(preset->seed));
+    ui->lineInputFile->setText(preset->input_iso);
+    ui->lineOutputFile->setText(preset->output_iso);
 }
 
 
@@ -137,4 +153,62 @@ void RandomizerGUI::on_actionSave_preset_triggered()
         QMessageBox::critical(this,tr("Error"),tr("Could not save preset."));
     }
 
+}
+
+void RandomizerGUI::log(QString type,QString message) {
+
+    QString timestamp = QDateTime::currentDateTime().toString("HH:mm:ss");
+
+    ui->logTable->insertRow(0);
+    QTableWidgetItem *type_cell = new QTableWidgetItem(type);
+    QTableWidgetItem *time_cell = new QTableWidgetItem(timestamp);
+    QTableWidgetItem *message_cell = new QTableWidgetItem(message);
+
+    type_cell->setFlags(type_cell->flags() ^ Qt::ItemIsEditable);
+    message_cell->setFlags(message_cell->flags() ^ Qt::ItemIsEditable);
+
+    ui->logTable->setVerticalHeaderItem(0,type_cell);
+
+    ui->logTable->setItem(0,0,time_cell);
+    ui->logTable->setItem(0,1,message_cell);
+}
+
+void RandomizerGUI::set_progress(int percentage) {
+    ui->progressBar->setMaximum(100);
+    ui->progressBar->setValue(percentage);
+}
+
+void RandomizerGUI::on_buttonRandomize_clicked()
+{
+
+    save_to_preset();
+
+    ui->buttonRandomize->setEnabled(false);
+    ui->progressBar->setMaximum(0);
+
+
+    worker_thread.start();
+    emit run_thread(preset);
+}
+
+void RandomizerGUI::process_message(QJsonObject data) {
+    QString type = data["type"].toString();
+    QString message = data["msg"].toString();
+    if(type == "progress") {
+        int progress = floor(data["percent"].toDouble());
+        set_progress(progress);
+    } if(type == "error") {
+        if(worker_thread.isRunning())
+            worker_thread.exit(-1);
+        ui->buttonRandomize->setEnabled(true);
+        ui->progressBar->setMaximum(100);
+        QMessageBox::critical(this,"Error","An error has occurred while patching:\n" + message);
+    }
+    if(type == "success") {
+        if(worker_thread.isRunning())
+            worker_thread.exit(0);
+        ui->buttonRandomize->setEnabled(true);
+        QMessageBox::information(this,"Done","Succesfully patched the game!");
+    }
+    log(type,message);
 }
