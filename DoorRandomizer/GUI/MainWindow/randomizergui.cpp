@@ -82,7 +82,7 @@ void RandomizerGUI::on_pickupsButton_clicked()
 
 void RandomizerGUI::on_buttonBrowseInput_clicked()
 {
-    ui->lineInputFile->setText(QFileDialog::getOpenFileName(this,tr("Select a Metroid Prime NTSC 0-00 disc image"),"",tr("Standard disk images (*.iso *.gcm)"),nullptr,QFileDialog::ReadOnly));
+    ui->lineInputFile->setText(QFileDialog::getOpenFileName(this,tr("Select a Metroid Prime NTSC 0-00/0-02  disc image"),"",tr("Standard disk images (*.iso *.gcm)"),nullptr,QFileDialog::ReadOnly));
 }
 
 void RandomizerGUI::on_buttonBrowseOutput_clicked()

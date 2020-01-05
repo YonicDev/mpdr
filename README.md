@@ -6,7 +6,7 @@ This is the Qt version of MPDR, which will eventually replace the previous versi
 
 ## Usage
 
-MPDR takes a disc file (ISO/GCM only) of Metroid Prime NTSC 0-00 version of the game,
+MPDR takes a disc file (ISO/GCM only) of Metroid Prime NTSC 0-00 or NTSC 0-02 version of the game,
 and modifies the types of the doors accordingly. Currently it supports switching
 to these types:
 
@@ -15,9 +15,7 @@ to these types:
 * **White** (Ice Beam only)
 * **Red** (Plasma Beam only)
 
-> **NOTE 1:** Although Metroid Prime NTSC 0-02 version is also supported, it has not been properly tested.
-
-> **NOTE 2:** Doors from Pirate Frigate and Impact Crater will not be randomized. Currently, vertical doors (placed on the ground or the ceiling) can't be randomized either.
+> **NOTE:** Doors from Pirate Frigate and Impact Crater will not be randomized. Currently, vertical doors (placed on the ground or the ceiling) can't be randomized either.
 
 The amount of doors of any given color can be adjusted with **door weights**.
 These adjust the chance of any door to be that particular color, and are given in percentages, grouped by areas (Tallon Overworld, Chozo Ruins, Magmoor Caverns, Phendrana Drifts and Phazon Mines).
@@ -31,7 +29,7 @@ You can save your configuration with JSON presets.
 * **Q: But can I use the save files from the Item Randomizer?**
   * A: Yes, although this might be subject to change in the future.
 * **Q: What platforms does it support?**
-  * A: Currently it supports Windows 10 and Linux,  although it is also designed to work with Mac OS eventually. 32-bit versions are not supported.
+  * A: Currently it supports Windows 10 and Linux,  although it is also designed to work with Mac OS eventually. 32-bit versions are not supported. Older versions of Windows may work, but they haven't been tested.
 * **Q: Are all configurations clearable?**
   * A: In theory, yes, so long as the Blue door weight remains high enough.
 * **Q: Will you support Metroid Prime 2?**
@@ -43,7 +41,7 @@ The Qt version of MPDR can be localized using the same guidelines from the [Qt L
 
 MPDR will automatically determine which language to use from the system's current locale. In the future, an option to switch languages may be added.
 
-> **WARNING:** If a language is missing support or is unfinished, the missing translations will fallback to English (United States).
+> **NOTE:** If a language is missing support or is unfinished, the missing translations will fallback to English (United States).
 
 To add a new language, you have two options:
 
@@ -52,7 +50,9 @@ To add a new language, you have two options:
 
 > **NOTE:** The logs produced by the backend ([randomprime](https://github.com/YonicDev/randomprime), the actual randomizer) cannot be translated.
 
-If you have an issue with translation such as requesting an disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
+If you have an issue with translation such as requesting a disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
+
+> **WARNING:** If you update the MPDR repository to a newer revision and you were required to rebuild the whole project (including randomprime), the translation files might be erased in the process! Hopefully, you can recover them by [reseting/discarding](https://git-scm.com/docs/git-reset) the change that causes them to be removed. *However, all local changes that weren't commited to the repository will be permanently lost.* So make sure you backup the files either way!
 
 ## Build
 
@@ -79,3 +79,15 @@ Then open the `CMakeLists.txt` file in Qt Creator to create the project. After c
 > If you are prompted to select kits, you may select Clang or MSVC (Windows) / GCC (Linux), or both.
 
 You may choose either Debug or Release configuration.
+
+### Updating the repository
+
+You can simply update the changes in the repository by performing a git pull. Sometimes it won't compile correctly after updating. Perform these steps from Qt one at a time and try compiling again. If it doesn't build, perform the next step:
+
+1. Run CMake again.
+2. Clean all CMake configuration.
+3. Rebuild all projects.
+4. Delete the build folder.
+5. Delete the repository and clone it again.
+
+If neither of these steps has worked, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) indicating your operating system and configuration, as well as all the steps you've made for configuring the whole thing.
