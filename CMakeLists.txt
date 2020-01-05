@@ -11,7 +11,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
+if(MSVC)
+    set(QT_EXTRA_COMPONENTS WinExtras)
+endif()
+
+find_package(Qt5 COMPONENTS Widgets LinguistTools ${QT_EXTRA_COMPONENTS} REQUIRED)
 
 ### add project files
 # find headers and source files
@@ -79,7 +83,7 @@ endif()
 set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 
 if(MSVC)
-    set(RANDOMPRIME_LIB "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/randomprime.lib")
+    set(RANDOMPRIME_LIB Qt5::WinExtras "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/randomprime.lib" ws2_32 userenv advapi32)
 elseif(UNIX)
     set(RANDOMPRIME_LIB "${CMAKE_SOURCE_DIR}/randomprime/target/${RANDOMPRIME_DIR}/librandomprime.a")
 endif()

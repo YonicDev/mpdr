@@ -4,6 +4,11 @@
 #include <QMainWindow>
 #include <QThread>
 #include <QJsonObject>
+#ifdef WIN32
+#include <QtWinExtras/QWinTaskbarButton>
+#include <QtWinExtras/QWinTaskbarProgress>
+#include <QShowEvent>
+#endif
 
 #include "../Config/preset.h"
 
@@ -50,10 +55,18 @@ private:
     Preset *preset;
 
     QThread worker_thread;
+    #ifdef WIN32
+    QWinTaskbarButton *taskbar_button;
+    QWinTaskbarProgress *taskbar_progress;
+    #endif
 
     void load_from_preset();
     void save_to_preset();
 
+#ifdef WIN32
+protected:
+    void showEvent(QShowEvent *event) override;
+#endif
 
 signals:
     void run_thread(Preset *preset);

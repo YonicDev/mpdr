@@ -37,6 +37,14 @@ RandomizerGUI::~RandomizerGUI()
     delete ui;
 }
 
+#ifdef WIN32
+void RandomizerGUI::showEvent(QShowEvent *event) {
+    taskbar_button = new QWinTaskbarButton(this);
+    taskbar_button->setWindow(this->windowHandle());
+    taskbar_progress = taskbar_button->progress();
+}
+#endif
+
 void RandomizerGUI::save_to_preset() {
     auto zone_groups = ui->group_weights->children();
     for(int i=0;i<5;++i) {
@@ -176,6 +184,10 @@ void RandomizerGUI::log(QString type,QString message) {
 void RandomizerGUI::set_progress(int percentage) {
     ui->progressBar->setMaximum(100);
     ui->progressBar->setValue(percentage);
+    #ifdef WIN32
+    taskbar_progress->setMaximum(100);
+    taskbar_progress->setValue(percentage);
+    #endif
 }
 
 void RandomizerGUI::on_buttonRandomize_clicked()
@@ -186,6 +198,11 @@ void RandomizerGUI::on_buttonRandomize_clicked()
     ui->buttonRandomize->setEnabled(false);
     ui->progressBar->setMaximum(0);
 
+    #ifdef WIN32
+    taskbar_progress->resume();
+    taskbar_progress->setMaximum(0);
+    taskbar_progress->show();
+    #endif
 
     worker_thread.start();
     emit run_thread(preset);
@@ -201,13 +218,24 @@ void RandomizerGUI::process_message(QJsonObject data) {
         if(worker_thread.isRunning())
             worker_thread.exit(-1);
         ui->buttonRandomize->setEnabled(true);
+        #ifdef WIN32
+            taskbar_progress->stop();
+        #endif
         ui->progressBar->setMaximum(100);
         QMessageBox::critical(this,"Error","An error has occurred while patching:\n" + message);
+        #ifdef WIN32
+            taskbar_progress->reset();
+            taskbar_progress->hide();
+        #endif
     }
     if(type == "success") {
         if(worker_thread.isRunning())
             worker_thread.exit(0);
         ui->buttonRandomize->setEnabled(true);
+        #ifdef WIN32
+            taskbar_progress->reset();
+            taskbar_progress->hide();
+        #endif
         QMessageBox::information(this,"Done","Succesfully patched the game!");
     }
     log(type,message);
