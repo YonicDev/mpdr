@@ -27,19 +27,11 @@ RandomizerGUI::~RandomizerGUI()
 
 void RandomizerGUI::save_to_preset() {
     auto zone_groups = ui->group_weights->children();
-    for(auto zone = zone_groups.begin(); zone!=zone_groups.end();++zone) {
-        QGroupBox *area = qobject_cast<QGroupBox*>(*zone);
-        if(area) {
-            auto area_widgets = area->children();
-            for(auto widget=area_widgets.begin();widget!=area_widgets.end();++widget) {
-                QSlider *slider = qobject_cast<QSlider*>(*widget);
-                int i = zone_groups.indexOf(*zone);
-                int j = area_widgets.indexOf(*widget);
-
-                if(slider) {
-                    preset->weights[i-1][j-1] = slider->value();
-                }
-            }
+    for(int i=0;i<5;++i) {
+        for (int j=0;j<4;++j) {
+            const QString selector = QString("slider%1_%2").arg(i).arg(j);
+            QSlider *slider = this->findChild<QSlider *>(selector);
+            preset->weights[i][j] = slider->value();
         }
     }
     preset->seed = static_cast<int32_t>(ui->seedField->value());
@@ -47,19 +39,11 @@ void RandomizerGUI::save_to_preset() {
 
 void RandomizerGUI::load_from_preset() {
     auto zone_groups = ui->group_weights->children();
-    for(auto zone = zone_groups.begin(); zone!=zone_groups.end();++zone) {
-        QGroupBox *area = qobject_cast<QGroupBox*>(*zone);
-        if(area) {
-            auto area_widgets = area->children();
-            for(auto widget=area_widgets.begin();widget!=area_widgets.end();++widget) {
-                QSlider *slider = qobject_cast<QSlider*>(*widget);
-                int i = zone_groups.indexOf(*zone);
-                int j = area_widgets.indexOf(*widget);
-
-                if(slider) {
-                    slider->setValue(preset->weights[i-1][j-1]);
-                }
-            }
+    for(int i=0;i<5;++i) {
+        for (int j=0;j<4;++j) {
+            const QString selector = QString("slider%1_%2").arg(i).arg(j);
+            QSlider *slider = this->findChild<QSlider *>(selector);
+            slider->setValue(preset->weights[i][j]);
         }
     }
     ui->seedField->setValue(static_cast<int32_t>(preset->seed));

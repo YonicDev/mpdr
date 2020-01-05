@@ -2,38 +2,33 @@
     "door_weights": {
         "chozo_ruins": [
             80,
-            0,
             15,
             5,
-            25
+            0
         ],
         "magmoor_caverns": [
+            50,
             25,
-            25,
-            25,
-            25,
-            25
+            15,
+            10
         ],
         "phazon_mines": [
-            20,
-            25,
-            25,
-            20,
+            0,
+            40,
+            40,
             20
         ],
         "phendrana_drifts": [
-            25,
-            10,
-            15,
-            50,
+            40,
+            20,
+            20,
             20
         ],
         "tallon_overworld": [
             90,
             5,
             0,
-            5,
-            80
+            5
         ]
     },
     "mpdrp_version": 2,

@@ -5,12 +5,10 @@
 #include <QJsonArray>
 
 Preset::Preset() {
-    for(int i=0;i<5;i++) {
-        weights.tallon_overworld[i] = 25;
-        weights.chozo_ruins[i] = 25;
-        weights.magmoor_caverns[i] = 25;
-        weights.phendrana_drifts[i] = 25;
-        weights.phazon_mines[i] = 25;
+    for(int i=0;i<5;++i) {
+        for(int j=0;j<4;++j) {
+            weights[i][j] = 25;
+        }
     }
     input_iso = "";
     output_iso = "";
@@ -67,7 +65,7 @@ void DoorWeights::serialize(QJsonObject &json) {
     QJsonArray magmoor;
     QJsonArray phendrana;
     QJsonArray phazon;
-    for(int i=0;i<5;i++) {
+    for(int i=0;i<4;i++) {
         tallon.append(tallon_overworld[i]);
         chozo.append(chozo_ruins[i]);
         magmoor.append(magmoor_caverns[i]);
