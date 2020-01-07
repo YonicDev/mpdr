@@ -50,6 +50,7 @@ if(MSVC)
         ${MPDR_FORMS}
         ${MPDR_HEADERS}
         ${QM_FILES}
+        mpdr.rc
     )
 else()
     add_executable(mpdr-qt
