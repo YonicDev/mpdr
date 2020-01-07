@@ -63,7 +63,7 @@ Although MPDR has been designed to be cross-platform, the setup and build config
 ### Requirements
 
 * **[CMake](https://cmake.org/download/) 3.5** or higher.
-* **[Qt 5](https://www.qt.io/download)**, recommended with Qt Creator.
+* **[Qt 5.13.2](https://www.qt.io/download)**, recommended with Qt Creator and Qt Docs as it includes the Clang compiler.
 * **The [Rust](https://www.rust-lang.org/install.html) language:** Install the `nightly` toolchain alongside the `powerpc-unknown-linux-gnu` target, as indicated [here](https://github.com/YonicDev/randomprime/blob/master/compile_to_ppc/README.md).
 
 ### Procedure

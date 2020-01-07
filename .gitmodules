@@ -1,3 +1,6 @@
 [submodule "randomprime"]
 	path = randomprime
 	url = https://github.com/YonicDev/randomprime.git
+[submodule "CMakeRust"]
+	path = CMakeRust
+	url = https://github.com/Devolutions/CMakeRust.git
