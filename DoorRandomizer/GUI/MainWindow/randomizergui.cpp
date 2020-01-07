@@ -240,3 +240,8 @@ void RandomizerGUI::process_message(QJsonObject data) {
     }
     log(type,message);
 }
+
+void RandomizerGUI::on_actionAbout_MPDR_triggered()
+{
+    QMessageBox::about(this,"About MPDR","Metroid Prime Randomizer\nMIT License YonicStudios 2019");
+}

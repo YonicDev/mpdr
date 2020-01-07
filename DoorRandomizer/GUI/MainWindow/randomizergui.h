@@ -50,6 +50,8 @@ private slots:
 
     void on_buttonRandomize_clicked();
 
+    void on_actionAbout_MPDR_triggered();
+
 private:
     Ui::RandomizerGUI *ui;
     Preset *preset;
