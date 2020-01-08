@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.1
+Name=Metroid Prime Door Randomizer
+Icon=mpdr-qt
+Comment=Randomize doors for Metroid Prime
+Comment[es_ES]=Aleatorizar puertas para Metroid Prime
+Exec=mpdr-qt %f
+Categories=Games
+

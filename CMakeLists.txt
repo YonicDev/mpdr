@@ -77,6 +77,13 @@ if(MSVC)
     set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT mpdr-qt)
 endif()
 
+#make install configuration
+if(UNIX)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr-qt.svg DESTINATION share/icons/hicolor/scalable/apps/)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.desktop DESTINATION share/applications/)
+    install(TARGETS mpdr-qt)
+endif()
+
 #find library
 set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 
