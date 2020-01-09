@@ -270,7 +270,7 @@ void RandomizerGUI::on_actionContents_triggered()
          << QCoreApplication::applicationDirPath().append("/doc/doc_collection.qhc")
          << QLatin1String("-enableRemoteControl");
     #ifdef WIN32
-    QString command = QCoreApplication::applicationDirPath().append("/assistant")
+    QString command = QCoreApplication::applicationDirPath().append("/assistant");
     #else
     // Because Linux has to build from source,
     // we're assuming Qt Assistant is already installed
