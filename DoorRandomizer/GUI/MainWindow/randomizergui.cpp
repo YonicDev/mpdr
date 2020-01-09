@@ -126,22 +126,37 @@ void RandomizerGUI::on_actionOpen_preset_triggered()
         } else {
             switch(parse) {
                 case -1:
-                    QMessageBox::critical(this,tr("Error"),tr("This is not a MPDR preset."));
+                    QMessageBox::critical(this,tr("Error"),
+                      //: This pops up when a JSON file doesn't match a MPDR preset format.
+                      //~ Context Error message
+                      tr("This is not a MPDR preset."));
                 break;
                 case -2:
-                    QMessageBox::critical(this,tr("Error"),tr("Error parsing the MPDR preset."));
+                    QMessageBox::critical(this,tr("Error"),
+                      //: This pops up when an MPDR preset has data that doesn't match what an MPDR preset of its version should have.
+                      //~ Context Error message
+                      tr("Error parsing the MPDR preset."));
                 break;
                 case -3:
-                    QMessageBox::critical(this,tr("Error"),tr("Data within the MPDR profile might be corrupt."));
+                    QMessageBox::critical(this,tr("Error"),
+                      //: This pops up when an MPDR preset has invalid data.
+                      //~ Context Error message
+                      tr("Data within the MPDR profile might be corrupt."));
                 break;
                 case -4:
-                    QMessageBox::critical(this,tr("Error"),tr("MPDR presets of version 1 are currently unsupported."));
+                    QMessageBox::critical(this,tr("Error"),
+                      //: This pops up when an MPDR preset is from the first version of MPDR, which is currently not supported.
+                      //~ Context Error message
+                      tr("MPDR presets of version 1 are currently unsupported."));
                 break;
             }
         }
         preset_file.close();
     } else {
-        QMessageBox::critical(this,tr("Error"),tr("Could not open preset."));
+        QMessageBox::critical(this,tr("Error"),
+           //: This pops up when a file could not be opened. It could be any kind of file, but we refer to it as a preset regardless.
+           //~ Context Error message
+           tr("Could not open preset."));
     }
 }
 
@@ -223,7 +238,7 @@ void RandomizerGUI::process_message(QJsonObject data) {
             taskbar_progress->stop();
         #endif
         ui->progressBar->setMaximum(100);
-        QMessageBox::critical(this,"Error","An error has occurred while patching:\n" + message);
+        QMessageBox::critical(this,tr("Error"),tr("An error has occurred while patching:\n") + message);
         #ifdef WIN32
             taskbar_progress->reset();
             taskbar_progress->hide();
@@ -237,14 +252,14 @@ void RandomizerGUI::process_message(QJsonObject data) {
             taskbar_progress->reset();
             taskbar_progress->hide();
         #endif
-        QMessageBox::information(this,"Done","Succesfully patched the game!");
+        QMessageBox::information(this,tr("Done"),tr("Succesfully patched the game!"));
     }
     log(type,message);
 }
 
 void RandomizerGUI::on_actionAbout_MPDR_triggered()
 {
-    QMessageBox::about(this,"About MPDR","Metroid Prime Randomizer v0.1\nMIT License YonicStudios 2019");
+    QMessageBox::about(this,tr("About MPDR"),"Metroid Prime Randomizer v0.1\nMIT License YonicStudios 2019");
 }
 
 void RandomizerGUI::on_actionContents_triggered()

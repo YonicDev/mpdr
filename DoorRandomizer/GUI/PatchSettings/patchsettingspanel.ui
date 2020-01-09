@@ -34,7 +34,7 @@
         <item>
          <widget class="QCheckBox" name="checkBox_skiphudmemos">
           <property name="text">
-           <string>Skip item collected messages</string>
+           <string extracomment="To skip showing a message that displays &quot;you've collected an item!&quot;">Skip item collected messages</string>
           </property>
          </widget>
         </item>
@@ -67,7 +67,7 @@
         <item row="1" column="2">
          <widget class="QRadioButton" name="radioStackProtection">
           <property name="text">
-           <string>Stack with suits</string>
+           <string extracomment="The individual protection given by all the suits is combined">Stack with suits</string>
           </property>
           <property name="autoExclusive">
            <bool>false</bool>
@@ -77,21 +77,21 @@
         <item row="0" column="0">
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>Heat damage protection:</string>
+           <string extracomment="Protection against extreme heat">Heat damage protection:</string>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>Damage reduction:</string>
+           <string extracomment="Stronger suits will have better defenses and thus cause a reduction in taken damage">Damage reduction:</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QRadioButton" name="radioStaggerProtection">
           <property name="text">
-           <string>Always use most powerful</string>
+           <string extracomment="Always use the most resilient/powerful suit">Always use most powerful</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -130,7 +130,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Power bomb lock-picking</string>
+           <string extracomment="This means to enable using the Power bomb as a tool to force a door to open regardless of its color">Power bomb lock-picking</string>
           </property>
          </widget>
         </item>
@@ -148,14 +148,14 @@
       <item row="0" column="0">
        <widget class="QCheckBox" name="checkBox_fixflaaghra">
         <property name="text">
-         <string>Fix Flaaghra music files</string>
+         <string extracomment="Either &quot;to fix broken music files&quot; or &quot;to use the full version of Flaahgra's song&quot;">Fix Flaahgra music files</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Metroid Prime Trilogy disk:</string>
+         <string extracomment="Where is the Metroid Prime Trilogy disk?">Metroid Prime Trilogy disk:</string>
         </property>
        </widget>
       </item>
@@ -179,7 +179,7 @@
       <item row="2" column="0">
        <widget class="QCheckBox" name="checkBox_keepattractmode">
         <property name="text">
-         <string>Keep Attract mode</string>
+         <string extracomment="To keep a series of videos that can be seen in the title screen after not pressing anything for a while.">Keep Attract mode</string>
         </property>
         <property name="checked">
          <bool>true</bool>

@@ -23,13 +23,13 @@
       <item>
        <widget class="QGroupBox" name="groupBox">
         <property name="title">
-         <string>Files</string>
+         <string extracomment="This could be refering to &quot;file settings&quot; or &quot;paths to files&quot;.">Files</string>
         </property>
         <layout class="QGridLayout" name="gridLayout">
          <item row="0" column="0">
           <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>Input file</string>
+            <string extracomment="This refers to the file that will be opened and patched by the randomizer.">Input file</string>
            </property>
           </widget>
          </item>
@@ -46,7 +46,7 @@
          <item row="1" column="0">
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Output file</string>
+            <string extracomment="This refers to the file that will be saved by the randomizer.">Output file</string>
            </property>
           </widget>
          </item>
@@ -70,7 +70,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Seed</string>
+         <string extracomment="By this we refer as a germinator or generator.">Seed</string>
         </property>
        </widget>
       </item>
@@ -87,14 +87,14 @@
       <item>
        <widget class="QPushButton" name="buttonGenerateSeed">
         <property name="text">
-         <string>Generate</string>
+         <string extracomment="This button will generate a number randomly for the Seed.">Generate</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="buttonUseTime">
         <property name="text">
-         <string>Use time</string>
+         <string extracomment="This refers to use the current time set on the computer as a number for the seed.">Use time</string>
         </property>
        </widget>
       </item>
@@ -109,7 +109,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_4">
          <property name="title">
-          <string>Tallon Overworld</string>
+          <string extracomment="The name of the jungle-like area of Tallon IV, Tallon Overworld">Tallon Overworld</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="1">
@@ -203,31 +203,28 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>Red</string>
+             <string extracomment="Stands for Red Doors in Metroid Prime, which can only be opened with the Plasma Beam.">Red</string>
             </property>
            </widget>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>White</string>
+             <string extracomment="Stands for White Doors in Metroid Prime, which can only be opened with the Ice Beam.">White</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_6">
             <property name="text">
-             <string>Purple</string>
+             <string extracomment="Stands for Purple Doors in Metroid Prime, which can only be opened with the Wave Beam.">Purple</string>
             </property>
            </widget>
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Blue</string>
-            </property>
-            <property name="buddy">
-             <cstring></cstring>
+             <string extracomment="Stands for Blue Doors in Metroid Prime, which can be opened with any weapon">Blue</string>
             </property>
            </widget>
           </item>
@@ -289,7 +286,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_5">
          <property name="title">
-          <string>Chozo Ruins</string>
+          <string extracomment="The name of the desert-like area of Tallon IV, Chozo Ruins">Chozo Ruins</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
@@ -438,7 +435,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_6">
          <property name="title">
-          <string>Magmoor Caverns</string>
+          <string extracomment="The name of the volcanic-like area of Tallon IV, Magmoor Caverns">Magmoor Caverns</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="1" column="1">
@@ -587,7 +584,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_7">
          <property name="title">
-          <string>Phendrana Drifts</string>
+          <string extracomment="The name of the polar-like area of Tallon IV, Phendrana Drifts">Phendrana Drifts</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="1" column="0">
@@ -736,7 +733,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_8">
          <property name="title">
-          <string>Phazon Mines</string>
+          <string extracomment="The name of the industrial-like area of Tallon IV, Phazon Mines">Phazon Mines</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_6">
           <item row="5" column="0">
@@ -904,14 +901,14 @@
        <item>
         <widget class="QPushButton" name="pickupsButton">
          <property name="text">
-          <string>Starting pickups...</string>
+          <string extracomment="This button opens up a panel that configures which items will the player start with in the game">Starting pickups...</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="buttonPatches">
          <property name="text">
-          <string>Patches configuration...</string>
+          <string extracomment="This button opens up a panel that configures miscellaneous patches in the game">Patches configuration...</string>
          </property>
         </widget>
        </item>
@@ -923,7 +920,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Current status:</string>
+         <string extracomment="This showcases the current status, and the latest action done by the randomizer is shown after this.">Current status:</string>
         </property>
        </widget>
       </item>
@@ -942,7 +939,7 @@
         <item>
          <widget class="QPushButton" name="buttonRandomize">
           <property name="text">
-           <string>Randomize</string>
+           <string extracomment="As if to Execute the program.">Randomize</string>
           </property>
          </widget>
         </item>
@@ -955,12 +952,12 @@
         </property>
         <column>
          <property name="text">
-          <string>Timestamp</string>
+          <string extracomment="This column shows when an action done by the randomizer has been completed.">Timestamp</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Message</string>
+          <string extracomment="This column shows the messages logged by the randomizer while it's being executed.">Message</string>
          </property>
         </column>
        </widget>
@@ -1029,12 +1026,15 @@
     <string>Contents</string>
    </property>
    <property name="shortcut">
-    <string>F1</string>
+    <string extracomment="Table of contents, or index of contents">F1</string>
    </property>
   </action>
   <action name="actionAbout_MPDR">
    <property name="text">
     <string>About MPDR...</string>
+   </property>
+   <property name="shortcut">
+    <string extracomment="The typical &quot;about this program&quot; action that makes a small popup show up with credits information"/>
    </property>
   </action>
  </widget>
