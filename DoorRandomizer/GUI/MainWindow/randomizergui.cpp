@@ -267,9 +267,17 @@ void RandomizerGUI::on_actionContents_triggered()
     QProcess *process = new QProcess;
     QStringList args;
     args << QLatin1String("-collectionFile")
-         << QLatin1String("doc/doc_collection.qhc")
+         << QCoreApplication::applicationDirPath().append("/doc/doc_collection.qhc")
          << QLatin1String("-enableRemoteControl");
-    process->start(QCoreApplication::applicationDirPath().append("/assistant"),args);
+    #ifdef WIN32
+    QString command = QCoreApplication::applicationDirPath().append("/assistant")
+    #else
+    // Because Linux has to build from source,
+    // we're assuming Qt Assistant is already installed
+    const QString command = "assistant";
+    #endif
+
+    process->start(command,args);
     if(!process->waitForStarted())
         return;
 
