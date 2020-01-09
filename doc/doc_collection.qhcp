@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QHelpCollectionProject version="1.0">
+    <assistant>
+        <title>MPDR help</title>
+        <startPage>qthelp://yonicstudios.com.mpdr.0.1/doc/0.1/index.html</startPage>
+        <homePage>qthelp://yonicstudios.com.mpdr.0.1/doc/0.1/index.html</homePage>
+        <applicationIcon>mpdr-qt.svg</applicationIcon>
+        <enableFilterFunctionality>true</enableFilterFunctionality>
+        <currentFilter>MPDR v0.1</currentFilter>
+    </assistant>
+    <docFiles>
+        <generate>
+            <file>
+                <input>doc.qhp</input>
+                <output>doc.qch</output>
+            </file>
+        </generate>
+        <register>
+            <file>doc.qch</file>
+        </register>
+    </docFiles>
+</QHelpCollectionProject>

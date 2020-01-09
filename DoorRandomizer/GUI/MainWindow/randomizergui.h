@@ -52,6 +52,8 @@ private slots:
 
     void on_actionAbout_MPDR_triggered();
 
+    void on_actionContents_triggered();
+
 private:
     Ui::RandomizerGUI *ui;
     Preset *preset;

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+    <namespace>yonicstudios.com.mpdr.0.1</namespace>
+    <virtualFolder>doc</virtualFolder>
+    <customFilter name="MPDR v0.1">
+        <filterAttribute>mpdr</filterAttribute>
+        <filterAttribute>0.1</filterAttribute>
+    </customFilter>
+    <filterSection>
+        <filterAttribute>mpdr</filterAttribute>
+        <filterAttribute>0.1</filterAttribute>
+        <filterAttribute>en</filterAttribute>
+        <toc>
+            <section title="MPDR 0.1" ref="0.1/index.html">
+                <section title="Requirements" ref="0.1/requirements.html"/>
+                <section title="User Interface" ref="0.1/interface.html"/>
+                <section title="Configuring MPDR" ref="0.1/configuration.html"/>
+                <section title="Configuration presets" ref="0.1/presets.html"/>
+                <section title="FAQ" ref="0.1/faq.html"/>
+                <section title="Upcoming features" ref="0.1/todo.html"/>
+            </section>
+        </toc>
+        <keywords>
+            <keyword name="preset" ref="0.1/presets.html"/>
+            <keyword name="ui" ref="0.1/interface.html"/>
+        </keywords>
+        <files>
+            <file>./0.1/common.css</file>
+            <file>./0.1/*.html</file>
+            <file>./0.1/*.png</file>
+        </files>
+    </filterSection>
+</QtHelpProject>

@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QMessageBox>
 #include <QDateTime>
+#include <QProcess>
 
 #include "./initialpickupsettings.h"
 #include "./patchsettingspanel.h"
@@ -243,5 +244,18 @@ void RandomizerGUI::process_message(QJsonObject data) {
 
 void RandomizerGUI::on_actionAbout_MPDR_triggered()
 {
-    QMessageBox::about(this,"About MPDR","Metroid Prime Randomizer\nMIT License YonicStudios 2019");
+    QMessageBox::about(this,"About MPDR","Metroid Prime Randomizer v0.1\nMIT License YonicStudios 2019");
+}
+
+void RandomizerGUI::on_actionContents_triggered()
+{
+    QProcess *process = new QProcess;
+    QStringList args;
+    args << QLatin1String("-collectionFile")
+         << QLatin1String("doc/doc_collection.qhc")
+         << QLatin1String("-enableRemoteControl");
+    process->start(QCoreApplication::applicationDirPath().append("/assistant"),args);
+    if(!process->waitForStarted())
+        return;
+
 }

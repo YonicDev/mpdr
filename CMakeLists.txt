@@ -15,7 +15,7 @@ if(MSVC)
     set(QT_EXTRA_COMPONENTS WinExtras)
 endif()
 
-find_package(Qt5 COMPONENTS Widgets LinguistTools ${QT_EXTRA_COMPONENTS} REQUIRED)
+find_package(Qt5 COMPONENTS Widgets LinguistTools Help ${QT_EXTRA_COMPONENTS} REQUIRED)
 
 ### add project files
 # find headers and source files
@@ -84,6 +84,12 @@ if(UNIX)
     install(TARGETS mpdr-qt)
 endif()
 
+# add documentation
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/doc/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/doc)
+if(MSVC)
+    add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhcp -o ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc)
+endif()
+
 #find library
 set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 
@@ -93,5 +99,5 @@ elseif(UNIX)
     set(RANDOMPRIME_LIB libdl.so pthread.so)
 endif()
 
-target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets randomprime ${RANDOMPRIME_LIB})
+target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets Qt5::Help randomprime ${RANDOMPRIME_LIB})
 target_include_directories(mpdr-qt PUBLIC ${MPDR_DIRS})
