@@ -83,12 +83,16 @@ void RandomizerGUI::on_pickupsButton_clicked()
 
 void RandomizerGUI::on_buttonBrowseInput_clicked()
 {
-    ui->lineInputFile->setText(QFileDialog::getOpenFileName(this,tr("Select a Metroid Prime NTSC 0-00/0-02  disc image"),"",tr("Standard disk images (*.iso *.gcm)"),nullptr,QFileDialog::ReadOnly));
+    QString input = QFileDialog::getOpenFileName(this,tr("Select a Metroid Prime NTSC 0-00/0-02  disc image"),"",tr("Standard disk images (*.iso *.gcm)"),nullptr,QFileDialog::ReadOnly);
+    if(!input.isNull())
+        ui->lineInputFile->setText(input);
 }
 
 void RandomizerGUI::on_buttonBrowseOutput_clicked()
 {
-    ui->lineOutputFile->setText(QFileDialog::getSaveFileName(this,tr("Choose where to save the patched image"),"",tr("ISO disk image (*.iso)")));
+    QString input = QFileDialog::getSaveFileName(this,tr("Choose where to save the patched image"),"",tr("ISO disk image (*.iso)"));
+    if(!input.isNull())
+        ui->lineOutputFile->setText(input);
 }
 
 void RandomizerGUI::on_buttonPatches_clicked()

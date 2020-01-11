@@ -1,6 +1,8 @@
 #include "patchsettingspanel.h"
 #include "ui_patchsettingspanel.h"
 
+#include <QFileDialog>
+
 PatchSettingsPanel::PatchSettingsPanel(QWidget *parent, Preset *main_preset) :
     QDialog(parent),
     ui(new Ui::PatchSettingsPanel)
@@ -18,6 +20,8 @@ PatchSettingsPanel::PatchSettingsPanel(QWidget *parent, Preset *main_preset) :
     set_checkbox(ui->checkBox_skipcrater,preset->additional_settings.skip_crater);
     set_checkbox(ui->checkBox_skiphudmemos,preset->additional_settings.skip_hudmemos);
     set_checkbox(ui->checkBox_fixflaaghra,preset->additional_settings.fix_flaaghra_music);
+    if(preset->additional_settings.fix_flaaghra_music)
+        ui->lineFlaaghra->setText(preset->additional_settings.trilogy_iso);
     ui->radioHeatDamageVaria->setChecked(preset->additional_settings.varia_heat_protection);
     ui->radioHeatDamageAny->setChecked(!preset->additional_settings.varia_heat_protection);
     ui->radioStaggerProtection->setChecked(preset->additional_settings.stagger_suit_damage);
@@ -53,4 +57,11 @@ void PatchSettingsPanel::on_checkBox_fixflaaghra_stateChanged(int state)
 {
     ui->lineFlaaghra->setEnabled(state>=1);
     ui->browseButton->setEnabled(state>=1);
+}
+
+void PatchSettingsPanel::on_browseButton_clicked()
+{
+    QString input = QFileDialog::getOpenFileName(this,tr("Select a Metroid Prime NTSC 0-00/0-02  disc image"),"",tr("Standard disk images (*.iso *.gcm)"),nullptr,QFileDialog::ReadOnly);
+    if(!input.isNull())
+        ui->lineFlaaghra->setText(input);
 }

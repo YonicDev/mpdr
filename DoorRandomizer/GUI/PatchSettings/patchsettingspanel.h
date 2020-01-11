@@ -25,6 +25,8 @@ private slots:
 
     void on_checkBox_fixflaaghra_stateChanged(int state);
 
+    void on_browseButton_clicked();
+
 private:
     Ui::PatchSettingsPanel *ui;
     QButtonGroup *buttongroupHeatDamage;
