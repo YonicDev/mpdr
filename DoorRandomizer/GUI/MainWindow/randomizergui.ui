@@ -76,6 +76,9 @@
       </item>
       <item>
        <widget class="QSpinBox" name="seedField">
+        <property name="toolTip">
+         <string>Range: 0 to 4294967295</string>
+        </property>
         <property name="minimum">
          <number>-2147483647</number>
         </property>
@@ -114,6 +117,9 @@
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="1">
            <widget class="QSlider" name="slider0_0">
+            <property name="toolTip">
+             <string>Blue</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -136,6 +142,9 @@
           </item>
           <item row="2" column="1">
            <widget class="QSlider" name="slider0_2">
+            <property name="toolTip">
+             <string>White</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -158,6 +167,9 @@
           </item>
           <item row="1" column="1">
            <widget class="QSlider" name="slider0_1">
+            <property name="toolTip">
+             <string>Purple</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -180,6 +192,9 @@
           </item>
           <item row="3" column="1">
            <widget class="QSlider" name="slider0_3">
+            <property name="toolTip">
+             <string>Red</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -291,6 +306,9 @@
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
            <widget class="QSlider" name="slider1_0">
+            <property name="toolTip">
+             <string>Blue</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -313,6 +331,9 @@
           </item>
           <item row="3" column="0">
            <widget class="QSlider" name="slider1_3">
+            <property name="toolTip">
+             <string>Red</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -335,6 +356,9 @@
           </item>
           <item row="1" column="0">
            <widget class="QSlider" name="slider1_1">
+            <property name="toolTip">
+             <string>Purple</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -357,6 +381,9 @@
           </item>
           <item row="2" column="0">
            <widget class="QSlider" name="slider1_2">
+            <property name="toolTip">
+             <string>White</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -440,6 +467,9 @@
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="1" column="1">
            <widget class="QSlider" name="slider2_1">
+            <property name="toolTip">
+             <string>Purple</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -462,6 +492,9 @@
           </item>
           <item row="0" column="1">
            <widget class="QSlider" name="slider2_0">
+            <property name="toolTip">
+             <string>Blue</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -484,6 +517,9 @@
           </item>
           <item row="2" column="1">
            <widget class="QSlider" name="slider2_2">
+            <property name="toolTip">
+             <string>White</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -558,6 +594,9 @@
           </item>
           <item row="3" column="1">
            <widget class="QSlider" name="slider2_3">
+            <property name="toolTip">
+             <string>Red</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -589,6 +628,9 @@
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="1" column="0">
            <widget class="QSlider" name="slider3_1">
+            <property name="toolTip">
+             <string>Purple</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -611,6 +653,9 @@
           </item>
           <item row="3" column="0">
            <widget class="QSlider" name="slider3_3">
+            <property name="toolTip">
+             <string>Red</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -633,6 +678,9 @@
           </item>
           <item row="2" column="0">
            <widget class="QSlider" name="slider3_2">
+            <property name="toolTip">
+             <string>White</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -655,6 +703,9 @@
           </item>
           <item row="0" column="0">
            <widget class="QSlider" name="slider3_0">
+            <property name="toolTip">
+             <string>Blue</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -738,6 +789,9 @@
          <layout class="QGridLayout" name="gridLayout_6">
           <item row="5" column="0">
            <widget class="QSlider" name="slider4_3">
+            <property name="toolTip">
+             <string>Red</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -786,6 +840,9 @@
           </item>
           <item row="4" column="0">
            <widget class="QSlider" name="slider4_2">
+            <property name="toolTip">
+             <string>White</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -808,6 +865,9 @@
           </item>
           <item row="3" column="0">
            <widget class="QSlider" name="slider4_1">
+            <property name="toolTip">
+             <string>Purple</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>
@@ -843,6 +903,9 @@
           </item>
           <item row="2" column="0">
            <widget class="QSlider" name="slider4_0">
+            <property name="toolTip">
+             <string>Blue</string>
+            </property>
             <property name="maximum">
              <number>100</number>
             </property>

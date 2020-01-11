@@ -33,6 +33,9 @@
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QCheckBox" name="checkBox_skiphudmemos">
+          <property name="toolTip">
+           <string>This will make the game not pause when you collect an upgrade or expansion</string>
+          </property>
           <property name="text">
            <string extracomment="To skip showing a message that displays &quot;you've collected an item!&quot;">Skip item collected messages</string>
           </property>
@@ -66,6 +69,9 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="1" column="2">
          <widget class="QRadioButton" name="radioStackProtection">
+          <property name="toolTip">
+           <string>Combine the obtained suits' defenses</string>
+          </property>
           <property name="text">
            <string extracomment="The individual protection given by all the suits is combined">Stack with suits</string>
           </property>
@@ -90,6 +96,9 @@
         </item>
         <item row="1" column="1">
          <widget class="QRadioButton" name="radioStaggerProtection">
+          <property name="toolTip">
+           <string>Use the total damage reduction when you normally get the suits in sequence</string>
+          </property>
           <property name="text">
            <string extracomment="Always use the most resilient/powerful suit">Always use most powerful</string>
           </property>
@@ -163,6 +172,9 @@
        <widget class="QLineEdit" name="lineFlaaghra">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Either American or European version</string>
         </property>
        </widget>
       </item>

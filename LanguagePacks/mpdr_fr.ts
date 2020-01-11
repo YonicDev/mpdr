@@ -201,72 +201,87 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="37"/>
+        <source>This will make the game not pause when you collect an upgrade or expansion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="40"/>
         <source>Skip item collected messages</source>
         <extracomment>To skip showing a message that displays &quot;you&apos;ve collected an item!&quot;</extracomment>
         <translation type="unfinished">Message de collecte d&apos;objet</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="44"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="47"/>
         <source>Skip Pirate Frigate</source>
         <translation type="unfinished">Frégate Orphéon</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="54"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="57"/>
         <source>Skip Impact Crater</source>
         <translation type="unfinished">Passer le Cratère d&apos;Impact</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="64"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="67"/>
         <source>Difficulty</source>
         <translation type="unfinished">Options de difficulté</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="70"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="73"/>
+        <source>Combine the obtained suits&apos; defenses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="76"/>
         <source>Stack with suits</source>
         <extracomment>The individual protection given by all the suits is combined</extracomment>
         <translation type="unfinished">Combiner les résistances</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="80"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="86"/>
         <source>Heat damage protection:</source>
         <extracomment>Protection against extreme heat</extracomment>
         <translation type="unfinished">Protection contre les dégâts de chaleur:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="87"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="93"/>
         <source>Damage reduction:</source>
         <extracomment>Stronger suits will have better defenses and thus cause a reduction in taken damage</extracomment>
         <translation type="unfinished">Résistance:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="94"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="100"/>
+        <source>Use the total damage reduction when you normally get the suits in sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="103"/>
         <source>Always use most powerful</source>
         <extracomment>Always use the most resilient/powerful suit</extracomment>
         <translation type="unfinished">Toujours utiliser le plus puissant</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="107"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="116"/>
         <source>Any except Power Suit</source>
         <translation type="unfinished">Tout sauf le Costume de Puissance</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="120"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="129"/>
         <source>Varia Suit only</source>
         <translation type="unfinished">Costume Varia uniquement</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="133"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="142"/>
         <source>Power bomb lock-picking</source>
         <extracomment>This means to enable using the Power bomb as a tool to force a door to open regardless of its color</extracomment>
         <translation type="unfinished">Verrouiller bombe de puissance</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="145"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="154"/>
         <source>Misc</source>
         <translation type="unfinished">Autres options</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="151"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="160"/>
         <source>Fix Flaahgra music files</source>
         <extracomment>Either &quot;to fix broken music files&quot; or &quot;to use the full version of Flaahgra&apos;s song&quot;</extracomment>
         <translation type="unfinished">Corriger les fichiers audio pour Flaahgra</translation>
@@ -276,21 +291,36 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="obsolete">Corriger les fichiers audio pour Flaahgra</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="158"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="167"/>
         <source>Metroid Prime Trilogy disk:</source>
         <extracomment>Where is the Metroid Prime Trilogy disk?</extracomment>
         <translation type="unfinished">Disque de Metroid Prime Trilogy:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="175"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="177"/>
+        <source>Either American or European version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="187"/>
         <source>Browse...</source>
         <translation type="unfinished">Parcourir...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="182"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="194"/>
         <source>Keep Attract mode</source>
         <extracomment>To keep a series of videos that can be seen in the title screen after not pressing anything for a while.</extracomment>
         <translation type="unfinished">Garder vidéos joués pendant l&apos;écran titre</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="64"/>
+        <source>Select a Metroid Prime NTSC 0-00/0-02  disc image</source>
+        <translation type="unfinished">Sélectionner une image de disque de Metroid Prime NTSC 0-00/0-02</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="64"/>
+        <source>Standard disk images (*.iso *.gcm)</source>
+        <translation type="unfinished">Images de disque standard (*.iso *.gcm)</translation>
     </message>
 </context>
 <context>
@@ -336,106 +366,131 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="unfinished">Germe</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="90"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="80"/>
+        <source>Range: 0 to 4294967295</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="93"/>
         <source>Generate</source>
         <extracomment>This button will generate a number randomly for the Seed.</extracomment>
         <translation type="unfinished">Générer</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="97"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="100"/>
         <source>Use time</source>
         <extracomment>This refers to use the current time set on the computer as a number for the seed.</extracomment>
         <translation type="unfinished">Utiliser temps</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="106"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="109"/>
         <source>Door weights</source>
         <translation type="unfinished">Influence des portes</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="112"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="115"/>
         <source>Tallon Overworld</source>
         <extracomment>The name of the jungle-like area of Tallon IV, Tallon Overworld</extracomment>
         <translation>Surface de Tallon</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="206"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="196"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="221"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="335"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="598"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="657"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="793"/>
         <source>Red</source>
         <extracomment>Stands for Red Doors in Metroid Prime, which can only be opened with the Plasma Beam.</extracomment>
         <translation type="unfinished">Rouge</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="213"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="146"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="228"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="385"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="521"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="682"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="844"/>
         <source>White</source>
         <extracomment>Stands for White Doors in Metroid Prime, which can only be opened with the Ice Beam.</extracomment>
         <translation type="unfinished">Blanc</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="220"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="171"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="235"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="360"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="471"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="632"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="869"/>
         <source>Purple</source>
         <extracomment>Stands for Purple Doors in Metroid Prime, which can only be opened with the Wave Beam.</extracomment>
         <translation type="unfinished">Violet</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="227"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="121"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="242"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="310"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="496"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="707"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="907"/>
         <source>Blue</source>
         <extracomment>Stands for Blue Doors in Metroid Prime, which can be opened with any weapon</extracomment>
         <translation type="unfinished">Bleu</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="289"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="304"/>
         <source>Chozo Ruins</source>
         <extracomment>The name of the desert-like area of Tallon IV, Chozo Ruins</extracomment>
         <translation>Ruines Chozo</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="438"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="465"/>
         <source>Magmoor Caverns</source>
         <extracomment>The name of the volcanic-like area of Tallon IV, Magmoor Caverns</extracomment>
         <translation>Cavernes de Magmoor</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="587"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="626"/>
         <source>Phendrana Drifts</source>
         <extracomment>The name of the polar-like area of Tallon IV, Phendrana Drifts</extracomment>
         <translation>Monts Phendrana</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="736"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="787"/>
         <source>Phazon Mines</source>
         <extracomment>The name of the industrial-like area of Tallon IV, Phazon Mines</extracomment>
         <translation>Mines de Phazon</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="888"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="951"/>
         <source>Advanced settings</source>
         <translation type="unfinished">Ajustements avancés</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="897"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="960"/>
         <source>Exclude doors... (coming soon)</source>
         <translation type="unfinished">Exclure portes... (avenir)</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="904"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="967"/>
         <source>Starting pickups...</source>
         <extracomment>This button opens up a panel that configures which items will the player start with in the game</extracomment>
         <translation type="unfinished">Commencer avec items...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="911"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="974"/>
         <source>Patches configuration...</source>
         <extracomment>This button opens up a panel that configures miscellaneous patches in the game</extracomment>
         <translation type="unfinished">Configuration des patchs...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="923"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="986"/>
         <source>Current status:</source>
         <extracomment>This showcases the current status, and the latest action done by the randomizer is shown after this.</extracomment>
         <translation type="unfinished">Etat actuel:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="942"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1005"/>
         <source>Randomize</source>
         <extracomment>As if to Execute the program.</extracomment>
         <translation type="unfinished">Exécuter</translation>
@@ -445,60 +500,60 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="obsolete">Tipo</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="955"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1018"/>
         <source>Timestamp</source>
         <extracomment>This column shows when an action done by the randomizer has been completed.</extracomment>
         <translation type="unfinished">Horodatage</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="960"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1023"/>
         <source>Message</source>
         <extracomment>This column shows the messages logged by the randomizer while it&apos;s being executed.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="980"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1043"/>
         <source>File</source>
         <translation type="unfinished">Fichier</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="987"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1050"/>
         <source>Help</source>
         <translation type="unfinished">Aide</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1002"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1065"/>
         <source>Open preset...</source>
         <translation type="unfinished">Ouvrir profil...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1005"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1068"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1014"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1077"/>
         <source>Save preset...</source>
         <translation type="unfinished">Enregistrer profil...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1017"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1080"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1026"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1089"/>
         <source>Contents</source>
         <translation type="unfinished">Contenu</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1029"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1092"/>
         <source>F1</source>
         <extracomment>Table of contents, or index of contents</extracomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1034"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="1097"/>
         <source>About MPDR...</source>
         <translation type="unfinished">A propos de MPDR...</translation>
     </message>
@@ -517,100 +572,100 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="unfinished">Sélectionner une image de disque de Metroid Prime NTSC 0-00/0-02</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="91"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="93"/>
         <source>Choose where to save the patched image</source>
         <translation type="unfinished">Sélectionner l&apos;emplacement où sauvegarder l&apos;image disque patché</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="91"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="93"/>
         <source>ISO disk image (*.iso)</source>
         <translation type="unfinished">Image disque ISO (*.iso)</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="117"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="121"/>
         <source>Open a preset file...</source>
         <translation type="unfinished">Sélectionner un profil...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="117"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="166"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="121"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="170"/>
         <source>Preset files (*.json)</source>
         <translation type="unfinished">Fichier de profil (*.json)</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="129"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="135"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="141"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="147"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="156"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="177"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="241"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="133"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="139"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="145"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="151"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="160"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="181"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="245"/>
         <source>Error</source>
         <translation type="unfinished">Erreur</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="132"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="136"/>
         <source>This is not a MPDR preset.</source>
         <extracomment>This pops up when a JSON file doesn&apos;t match a MPDR preset format.</extracomment>
         <translation type="unfinished">Ce n&apos;est pas un profil de MPDR.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="138"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="142"/>
         <source>Error parsing the MPDR preset.</source>
         <extracomment>This pops up when an MPDR preset has data that doesn&apos;t match what an MPDR preset of its version should have.</extracomment>
         <translation type="unfinished">Une erreur s&apos;est produite en ouvrant le profil de MPDR.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="144"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="148"/>
         <source>Data within the MPDR profile might be corrupt.</source>
         <extracomment>This pops up when an MPDR preset has invalid data.</extracomment>
         <translation type="unfinished">Les données du profil de MPDR pourraient être corrompus.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="150"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="154"/>
         <source>MPDR presets of version 1 are currently unsupported.</source>
         <extracomment>This pops up when an MPDR preset is from the first version of MPDR, which is currently not supported.</extracomment>
         <translation type="unfinished">Les profils de la version 1 de MPDR ne sont actuellement pas supportés.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="159"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="163"/>
         <source>Could not open preset.</source>
         <extracomment>This pops up when a file could not be opened. It could be any kind of file, but we refer to it as a preset regardless.</extracomment>
         <translation type="unfinished">Le profil n&apos;a pas pu être ouvert.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="166"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="170"/>
         <source>Save preset file to...</source>
         <translation type="unfinished">Enregistrer profil en tant que...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="177"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="181"/>
         <source>Could not save preset.</source>
         <translation type="unfinished">Le profil n&apos;a pas pu être enregistré.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="241"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="245"/>
         <source>An error has occurred while patching:
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="255"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="259"/>
         <source>Done</source>
         <translation type="unfinished">Terminé</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="255"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="259"/>
         <source>Succesfully patched the game!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="262"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="266"/>
         <source>About MPDR</source>
         <translation type="unfinished">A propos de MPDR</translation>
     </message>
