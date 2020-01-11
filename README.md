@@ -4,6 +4,15 @@ This program allows you to change the types of doors in Metroid Prime randomly.
 
 This is the Qt version of MPDR, which will eventually replace the previous version working in wxWidgets.
 
+## Supported platforms
+
+Currently, MPDR supports the following **64-bit** systems:
+
+* **Windows 7** and newer.
+* **Linux:** Tested on Arch and Ubuntu-based distributions.
+
+MPDR will also designed to work with Mac OS.
+
 ## Usage
 
 MPDR takes a disc file (ISO/GCM only) of Metroid Prime NTSC 0-00 or NTSC 0-02 version of the game,
@@ -28,8 +37,6 @@ You can save your configuration with JSON presets.
   * A: No, but it's possible that I might combine both randomizers in a single package.
 * **Q: But can I use the save files from the Item Randomizer?**
   * A: Yes, although this might be subject to change in the future.
-* **Q: What platforms does it support?**
-  * A: Currently it supports Windows 10 and Linux,  although it is also designed to work with Mac OS eventually. 32-bit versions are not supported. Older versions of Windows may work, but they haven't been tested.
 * **Q: Are all configurations clearable?**
   * A: In theory, yes, so long as the Blue door weight remains high enough.
 * **Q: Will you support Metroid Prime 2?**
