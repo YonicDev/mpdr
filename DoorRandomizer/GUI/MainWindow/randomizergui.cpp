@@ -9,9 +9,10 @@
 #include <QDateTime>
 #include <QProcess>
 
-#include "./initialpickupsettings.h"
-#include "./patchsettingspanel.h"
+#include <initialpickupsettings.h>
+#include <patchsettingspanel.h>
 #include <randomizer.h>
+#include <doorexcluder.h>
 
 RandomizerGUI::RandomizerGUI(QWidget *parent)
     : QMainWindow(parent)
@@ -285,4 +286,11 @@ void RandomizerGUI::on_actionContents_triggered()
     if(!process->waitForStarted())
         return;
 
+}
+
+void RandomizerGUI::on_buttonDoors_clicked()
+{
+    DoorExcluder *dialog = new DoorExcluder(this,preset);
+    dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
+    dialog->open();
 }

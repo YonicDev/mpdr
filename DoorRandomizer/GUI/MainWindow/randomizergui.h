@@ -54,6 +54,8 @@ private slots:
 
     void on_actionContents_triggered();
 
+    void on_buttonDoors_clicked();
+
 private:
     Ui::RandomizerGUI *ui;
     Preset *preset;

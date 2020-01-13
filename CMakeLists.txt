@@ -86,10 +86,12 @@ if(UNIX)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc DESTINATION bin/mpdr/doc)
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION bin/mpdr FILES_MATCHING PATTERN "*.qm")
     install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION bin/mpdr FILES_MATCHING PATTERN "qtbase_*")
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION bin/mpdr/resources/maps)
 endif()
 
 # add documentation
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/doc/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/doc)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/maps DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/resources)
 if(MSVC)
     add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhcp -o ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc)
 elseif(UNIX)

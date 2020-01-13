@@ -954,10 +954,10 @@
        <item>
         <widget class="QPushButton" name="buttonDoors">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="text">
-          <string>Exclude doors... (coming soon)</string>
+          <string>Exclude doors...</string>
          </property>
         </widget>
        </item>
