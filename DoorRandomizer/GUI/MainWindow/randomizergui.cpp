@@ -79,6 +79,7 @@ void RandomizerGUI::load_from_preset() {
 void RandomizerGUI::on_pickupsButton_clicked()
 {
     InitialPickupSettings *dialog = new InitialPickupSettings(this,preset);
+    dialog->setWindowFlags(Qt::Dialog|Qt::WindowCloseButtonHint);
     dialog->open();
 }
 
@@ -99,6 +100,7 @@ void RandomizerGUI::on_buttonBrowseOutput_clicked()
 void RandomizerGUI::on_buttonPatches_clicked()
 {
     PatchSettingsPanel *dialog = new PatchSettingsPanel(this,preset);
+    dialog->setWindowFlags(Qt::Dialog|Qt::WindowCloseButtonHint);
     dialog->open();
 }
 
