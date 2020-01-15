@@ -5,32 +5,19 @@
 #include <QMetaObject>
 #include <doorexcluder.h>
 
-enum DoorOrientation {
-    Horizontal,
-    Vertical,
-    Floor
-};
-
-enum World {
-    TallonOverworld,
-    ChozoRuins,
-    MagmoorCaverns,
-    PhendranaDrifts,
-    PhazonMines
-};
-
 class DoorMapIcon : public QGraphicsRectItem
 {
 public:
 
-    // is_front = The left most / upper most door in map
-    DoorMapIcon(DoorExcluder *parent, World world, int area_id,int door_id, QPoint map_position, bool is_front=true, DoorOrientation orientation=DoorOrientation::Horizontal, bool force_exclude=false);
+    // is_front = The left most / upper most door in a door set
+    DoorMapIcon(DoorExcluder *parent, World world, QString area_name,int door_id, QPoint map_position, bool is_front=true, DoorOrientation orientation=DoorOrientation::Horizontal, bool force_exclude=false);
+    DoorMapIcon(DoorExcluder *parent, World world, QString area_name,int door_id, DoorPoint point, bool force_exclude=false);
     void getDoorInformation();
     void select(bool selected=true);
     void exclude(bool excluded);
 
     World world();
-    int areaID();
+    QString areaName();
     int doorID();
     bool isExcluded();
     bool canBeExcluded();
@@ -42,7 +29,7 @@ private:
 
     DoorOrientation m_orientation;
 
-    int m_areaID;
+    QString m_areaName;
     int m_doorID;
     World m_World;
 

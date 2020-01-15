@@ -4,7 +4,7 @@
 #include <QPen>
 #include <QCursor>
 
-DoorMapIcon::DoorMapIcon(DoorExcluder *parent, World world, int roomID, int doorID, QPoint map_position, bool is_front, DoorOrientation orientation, bool force_exclude) {
+DoorMapIcon::DoorMapIcon(DoorExcluder *parent, World world, QString roomName, int doorID, QPoint map_position, bool is_front, DoorOrientation orientation, bool force_exclude) {
     int map_x, map_y;
 
     if(orientation == DoorOrientation::Horizontal) {
@@ -29,7 +29,7 @@ DoorMapIcon::DoorMapIcon(DoorExcluder *parent, World world, int roomID, int door
     doorExcluder = parent;
 
     m_World = world;
-    m_areaID = roomID;
+    m_areaName = roomName;
     m_doorID = doorID;
 
     setX(map_x);
@@ -56,8 +56,11 @@ DoorMapIcon::DoorMapIcon(DoorExcluder *parent, World world, int roomID, int door
     }
 }
 
+DoorMapIcon::DoorMapIcon(DoorExcluder *parent, World world, QString area_name,int door_id, DoorPoint point, bool force_exclude)
+    :DoorMapIcon(parent,world,area_name,door_id,point.position,point.is_front,point.orientation,force_exclude) {};
+
 World DoorMapIcon::world() { return m_World; }
-int DoorMapIcon::areaID() { return m_areaID; }
+QString DoorMapIcon::areaName() { return m_areaName; }
 int DoorMapIcon::doorID() { return m_doorID; }
 
 void DoorMapIcon::mousePressEvent(QGraphicsSceneMouseEvent *event) {
