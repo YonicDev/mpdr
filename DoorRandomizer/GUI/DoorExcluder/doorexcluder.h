@@ -28,6 +28,7 @@ private:
     Ui::DoorExcluder *ui;
     DoorMapIcon *selected_icon = nullptr;
     Preset *preset;
+    void showEvent(QShowEvent *) override;
 
     void initializeMap(QGraphicsView *map,QPixmap image);
 };

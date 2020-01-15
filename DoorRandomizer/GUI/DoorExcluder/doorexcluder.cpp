@@ -35,6 +35,8 @@ DoorExcluder::DoorExcluder(QWidget *parent, Preset *main_preset)
 DoorExcluder::~DoorExcluder()
 {
     delete ui;
+void DoorExcluder::showEvent(QShowEvent *) {
+    parentWidget()->setCursor(Qt::ArrowCursor);
 }
 
 void DoorExcluder::initializeMap(QGraphicsView *map, QPixmap image) {

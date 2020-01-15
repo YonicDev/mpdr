@@ -292,6 +292,7 @@ void RandomizerGUI::on_actionContents_triggered()
 
 void RandomizerGUI::on_buttonDoors_clicked()
 {
+    setCursor(Qt::WaitCursor);
     DoorExcluder *dialog = new DoorExcluder(this,preset);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
     dialog->open();
