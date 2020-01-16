@@ -329,11 +329,6 @@ void DoorExcluder::initializeExcludedDoors() {
 void DoorExcluder::addIcons(QGraphicsView *map, World world) {
     RoomPointsList points;
 
-    const bool UP = false;
-    const bool LEFT = false;
-    const bool DOWN = true;
-    const bool RIGHT = true;
-
 
     if(world == TallonOverworld) {
 
@@ -384,182 +379,182 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         const QPoint Grove_Tunnel(1257,1174);
 
         points["Landing Site"] = {
-            DoorPoint(Landing_Gully,RIGHT,Vertical),
-            DoorPoint(Landing_Canyon,RIGHT,Vertical),
-            DoorPoint(Landing_Temple,UP,Horizontal),
-            DoorPoint(Landing_Alcove,DOWN,Horizontal),
-            DoorPoint(Landing_Waterfall,LEFT,Vertical)
+            DoorPoint(Landing_Gully,Right),
+            DoorPoint(Landing_Canyon,Right),
+            DoorPoint(Landing_Temple,Up),
+            DoorPoint(Landing_Alcove,Down),
+            DoorPoint(Landing_Waterfall,Left)
         };
         points["Gully"] = {
-            DoorPoint(Gully_Cannon,RIGHT,Vertical),
-            DoorPoint(Landing_Gully,LEFT,Vertical)
+            DoorPoint(Gully_Cannon,Right),
+            DoorPoint(Landing_Gully,Left)
         };
         points["Canyon Cavern"] = {
-            DoorPoint(Canyon_Cavern,RIGHT,Vertical),
-            DoorPoint(Landing_Canyon,LEFT,Vertical)
+            DoorPoint(Canyon_Cavern,Right),
+            DoorPoint(Landing_Canyon,Left)
         };
         points["Temple Hall"] = {
-            DoorPoint(Temple_Monitor,UP,Horizontal),
-            DoorPoint(Landing_Temple,DOWN,Horizontal)
+            DoorPoint(Temple_Monitor,Up),
+            DoorPoint(Landing_Temple,Down)
         };
         points["Alcove"] = {
-            DoorPoint(Landing_Alcove,UP,Horizontal)
+            DoorPoint(Landing_Alcove,Up)
         };
         points["Waterfall Cavern"] = {
-            DoorPoint(Landing_Waterfall,RIGHT,Vertical),
-            DoorPoint(Crash_Waterfall,LEFT,Vertical)
+            DoorPoint(Landing_Waterfall,Right),
+            DoorPoint(Crash_Waterfall,Left)
         };
         points["Tallon Canyon"] = {
-            DoorPoint(Canyon_Cavern,LEFT,Vertical),
-            DoorPoint(Canyon_ChozoHall,DOWN,Horizontal),
-            DoorPoint(Gully_Cannon,LEFT,Vertical),
-            DoorPoint(Canyon_Roots,RIGHT,Vertical)
+            DoorPoint(Canyon_Cavern,Left),
+            DoorPoint(Canyon_ChozoHall,Down),
+            DoorPoint(Gully_Cannon,Left),
+            DoorPoint(Canyon_Roots,Right)
         };
         points["Temple Security Station"] = {
-            DoorPoint(Temple_Monitor,DOWN,Horizontal),
-            DoorPoint(Monitor_TempleHall,UP,Horizontal)
+            DoorPoint(Temple_Monitor,Down),
+            DoorPoint(Monitor_TempleHall,Up)
         };
         points["Frigate Crash Site"] = {
-            DoorPoint(Crash_Waterfall,RIGHT,Vertical),
-            DoorPoint(Crash_Entrance,LEFT,Vertical),
-            DoorPoint(Crash_Elevator,DOWN,Horizontal)
+            DoorPoint(Crash_Waterfall,Right),
+            DoorPoint(Crash_Entrance,Left),
+            DoorPoint(Crash_Elevator,Down)
         };
         points["Transport Tunnel A"] = {
-            DoorPoint(Chozo_CanyonHall,DOWN,Horizontal),
-            DoorPoint(Canyon_ChozoHall,UP,Horizontal)
+            DoorPoint(Chozo_CanyonHall,Down),
+            DoorPoint(Canyon_ChozoHall,Up)
         };
         points["Root Tunnel"] = {
-            DoorPoint(Root_Hall,RIGHT,Vertical),
-            DoorPoint(Canyon_Roots,LEFT,Vertical)
+            DoorPoint(Root_Hall,Right),
+            DoorPoint(Canyon_Roots,Left)
         };
         points["Temple Lobby"] = {
-            DoorPoint(Temple_Lobby,UP,Horizontal),
-            DoorPoint(Monitor_TempleHall,DOWN,Horizontal)
+            DoorPoint(Temple_Lobby,Up),
+            DoorPoint(Monitor_TempleHall,Down)
         };
         points["Frigate Access Tunnel"] = {
-            DoorPoint(Crash_VenC,LEFT,Vertical),
-            DoorPoint(Crash_Entrance,RIGHT,Vertical)
+            DoorPoint(Crash_VenC,Left),
+            DoorPoint(Crash_Entrance,Right)
         };
         points["Overgrown Cavern"] = {
-            DoorPoint(Crash_Elevator,UP,Horizontal),
-            DoorPoint(Overgrown_Tree,DOWN,Horizontal)
+            DoorPoint(Crash_Elevator,Up),
+            DoorPoint(Overgrown_Tree,Down)
         };
         points["Transport to Chozo Ruins West"] = {
-            DoorPoint(Chozo_CanyonHall,UP,Horizontal)
+            DoorPoint(Chozo_CanyonHall,Up)
         };
         points["Root Cave"] = {
-            DoorPoint(Root_MagmoorHall,UP,Horizontal),
-            DoorPoint(Root_Hall,LEFT,Vertical),
-            DoorPoint(Root_Arbor,RIGHT,Vertical)
+            DoorPoint(Root_MagmoorHall,Up),
+            DoorPoint(Root_Hall,Left),
+            DoorPoint(Root_Arbor,Right)
         };
         points["Artifact Temple"] = {
-            DoorPoint(Temple_Lobby,DOWN,Horizontal)
+            DoorPoint(Temple_Lobby,Down)
         };
         points["Main Ventilation Shaft Section C"] = {
-            DoorPoint(VenC_VenB,UP,Horizontal),
-            DoorPoint(Crash_VenC,RIGHT,Vertical)
+            DoorPoint(VenC_VenB,Up),
+            DoorPoint(Crash_VenC,Right)
         };
         points["Main Ventilation Shaft Section B"] = {
-            DoorPoint(VenB_VenA,UP,Horizontal),
-            DoorPoint(VenC_VenB,DOWN,Horizontal),
-            DoorPoint(VenB_VenB,UP,Horizontal),
-            DoorPoint(VenB_VenB,DOWN,Horizontal)
+            DoorPoint(VenB_VenA,Up),
+            DoorPoint(VenC_VenB,Down),
+            DoorPoint(VenB_VenB,Up),
+            DoorPoint(VenB_VenB,Down)
         };
         points["Main Ventilation Shaft Section A"] = {
-            DoorPoint(VenB_VenA,DOWN,Horizontal),
-            DoorPoint(VenA_Core,UP,Horizontal)
+            DoorPoint(VenB_VenA,Down),
+            DoorPoint(VenA_Core,Up)
         };
         points["Transport Tunnel C"] = {
-            DoorPoint(Overgrown_Tree,UP,Horizontal),
-            DoorPoint(Overgrown_Elevator,LEFT,Vertical)
+            DoorPoint(Overgrown_Tree,Up),
+            DoorPoint(Overgrown_Elevator,Left)
         };
         points["Transport Tunnel B"] = {
-            DoorPoint(Root_MagmoorHall,DOWN,Horizontal),
-            DoorPoint(MagmoorHall_Elevator,RIGHT,Vertical)
+            DoorPoint(Root_MagmoorHall,Down),
+            DoorPoint(MagmoorHall_Elevator,Right)
         };
         points["Arbor Chamber"] = {
-            DoorPoint(Root_Arbor,LEFT,Vertical)
+            DoorPoint(Root_Arbor,Left)
         };
         points["Transport to Chozo Ruins East"] = {
-            DoorPoint(Overgrown_Elevator,RIGHT,Vertical)
+            DoorPoint(Overgrown_Elevator,Right)
         };
         points["Transport to Magmoor Caverns East"] = {
-            DoorPoint(MagmoorHall_Elevator,LEFT,Vertical)
+            DoorPoint(MagmoorHall_Elevator,Left)
         };
         points["Reactor Core"] = {
-            DoorPoint(ReactorCore_Access,RIGHT,Vertical),
-            DoorPoint(VenA_Core,DOWN,Horizontal)
+            DoorPoint(ReactorCore_Access,Right),
+            DoorPoint(VenA_Core,Down)
         };
         points["Reactor Access"] = {
-                DoorPoint(ReactorAccess_Lift,RIGHT,Vertical),
-                DoorPoint(ReactorCore_Access,LEFT,Vertical),
-                DoorPoint(ReactorAccess_Save,DOWN,Horizontal),
+            DoorPoint(ReactorAccess_Lift,Right),
+            DoorPoint(ReactorCore_Access,Left),
+            DoorPoint(ReactorAccess_Save,Down),
         };
         points["Cargo Freight Lift to Deck Gamma"] = {
-                DoorPoint(ReactorAccess_Lift,LEFT,Vertical),
-                DoorPoint(CargoLift_Hall,UP,Horizontal)
+            DoorPoint(ReactorAccess_Lift,Left),
+            DoorPoint(CargoLift_Hall,Up)
         };
         points["Savestation"] = {
-                DoorPoint(ReactorAccess_Save,UP,Horizontal)
+            DoorPoint(ReactorAccess_Save,Up)
         };
         points["Deck Beta Transit Hall"] = {
-                DoorPoint(CargoLift_Hall,DOWN,Horizontal),
-                DoorPoint(Biohazard_Transit,UP,Horizontal)
+            DoorPoint(CargoLift_Hall,Down),
+            DoorPoint(Biohazard_Transit,Up)
         };
         points["Biohazard Containment"] = {
-                DoorPoint(Biohazard_Transit,DOWN,Horizontal),
-                DoorPoint(Biohazard_Security,LEFT,Vertical)
+            DoorPoint(Biohazard_Transit,Down),
+            DoorPoint(Biohazard_Security,Left)
         };
         points["Deck Beta Security Hall"] = {
-                DoorPoint(Biohazard_Security,RIGHT,Vertical),
-                DoorPoint(Biotech_Security,UP,Horizontal)
+            DoorPoint(Biohazard_Security,Right),
+            DoorPoint(Biotech_Security,Up)
         };
         points["Biotech Research Area 1"] = {
-                DoorPoint(Biotech_Security,DOWN,Horizontal),
-                DoorPoint(Biotech_Conduit,UP,Horizontal)
+            DoorPoint(Biotech_Security,Down),
+            DoorPoint(Biotech_Conduit,Up)
         };
         points["Deck Beta Conduit Hall"] = {
-                DoorPoint(Beta_Conduit,RIGHT,Vertical),
-                DoorPoint(Biotech_Conduit,DOWN,Horizontal)
+            DoorPoint(Beta_Conduit,Right),
+            DoorPoint(Biotech_Conduit,Down)
         };
         points["Connection Elevator to Deck Beta"] = {
-                DoorPoint(Beta_Conduit,LEFT,Vertical),
-                DoorPoint(Beta_Hydro,UP,Horizontal)
+            DoorPoint(Beta_Conduit,Left),
+            DoorPoint(Beta_Hydro,Up)
         };
         points["Hydro Access Tunnel"] = {
-                DoorPoint(Tree_Frigate,LEFT,Vertical),
-                DoorPoint(Beta_Hydro,DOWN,Horizontal)
+            DoorPoint(Tree_Frigate,Left),
+            DoorPoint(Beta_Hydro,Down)
         };
         points["Great Tree Hall"] = {
-                DoorPoint(Tree_Frigate,RIGHT,Vertical),
-                DoorPoint(Tree_Chamber,LEFT,Vertical),
-                DoorPoint(Tree_ElevatorD,DOWN,Horizontal),
-                DoorPoint(Tree_Grove,UP,Horizontal),
-                DoorPoint(Tree_ElevatorE,UP,Horizontal)
+            DoorPoint(Tree_Frigate,Right),
+            DoorPoint(Tree_Chamber,Left),
+            DoorPoint(Tree_ElevatorD,Down),
+            DoorPoint(Tree_Grove,Up),
+            DoorPoint(Tree_ElevatorE,Up)
         };
         points["Great Tree Chamber"] = {
-                DoorPoint(Tree_Chamber,RIGHT,Vertical)
+            DoorPoint(Tree_Chamber,Right)
         };
         points["Transport Tunnel D"] = {
-                DoorPoint(Tree_Chozo,LEFT,Vertical),
-                DoorPoint(Tree_ElevatorD,UP,Horizontal)
+            DoorPoint(Tree_Chozo,Left),
+            DoorPoint(Tree_ElevatorD,Up)
         };
         points["Life Grove Tunnel"] = {
-                DoorPoint(Tree_Grove,DOWN,Horizontal),
-                DoorPoint(Grove_Tunnel,UP,Horizontal)
+            DoorPoint(Tree_Grove,Down),
+            DoorPoint(Grove_Tunnel,Up)
         };
         points["Transport Tunnel E"] = {
-                DoorPoint(Tree_Phazon,RIGHT,Vertical),
-                DoorPoint(Tree_ElevatorE,DOWN,Horizontal)
+            DoorPoint(Tree_Phazon,Right),
+            DoorPoint(Tree_ElevatorE,Down)
         };
         points["Transport to Chozo Ruins South"] = {
-                DoorPoint(Tree_Chozo,RIGHT,Vertical)
+            DoorPoint(Tree_Chozo,Right)
         };
         points["Life Grove"] = {
-                DoorPoint(Grove_Tunnel,DOWN,Horizontal)
+            DoorPoint(Grove_Tunnel,Down)
         };
         points["Transport to Phazon Mines East"] = {
-                DoorPoint(Tree_Phazon,LEFT,Vertical)
+            DoorPoint(Tree_Phazon,Left)
         };
     } else if (world == ChozoRuins) {
 

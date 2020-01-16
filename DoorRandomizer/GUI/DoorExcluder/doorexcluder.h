@@ -14,14 +14,23 @@ enum DoorOrientation {
     Floor
 };
 
+enum DoorDirection {
+    Up,
+    Down,
+    Left,
+    Right,
+    Top,
+    Bottom
+};
+
 struct DoorPoint {
     QPoint position;
     bool is_front;
     DoorOrientation orientation;
-    DoorPoint(QPoint p,bool f, DoorOrientation o) {
+    DoorPoint(QPoint p,DoorDirection dir) {
         position = p;
-        is_front = f;
-        orientation = o;
+        is_front = dir%2;
+        orientation = DoorOrientation(dir/2);
     }
 };
 
