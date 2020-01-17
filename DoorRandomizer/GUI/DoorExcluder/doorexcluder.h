@@ -11,7 +11,8 @@ typedef std::map<QString,std::vector<bool>> RoomDoorList;
 enum DoorOrientation {
     Horizontal,
     Vertical,
-    Floor
+    Floor,
+    Centered
 };
 
 enum DoorDirection {
@@ -20,7 +21,8 @@ enum DoorDirection {
     Left,
     Right,
     Top,
-    Bottom
+    Bottom,
+    Center
 };
 
 struct DoorPoint {

@@ -6,24 +6,32 @@
 
 DoorMapIcon::DoorMapIcon(DoorExcluder *parent, World world, QString roomName, int doorID, QPoint map_position, bool is_front, DoorOrientation orientation, bool force_exclude) {
     int map_x, map_y;
-
-    if(orientation == DoorOrientation::Horizontal) {
-        map_x = map_position.x()-DOOR_LONG/2;
-        if(is_front) {
-            map_y = map_position.y();
-        } else {
-            map_y = map_position.y()-DOOR_SHORT;
-        }
-    } else if(orientation == DoorOrientation::Vertical) {
-        map_y = map_position.y()-DOOR_LONG/2;
-        if(is_front) {
-            map_x = map_position.x();
-        } else {
-            map_x = map_position.x()-DOOR_SHORT;
-        }
-    } else {
-        map_x = map_position.x()-DOOR_LONG/2;
-        map_y = map_position.y()-DOOR_LONG/2;
+    switch(orientation) {
+        case Horizontal:
+            map_x = map_position.x()-DOOR_LONG/2;
+            if(is_front)
+                map_y = map_position.y();
+            else
+                map_y = map_position.y()-DOOR_SHORT;
+        break;
+        case Vertical:
+            map_y = map_position.y()-DOOR_LONG/2;
+            if(is_front)
+                map_x = map_position.x();
+            else
+                map_x = map_position.x()-DOOR_SHORT;
+        break;
+        case Floor:
+            map_y = map_position.y()-DOOR_LONG/2;
+            if(is_front)
+                map_x = map_position.x()-DOOR_LONG;
+            else
+                map_x = map_position.x();
+        break;
+        case Centered:
+            map_x = map_position.x()-DOOR_LONG/2;
+            map_y = map_position.y()-DOOR_LONG/2;
+        break;
     }
 
     doorExcluder = parent;
