@@ -21,6 +21,7 @@ DoorExcluder::DoorExcluder(QWidget *parent, Preset *main_preset)
     initializeMap(ui->map_mines,QPixmap(mapimg_path + "mines_map.jpg"));
 
     addIcons(ui->map_tallon,TallonOverworld);
+    addIcons(ui->map_chozo,ChozoRuins);
 }
 
 DoorExcluder::~DoorExcluder()
@@ -92,7 +93,7 @@ void DoorExcluder::initializeExcludedDoors() {
 
     chozo["Transport to Tallon Overworld North"] = {false};
     chozo["Ruins Entrance"] = {false,false};
-    chozo["Main Plaza"] = {false,false,false,false,true};
+    chozo["Main Plaza"] = {false,false,false,false,true,true};
     chozo["Ruined Fountain Access"] = {false,false};
     chozo["Ruined Shrine Access"] = {false,false};
     chozo["Nursery Access"] = {false,false};
@@ -124,12 +125,15 @@ void DoorExcluder::initializeExcludedDoors() {
     chozo["Gathering Hall"] = {false,false,false,false};
     chozo["Totem Access"] = {false,false};
     chozo["Map Station"] = {false};
+    chozo["Sun Tower Access"] = {false,false};
     chozo["Hive Totem"] = {false,false};
+    chozo["Sunchamber"] = {false,false};
     chozo["Watery Hall Access"] = {false,false};
     chozo["Save Station 2"] = {false};
     chozo["East Atrium"] = {false,false};
     chozo["Watery Hall"] = {false,false};
     chozo["Energy Core Access"] = {false,false};
+    chozo["Dynamo Access"] = {false,false};
     chozo["Energy Core"] = {true,false,false};
     chozo["Dynamo"] = {false};
     chozo["Burn Dome Access"] = {false,true};
@@ -150,6 +154,7 @@ void DoorExcluder::initializeExcludedDoors() {
     chozo["Antechamber"] = {false};
     chozo["Transport to Tallon Overworld East"] = {false};
     chozo["Transport to Tallon Overworld South"] = {false};
+    chozo["Piston Hall"] = {true,true};
     phendrana["Transport to Magmoor Caverns West"] = {false};
     phendrana["Shoreline Entrance"] = {false,false};
     phendrana["Phendrana Shorelines"] = {false,false,false,false,false,false};
@@ -558,6 +563,339 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         };
     } else if (world == ChozoRuins) {
 
+        const QPoint Tallon_Entrance(506,1096);
+        const QPoint Plaza_Entrance(524,956);
+        const QPoint Plaza_FountainHall(581,858);
+        const QPoint Plaza_ShrineHall(475,843);
+        const QPoint Plaza_NurseryHall(480,723);
+        const QPoint Plaza_VaultHall(619,683);
+        const QPoint Plaza_PistonHall(570,969);
+        const QPoint Fountain_PlazaHall(721,899);
+        const QPoint Shrine_PlazaHall(313,843);
+        const QPoint Eyon_PlazaHall(404,680);
+        const QPoint Vault_PlazaHall(666,587);
+        const QPoint Fountain_Arboretum(775,959);
+        const QPoint Fountain_Meditation(751,1034);
+        const QPoint Shrine_TowerHall(185,843);
+        const QPoint Eyon_Nursery(321,623);
+        const QPoint Vault_ElevatorHall(666,438);
+        const QPoint Training_MagmaHall(565,1194);
+        const QPoint Training_PistonHall(565,1053);
+        const QPoint Arboretum_Fountain(830,1044);
+        const QPoint Magma_MeditationHall(681,1113);
+        const QPoint LightTower_ShrineHall(99,843);
+        const QPoint Nursery_SaveStation(241,614);
+        const QPoint Nursery_NorthAtrium(276,543);
+        const QPoint Magmoor_VaultHall(666,236);
+        const QPoint Magma_TrainingHall(624,1257);
+        const QPoint Arboretum_SunLobby(857,933);
+        const QPoint Arboretum_Gathering(961,1044);
+        const QPoint LightTower_Chamber(99,1018);
+        const QPoint Gallery_NorthAtrium(347,486);
+        const QPoint Magmoor_SunTower(707,191);
+        const QPoint Magmoor_TotemHall(635,191);
+        const QPoint SunLobby_SunAccess(849,818);
+        const QPoint Gathering_ArboretumHall(1048,1054);
+        const QPoint Gallery_TotemHall(346,393);
+        const QPoint Gallery_Map(321,463);
+        const QPoint SunTower_SunChamber(819,191);
+        const QPoint Totem_MagmoorHall(517,207);
+        const QPoint Sunchamber_Access(849,700);
+        const QPoint Gathering_WateryHall(1093,991);
+        const QPoint Gathering_SaveStation(1081,1143);
+        const QPoint Gathering_EastAtrium(1113,1040);
+        const QPoint Totem_GalleryHall(424,301);
+        const QPoint WateryHall_Gathering(1093,825);
+        const QPoint EastAtrium_CoreAccess(1167,1116);
+        const QPoint WateryHall_DynamoHall(1129,864);
+        const QPoint EnergyCore_Access(1249,1152);
+        const QPoint EnergyCore_FurnaceHall(1354,1171);
+        const QPoint EnergyCore_BurningHall(1349,1039);
+        const QPoint Dynamo_WateryHall(1169,949);
+        const QPoint BurnDome_EnergyHall(1356,915);
+        const QPoint Furnace_CoreHall(1432,1214);
+        const QPoint Furnace_ElderHall(1612,1222);
+        const QPoint Furnace_CrosswayHall(1561,1114);
+        const QPoint Elders_FurnaceHall(1689,1180);
+        const QPoint Crossway_FurnaceHall(1667,999);
+        const QPoint Crossway_EldersWhite(1720,1031);
+        const QPoint Crossway_EldersMissile(1803,1016);
+        const QPoint Elders_ReflectingHall(1745,1250);
+        const QPoint Elders_CrosswayMissile(1756,1128);
+        const QPoint Elders_CrosswayWhite(1720,1123);
+        const QPoint Elders_Chamber(1720,1227);
+        const QPoint ReflectPool_EldersHall(1706,1334);
+        const QPoint ReflectPool_SaveStation(1672,1425);
+        const QPoint ReflectPool_TransportHall(1705,1497);
+        const QPoint ReflectPool_Antechamber(1738,1425);
+        const QPoint Tallon_SaveStation(1532,1399);
+        const QPoint Tallon_ExitHall(1701,1577);
+        const QPoint Sunchamber_SunTower(848,450);
+
+        points["Transport to Tallon Overworld North"] = {
+            DoorPoint(Tallon_Entrance,Down)
+        };
+        points["Ruins Entrance"] = {
+            DoorPoint(Plaza_Entrance,Down),
+            DoorPoint(Tallon_Entrance,Up)
+        };
+        points["Main Plaza"] = {
+            DoorPoint(Plaza_FountainHall,Up),
+            DoorPoint(Plaza_Entrance,Up),
+            DoorPoint(Plaza_ShrineHall,Right),
+            DoorPoint(Plaza_NurseryHall,Right),
+            DoorPoint(Plaza_VaultHall,Left),
+            DoorPoint(Plaza_PistonHall,Up)
+        };
+        points["Ruined Fountain Access"] = {
+            DoorPoint(Plaza_FountainHall,Down),
+            DoorPoint(Fountain_PlazaHall,Up)
+        };
+        points["Ruined Shrine Access"] = {
+            DoorPoint(Shrine_PlazaHall,Right),
+            DoorPoint(Plaza_ShrineHall,Left)
+        };
+        points["Nursery Access"] = {
+            DoorPoint(Eyon_PlazaHall,Right),
+            DoorPoint(Plaza_NurseryHall,Left)
+        };
+        points["Plaza Access"] = {
+            DoorPoint(Plaza_VaultHall,Right),
+            DoorPoint(Vault_PlazaHall,Down)
+        };
+        points["Ruined Fountain"] = {
+            DoorPoint(Fountain_Arboretum,Left),
+            DoorPoint(Fountain_PlazaHall,Down),
+            DoorPoint(Fountain_Meditation,Up)
+        };
+        points["Ruined Shrine"] = {
+            DoorPoint(Shrine_TowerHall,Right),
+            DoorPoint(Shrine_PlazaHall,Left)
+        };
+        points["Eyon Tunnel"] = {
+            DoorPoint(Eyon_Nursery,Right),
+            DoorPoint(Eyon_PlazaHall,Left)
+        };
+        points["Vault"] = {
+            DoorPoint(Vault_ElevatorHall,Down),
+            DoorPoint(Vault_PlazaHall,Up)
+        };
+        points["Training Chamber"] = {
+            DoorPoint(Training_MagmaHall,Up),
+            DoorPoint(Training_PistonHall,Down)
+        };
+        points["Arboretum Access"] = {
+            DoorPoint(Arboretum_Fountain,Left),
+            DoorPoint(Fountain_Arboretum,Right)
+        };
+        points["Meditation Fountain"] = {
+            DoorPoint(Magma_MeditationHall,Up),
+            DoorPoint(Fountain_Meditation,Down)
+        };
+        points["Tower of Light Access"] = {
+            DoorPoint(LightTower_ShrineHall,Up),
+            DoorPoint(Shrine_TowerHall,Left)
+        };
+        points["Ruined Nursery"] = {
+            DoorPoint(Nursery_SaveStation,Up),
+            DoorPoint(Nursery_NorthAtrium,Down),
+            DoorPoint(Eyon_Nursery,Left)
+        };
+        points["Vault Access"] = {
+            DoorPoint(Vault_ElevatorHall,Up),
+            DoorPoint(Magmoor_VaultHall,Down)
+        };
+        points["Training Chamber Access"] = {
+            DoorPoint(Magma_TrainingHall,Left),
+            DoorPoint(Training_MagmaHall,Down)
+        };
+        points["Arboretum"] = {
+            DoorPoint(Arboretum_SunLobby,Down),
+            DoorPoint(Arboretum_Fountain,Right),
+            DoorPoint(Arboretum_Gathering,Left)
+        };
+        points["Magma Pool"] = {
+            DoorPoint(Magma_TrainingHall,Right),
+            DoorPoint(Magma_MeditationHall,Down)
+        };
+        points["Tower of Light"] = {
+            DoorPoint(LightTower_ShrineHall,Down),
+            DoorPoint(LightTower_Chamber,Bottom)
+        };
+        points["Save Station 1"] = {
+            DoorPoint(Nursery_SaveStation,Down)
+        };
+        points["North Atrium"] = {
+            DoorPoint(Nursery_NorthAtrium,Up),
+            DoorPoint(Gallery_NorthAtrium,Down)
+        };
+        points["Transport to Magmoor Caverns North"] = {
+            DoorPoint(Magmoor_SunTower,Left),
+            DoorPoint(Magmoor_VaultHall,Up),
+            DoorPoint(Magmoor_TotemHall,Right)
+        };
+        points["Sunchamber Lobby"] = {
+            DoorPoint(Arboretum_SunLobby,Up),
+            DoorPoint(SunLobby_SunAccess,Down)
+        };
+        points["Gathering Hall Access"] = {
+            DoorPoint(Gathering_ArboretumHall,Left),
+            DoorPoint(Arboretum_Gathering,Right)
+        };
+        points["Tower Chamber"] = {
+            DoorPoint(LightTower_Chamber,Top)
+        };
+        points["Ruined Gallery"] = {
+            DoorPoint(Gallery_NorthAtrium,Up),
+            DoorPoint(Gallery_TotemHall,Down),
+            DoorPoint(Gallery_Map,Right)
+        };
+        points["Sun Tower"] = {
+            DoorPoint(SunTower_SunChamber,Left),
+            DoorPoint(Magmoor_SunTower,Right)
+        };
+        points["Transport Access North"] = {
+            DoorPoint(Totem_MagmoorHall,Up),
+            DoorPoint(Magmoor_TotemHall,Left)
+        };
+        points["Sunchamber Access"] = {
+            DoorPoint(Sunchamber_Access,Down),
+            DoorPoint(SunLobby_SunAccess,Up)
+        };
+        points["Gathering Hall"] = {
+            DoorPoint(Gathering_WateryHall,Down),
+            DoorPoint(Gathering_ArboretumHall,Right),
+            DoorPoint(Gathering_SaveStation,Up),
+            DoorPoint(Gathering_EastAtrium,Left)
+        };
+        points["Totem Access"] = {
+            DoorPoint(Gallery_TotemHall,Up),
+            DoorPoint(Totem_GalleryHall,Left)
+        };
+        points["Map Station"] = {
+            DoorPoint(Gallery_Map,Left)
+        };
+        points["Sun Tower Access"] = {
+            DoorPoint(Sunchamber_SunTower,Up),
+            DoorPoint(SunTower_SunChamber,Right)
+        };
+        points["Hive Totem"] = {
+            DoorPoint(Totem_GalleryHall,Right),
+            DoorPoint(Totem_MagmoorHall,Down)
+        };
+        points["Sunchamber"] = {
+            DoorPoint(Sunchamber_SunTower,Down),
+            DoorPoint(Sunchamber_Access,Up)
+        };
+        points["Watery Hall Access"] = {
+            DoorPoint(Gathering_WateryHall,Up),
+            DoorPoint(WateryHall_Gathering,Down)
+        };
+        points["Save Station 2"] = {
+            DoorPoint(Gathering_SaveStation,Down)
+        };
+        points["East Atrium"] = {
+            DoorPoint(Gathering_EastAtrium,Right),
+            DoorPoint(EastAtrium_CoreAccess,Left)
+        };
+        points["Watery Hall"] = {
+            DoorPoint(WateryHall_DynamoHall,Up),
+            DoorPoint(WateryHall_Gathering,Up)
+        };
+        points["Energy Core Access"] = {
+            DoorPoint(WateryHall_DynamoHall,Down),
+            DoorPoint(Dynamo_WateryHall,Up)
+        };
+        points["Dynamo Access"] = {
+            DoorPoint(EnergyCore_Access,Left),
+            DoorPoint(EastAtrium_CoreAccess,Right)
+        };
+        points["Energy Core"] = {
+            DoorPoint(EnergyCore_BurningHall,Down),
+            DoorPoint(EnergyCore_FurnaceHall,Left),
+            DoorPoint(EnergyCore_Access,Right)
+        };
+        points["Dynamo"] = {
+            DoorPoint(Dynamo_WateryHall,Down)
+        };
+        points["Burn Dome Access"] = {
+            DoorPoint(BurnDome_EnergyHall,Down),
+            DoorPoint(EnergyCore_BurningHall,Up)
+        };
+        points["West Furnace Access"] = {
+            DoorPoint(EnergyCore_FurnaceHall,Right),
+            DoorPoint(Furnace_CoreHall,Left)
+        };
+        points["Burn Dome"] = {
+            DoorPoint(BurnDome_EnergyHall,Up)
+        };
+        points["Furnace"] = {
+            DoorPoint(Furnace_ElderHall,Left),
+            DoorPoint(Furnace_CoreHall,Right),
+            DoorPoint(Furnace_CrosswayHall,Down)
+        };
+        points["East Furnace Access"] = {
+            DoorPoint(Elders_FurnaceHall,Left),
+            DoorPoint(Furnace_ElderHall,Right)
+        };
+        points["Crossway Access West"] = {
+            DoorPoint(Crossway_FurnaceHall,Left),
+            DoorPoint(Furnace_CrosswayHall,Up)
+        };
+        points["Hall of the Elders"] = {
+            DoorPoint(Elders_ReflectingHall,Up),
+            DoorPoint(Elders_CrosswayMissile,Down),
+            DoorPoint(Elders_FurnaceHall,Right),
+            DoorPoint(Elders_CrosswayWhite,Down),
+            DoorPoint(Elders_Chamber,Top)
+        };
+        points["Crossway"] = {
+            DoorPoint(Crossway_EldersWhite,Up),
+            DoorPoint(Crossway_FurnaceHall,Right),
+            DoorPoint(Crossway_EldersMissile,Up)
+        };
+        points["Reflecting Pool Access"] = {
+            DoorPoint(ReflectPool_EldersHall,Up),
+            DoorPoint(Elders_ReflectingHall,Down)
+        };
+        points["Elder Hall Access"] = {
+            DoorPoint(Elders_CrosswayMissile,Up),
+            DoorPoint(Crossway_EldersMissile,Down)
+        };
+        points["Crossway Access South"] = {
+            DoorPoint(Elders_CrosswayWhite,Up),
+            DoorPoint(Crossway_EldersWhite,Down)
+        };
+        points["Elder Chamber"] = {
+            DoorPoint(Elders_Chamber,Bottom)
+        };
+        points["Reflecting Pool"] = {
+            DoorPoint(ReflectPool_SaveStation,Right),
+            DoorPoint(ReflectPool_TransportHall,Up),
+            DoorPoint(ReflectPool_EldersHall,Down),
+            DoorPoint(ReflectPool_Antechamber,Left)
+        };
+        points["Save Station 3"] = {
+            DoorPoint(ReflectPool_SaveStation,Left),
+            DoorPoint(Tallon_SaveStation,Right)
+        };
+        points["Transport Access South"] = {
+            DoorPoint(ReflectPool_TransportHall,Down),
+            DoorPoint(Tallon_ExitHall,Up)
+        };
+        points["Antechamber"] = {
+            DoorPoint(ReflectPool_Antechamber,Right)
+        };
+        points["Transport to Tallon Overworld East"] = {
+            DoorPoint(Tallon_SaveStation,Left)
+        };
+        points["Transport to Tallon Overworld South"] = {
+            DoorPoint(Tallon_ExitHall,Down)
+        };
+        points["Piston Hall"] = {
+            DoorPoint(Plaza_PistonHall,Down),
+            DoorPoint(Training_PistonHall,Up)
+        };
     } else if (world == MagmoorCaverns) {
 
     } else if (world == PhendranaDrifts) {
