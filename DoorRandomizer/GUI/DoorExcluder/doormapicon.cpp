@@ -49,16 +49,16 @@ DoorMapIcon::DoorMapIcon(DoorExcluder *parent, World world, QString roomName, in
     m_orientation = orientation;
 
     QRectF door_rect;
-    if(m_orientation == DoorOrientation::Horizontal) {
+    if(m_orientation == Horizontal) {
         door_rect = QRectF(0,0,DOOR_LONG,DOOR_SHORT);
-    } else if(m_orientation == DoorOrientation::Vertical) {
+    } else if(m_orientation == Vertical) {
         door_rect = QRectF(0,0,DOOR_SHORT,DOOR_LONG);
-    } else if(m_orientation == DoorOrientation::Floor) {
+    } else if(m_orientation == Floor || m_orientation == Centered) {
         door_rect = QRectF(0,0,DOOR_LONG,DOOR_LONG);
     }
     setRect(door_rect);
-    setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
-    if(force_exclude || m_orientation == DoorOrientation::Floor) {
+    setCursor(QCursor(Qt::PointingHandCursor));
+    if(force_exclude || m_orientation == Floor) {
         m_forceExclude = true;
         exclude(true);
     }
