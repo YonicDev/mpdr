@@ -11,7 +11,7 @@ Currently, MPDR supports the following **64-bit** systems:
 * **Windows 7** and newer.
 * **Linux:** Tested on Arch and Ubuntu-based distributions.
 
-MPDR will also designed to work with Mac OS.
+MPDR is also designed to work with Mac OS in the future.
 
 ## Usage
 
@@ -24,7 +24,7 @@ to these types:
 * **White** (Ice Beam only)
 * **Red** (Plasma Beam only)
 
-> **NOTE:** Doors from Pirate Frigate and Impact Crater will not be randomized. Currently, vertical doors (placed on the ground or the ceiling) can't be randomized either.
+> **NOTE:** Doors from Pirate Frigate, Impact Crater, and reactor doors from the Crashed Frigate will not be randomized. Currently, vertical doors (placed on the ground or the ceiling), and doors from the Crashed Frigate's ventilation system can't be randomized either.
 
 The amount of doors of any given color can be adjusted with **door weights**.
 These adjust the chance of any door to be that particular color, and are given in percentages, grouped by areas (Tallon Overworld, Chozo Ruins, Magmoor Caverns, Phendrana Drifts and Phazon Mines).
