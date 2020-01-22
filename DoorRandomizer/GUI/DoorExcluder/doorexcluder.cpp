@@ -2,6 +2,7 @@
 
 #include "doorexcluder.h"
 #include "ui_doorexcluder.h"
+#include <QDebug>
 
 DoorExcluder::DoorExcluder(QWidget *parent, Preset *main_preset)
     : QDialog(parent)
@@ -22,6 +23,9 @@ DoorExcluder::DoorExcluder(QWidget *parent, Preset *main_preset)
 
     addIcons(ui->map_tallon,TallonOverworld);
     addIcons(ui->map_chozo,ChozoRuins);
+    addIcons(ui->map_magmoor,MagmoorCaverns);
+    addIcons(ui->map_phendrana,PhendranaDrifts);
+    addIcons(ui->map_mines,PhazonMines);
 }
 
 DoorExcluder::~DoorExcluder()
@@ -307,7 +311,7 @@ void DoorExcluder::initializeExcludedDoors() {
     magmoor["Warrior Shrine"] = {false,true};
     magmoor["Shore Tunnel"] = {false,false};
     magmoor["Transport to Phendrana Drifts North"] = {false};
-    magmoor["Fiery Shores"] = {false,false};
+    magmoor["Fiery Shores"] = {false,false,true};
     magmoor["Transport Tunnel B"] = {false,false};
     magmoor["Transport to Tallon Overworld West"] = {false,false};
     magmoor["Twin Fires Tunnel"] = {false,false};
@@ -321,7 +325,7 @@ void DoorExcluder::initializeExcludedDoors() {
     magmoor["Transport Tunnel C"] = {false,false};
     magmoor["Transport to Phazon Mines West"] = {false};
     magmoor["Transport to Phendrana Drifts South"] = {false,false};
-    magmoor["Save Station Magmoor B"] = {false,false};
+    magmoor["Save Station Magmoor B"] = {false};
 
 
     excluded_doors->push_back(tallon);
@@ -898,6 +902,154 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         };
     } else if (world == MagmoorCaverns) {
 
+        const QPoint BurnTrail_Chozo(171,253);
+        const QPoint BurnTrail_LakeHall(239,611);
+        const QPoint BurnTrail_SaveStation(227,432);
+        const QPoint LavaLake_BurnHall(287,758);
+        const QPoint LavaLake_PitHall(564,906);
+        const QPoint Triclops_LakeHall(502,1029);
+        const QPoint Triclops_MonitorHall(711,1130);
+        const QPoint Triclops_Storage(392,1328);
+        const QPoint Monitor_TriclopsHall(820,1249);
+        const QPoint Monitor_PhendranaHall(703,1405);
+        const QPoint Monitor_WarriorShrineA(913,1436); // Separate pair
+        const QPoint Monitor_WarriorShrineB(948,1279); // Separate pair
+        const QPoint Monitor_ShoreTunnel(905,1388);
+        const QPoint Phendrana_MonitorHall(569,1406);
+        const QPoint Warrior_Shores(1016,1277);
+        const QPoint Shores_Warrior(976,1436);
+        const QPoint Shore_MonitorTunnel(988,1520);
+        const QPoint Shores_TallonHall(1075,1749);
+        const QPoint Tallon_ShoresHall(1075,1892);
+        const QPoint Twin_TallonTunnel(983,2144);
+        const QPoint Tallon_TwinTunnel(1074,1995);
+        const QPoint Twin_CoreTunnel(905,2438);
+        const QPoint GeoCore_TwinTunnel(1015,2558);
+        const QPoint Plasma_Processing(1091,2476);
+        const QPoint GeoCore_WorkTunnel(1238,2584);
+        const QPoint Workstation_CoreTunnel(1286,2731);
+        const QPoint Workstation_Phazon(1222,2955);
+        const QPoint Workstation_Phendrana(1132,2842);
+        const QPoint Phazon_Workstation(1298,3120);
+        const QPoint Phendrana_Workstation(1050,2798);
+        const QPoint Phendrana_SaveStation(973,2798);
+
+        points["Transport to Chozo Ruins North"] = {
+            DoorPoint(BurnTrail_Chozo,Up)
+        };
+        points["Burning Trail"] = {
+            DoorPoint(BurnTrail_LakeHall,Up),
+            DoorPoint(BurnTrail_Chozo,Down),
+            DoorPoint(BurnTrail_SaveStation,Down)
+        };
+        points["Lake Tunnel"] = {
+            DoorPoint(LavaLake_BurnHall,Left),
+            DoorPoint(BurnTrail_LakeHall,Down)
+        };
+        points["Save Station Magmoor A"] = {
+            DoorPoint(BurnTrail_SaveStation,Up)
+        };
+        points["Lava Lake"] = {
+            DoorPoint(LavaLake_BurnHall,Right),
+            DoorPoint(LavaLake_PitHall,Up)
+        };
+        points["Pit Tunnel"] = {
+            DoorPoint(Triclops_LakeHall,Up),
+            DoorPoint(LavaLake_PitHall,Down)
+        };
+        points["Triclops Pit"] = {
+            DoorPoint(Triclops_MonitorHall,Left),
+            DoorPoint(Triclops_Storage,Up),
+            DoorPoint(Triclops_LakeHall,Down)
+        };
+        points["Monitor Tunnel"] = {
+            DoorPoint(Monitor_TriclopsHall,Up),
+            DoorPoint(Triclops_MonitorHall,Right)
+        };
+        points["Storage Cavern"] = {
+            DoorPoint(Triclops_Storage,Down)
+        };
+        points["Monitor Station"] = {
+            DoorPoint(Monitor_TriclopsHall,Down),
+            DoorPoint(Monitor_PhendranaHall,Right),
+            DoorPoint(Monitor_WarriorShrineA,Left),
+            DoorPoint(Monitor_ShoreTunnel,Left)
+        };
+        points["Transport Tunnel A"] = {
+            DoorPoint(Phendrana_MonitorHall,Right),
+            DoorPoint(Monitor_PhendranaHall,Left)
+        };
+        points["Warrior Shrine"] = {
+            DoorPoint(Monitor_WarriorShrineB,Right),
+            DoorPoint(Warrior_Shores,Center)
+        };
+        points["Shore Tunnel"] = {
+            DoorPoint(Monitor_ShoreTunnel,Right),
+            DoorPoint(Shore_MonitorTunnel,Left)
+        };
+        points["Transport to Phendrana Drifts North"] = {
+            DoorPoint(Phendrana_MonitorHall,Left)
+        };
+        points["Fiery Shores"] = {
+            DoorPoint(Shore_MonitorTunnel,Right),
+            DoorPoint(Shores_TallonHall,Up),
+            DoorPoint(Shores_Warrior,Center)
+        };
+        points["Transport Tunnel B"] = {
+            DoorPoint(Tallon_ShoresHall,Up),
+            DoorPoint(Shores_TallonHall,Down)
+        };
+        points["Transport to Tallon Overworld West"] = {
+            DoorPoint(Tallon_TwinTunnel,Up),
+            DoorPoint(Tallon_ShoresHall,Down)
+        };
+        points["Twin Fires Tunnel"] = {
+            DoorPoint(Twin_TallonTunnel,Up),
+            DoorPoint(Tallon_TwinTunnel,Down)
+        };
+        points["Twin Fires"] = {
+            DoorPoint(Twin_CoreTunnel,Up),
+            DoorPoint(Twin_TallonTunnel,Down)
+        };
+        points["North Core Tunnel"] = {
+            DoorPoint(Twin_CoreTunnel,Down),
+            DoorPoint(GeoCore_TwinTunnel,Left)
+        };
+        points["Geothermal Core"] = {
+            DoorPoint(GeoCore_TwinTunnel,Right),
+            DoorPoint(Plasma_Processing,Down),
+            DoorPoint(GeoCore_WorkTunnel,Left)
+        };
+        points["Plasma Processing"] = {
+            DoorPoint(Plasma_Processing,Up)
+        };
+        points["South Core Tunnel"] = {
+            DoorPoint(GeoCore_WorkTunnel,Right),
+            DoorPoint(Workstation_CoreTunnel,Up)
+        };
+        points["Magmoor Workstation"] = {
+            DoorPoint(Workstation_CoreTunnel,Down),
+            DoorPoint(Workstation_Phazon,Up),
+            DoorPoint(Workstation_Phendrana,Right)
+        };
+        points["Workstation Tunnel"] = {
+            DoorPoint(Phazon_Workstation,Left),
+            DoorPoint(Workstation_Phazon,Down)
+        };
+        points["Transport Tunnel C"] = {
+            DoorPoint(Phendrana_Workstation,Right),
+            DoorPoint(Workstation_Phendrana,Left)
+        };
+        points["Transport to Phazon Mines West"] = {
+            DoorPoint(Phazon_Workstation,Right)
+        };
+        points["Transport to Phendrana Drifts South"] = {
+            DoorPoint(Phendrana_SaveStation,Right),
+            DoorPoint(Phendrana_Workstation,Left)
+        };
+        points["Save Station Magmoor B"] = {
+            DoorPoint(Phendrana_SaveStation,Left)
+        };
     } else if (world == PhendranaDrifts) {
 
     } else if (world == PhazonMines) {
