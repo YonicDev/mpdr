@@ -91,56 +91,117 @@ void PatcherSettings::serialize(QJsonObject &json) {
 
 int Preset::deserialize(const QJsonObject &json) {
     if(json.contains("mpdrp_version") && json["mpdrp_version"].isDouble()) {
-        if(json["mpdrp_version"].toInt() == 2) {
-            if(json.contains("seed")&&json["seed"].isDouble())
-                seed = static_cast<int32_t>(json["seed"].toInt());
-            else
-                return -2;
-            int check = weights.deserialize(json);
-            if(check!=0)
-                return check;
-            if(json.contains("starting_pickups") && json["starting_pickups"].isDouble())
-                starting_pickups = static_cast<uint64_t>(json["starting_pickups"].toDouble());
-            else
-                return -2;
-            if(json.contains("input_iso") && json["input_iso"].isString())
-                input_iso = json["input_iso"].toString();
-            else
-                input_iso = "";
-            if(json.contains("output_iso") && json["output_iso"].isString())
-                output_iso = json["output_iso"].toString();
-            else
-                output_iso = "";
-            check = additional_settings.deserialize(json);
-            return check;
-        } else if(json["mpdrp_version"].toInt() == 1) {
-            //TODO: Handle backwards compatibility
-            return -4;
+        int mpdrp_version = json["mpdrp_version"].toInt();
+        int check;
+        switch(mpdrp_version) {
+            case 2: {
+                if(json.contains("seed")&&json["seed"].isDouble())
+                    seed = static_cast<int32_t>(json["seed"].toInt());
+                else
+                    return -2;
+                check = weights.deserialize(json,2);
+                if(check!=0)
+                    return check;
+                if(json.contains("starting_pickups") && json["starting_pickups"].isDouble())
+                    starting_pickups = static_cast<uint64_t>(json["starting_pickups"].toDouble());
+                else
+                    return -2;
+                if(json.contains("input_iso") && json["input_iso"].isString())
+                    input_iso = json["input_iso"].toString();
+                else
+                    input_iso = "";
+                if(json.contains("output_iso") && json["output_iso"].isString())
+                    output_iso = json["output_iso"].toString();
+                else
+                    output_iso = "";
+                check = additional_settings.deserialize(json);
+                break;
+            }
+            case 1: {
+                if(json.contains("seed")&&json["seed"].isDouble())
+                    seed = static_cast<int32_t>(json["seed"].toInt());
+                else
+                    return -2;
+                check = weights.deserialize(json,1);
+                if(check!=0)
+                    return check;
+                if(json.contains("skip_frigate") && json["skip_frigate"].isBool())
+                    additional_settings.skip_frigate = json["skip_frigate"].toBool();
+                else
+                    return -2;
+                if(json.contains("trilogy_path") && json["trilogy_path"].isString()) {
+                    additional_settings.fix_flaaghra_music = json["trilogy_path"].toString() != "";
+                    additional_settings.trilogy_iso = json["trilogy_path"].toString();
+                } else {
+                    additional_settings.fix_flaaghra_music = false;
+                    additional_settings.trilogy_iso = "";
+                }
+                break;
+            }
+            default: {return -1;}
         }
-        return 0;
+        return check;
     } else {return -1;}
 }
 
-int DoorWeights::deserialize(const QJsonObject &json) {
-    if(json.contains("door_weights")&&json["door_weights"].isObject()) {
-        QJsonObject obj = json["door_weights"].toObject();
-        for(auto zone = obj.begin();zone != obj.end(); ++zone) {
-            if(zone->isArray()) {
-                QJsonArray area = zone->toArray();
-                for(auto weight = area.begin();weight!=area.end();++weight) {
-                    if(weight->isDouble()) {
-                        if(zone.key() == "tallon_overworld") {
-                            tallon_overworld[weight.i] = weight->toInt();
-                        } else if(zone.key() == "chozo_ruins") {
-                            chozo_ruins[weight.i] = weight->toInt();
-                        } else if(zone.key() == "magmoor_caverns") {
-                            magmoor_caverns[weight.i] = weight->toInt();
-                        } else if(zone.key() == "phendrana_drifts") {
-                            phendrana_drifts[weight.i] = weight->toInt();
-                        } else if(zone.key() == "phazon_mines") {
-                            phazon_mines[weight.i] = weight->toInt();
-                        } else {
-                            return -3;
+int DoorWeights::deserialize(const QJsonObject &json,const int version) {
+    switch(version) {
+        case 2:
+            if(json.contains("door_weights")&&json["door_weights"].isObject()) {
+                QJsonObject obj = json["door_weights"].toObject();
+                for(auto zone = obj.begin();zone != obj.end(); ++zone) {
+                    if(zone->isArray()) {
+                        QJsonArray area = zone->toArray();
+                        for(auto weight = area.begin();weight!=area.end();++weight) {
+                            if(weight->isDouble()) {
+                                if(zone.key() == "tallon_overworld") {
+                                    tallon_overworld[weight.i] = weight->toInt();
+                                } else if(zone.key() == "chozo_ruins") {
+                                    chozo_ruins[weight.i] = weight->toInt();
+                                } else if(zone.key() == "magmoor_caverns") {
+                                    magmoor_caverns[weight.i] = weight->toInt();
+                                } else if(zone.key() == "phendrana_drifts") {
+                                    phendrana_drifts[weight.i] = weight->toInt();
+                                } else if(zone.key() == "phazon_mines") {
+                                    phazon_mines[weight.i] = weight->toInt();
+                                } else {
+                                    return -3;
+                                }
+                            } else {
+                                return -2;
+                            }
+                        }
+                    } else {
+                        return -2;
+                    }
+                }
+            } else
+                return -2;
+        break;
+        case 1:
+            if(json.contains("weights")&&json["weights"].isObject()) {
+                QJsonObject obj = json["weights"].toObject();
+                for(auto zone = obj.begin();zone != obj.end(); ++zone) {
+                    if(zone->isArray()) {
+                        QJsonArray area = zone->toArray();
+                        for(auto weight = area.begin();weight!=area.end();++weight) {
+                            if(weight->isDouble()) {
+                                if(zone.key() == "Tallon Overworld") {
+                                    tallon_overworld[weight.i] = weight->toInt();
+                                } else if(zone.key() == "Chozo Ruins") {
+                                    chozo_ruins[weight.i] = weight->toInt();
+                                } else if(zone.key() == "Magmoor Caverns") {
+                                    magmoor_caverns[weight.i] = weight->toInt();
+                                } else if(zone.key() == "Phendrana Drifts") {
+                                    phendrana_drifts[weight.i] = weight->toInt();
+                                } else if(zone.key() == "Phazon Mines") {
+                                    phazon_mines[weight.i] = weight->toInt();
+                                } else {
+                                    return -3;
+                                }
+                            } else {
+                                return -2;
+                            }
                         }
                     } else {
                         return -2;
@@ -149,10 +210,9 @@ int DoorWeights::deserialize(const QJsonObject &json) {
             } else {
                 return -2;
             }
-        }
-        return 0;
-    } else
-        return -2;
+        break;
+    }
+    return 0;
 }
 
 int PatcherSettings::deserialize(const QJsonObject &json) {
@@ -161,7 +221,7 @@ int PatcherSettings::deserialize(const QJsonObject &json) {
         if(obj.contains("fix_flaaghra_music") && obj["fix_flaaghra_music"].isBool()) {
             fix_flaaghra_music = obj["fix_flaaghra_music"].toBool();
             if(fix_flaaghra_music) {
-                if(json.contains("trilogy_iso") && obj["trilogy_iso"].isString())
+                if(obj.contains("trilogy_iso") && obj["trilogy_iso"].isString())
                     trilogy_iso = obj["trilogy_iso"].toString();
                 else
                   trilogy_iso = "";

@@ -18,7 +18,7 @@ public:
     int phendrana_drifts[4];
     int phazon_mines[4];
     void serialize(QJsonObject &json);
-    int deserialize(const QJsonObject &json);
+    int deserialize(const QJsonObject &json,const int version);
     int* operator[](const int index);
 };
 

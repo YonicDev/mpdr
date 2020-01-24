@@ -151,12 +151,6 @@ void RandomizerGUI::on_actionOpen_preset_triggered()
                       //~ Context Error message
                       tr("Data within the MPDR profile might be corrupt."));
                 break;
-                case -4:
-                    QMessageBox::critical(this,tr("Error"),
-                      //: This pops up when an MPDR preset is from the first version of MPDR, which is currently not supported.
-                      //~ Context Error message
-                      tr("MPDR presets of version 1 are currently unsupported."));
-                break;
             }
         }
         preset_file.close();
