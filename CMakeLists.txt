@@ -92,6 +92,7 @@ endif()
 # add documentation
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/doc/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/doc)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/maps DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/resources)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/img DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/resources)
 if(MSVC)
     add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhcp -o ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc)
 elseif(UNIX)

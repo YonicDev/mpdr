@@ -13,6 +13,7 @@
 #include <patchsettingspanel.h>
 #include <randomizer.h>
 #include <doorexcluder.h>
+#include <aboutdialog.h>
 
 RandomizerGUI::RandomizerGUI(QWidget *parent)
     : QMainWindow(parent)
@@ -266,7 +267,9 @@ void RandomizerGUI::process_message(QJsonObject data) {
 
 void RandomizerGUI::on_actionAbout_MPDR_triggered()
 {
-    QMessageBox::about(this,tr("About MPDR"),"Metroid Prime Randomizer v0.1\nMIT License YonicStudios 2019");
+    AboutDialog *dialog = new AboutDialog(this);
+    dialog->setWindowFlags(Qt::Dialog|Qt::WindowCloseButtonHint|Qt::MSWindowsFixedSizeDialogHint);
+    dialog->show();
 }
 
 void RandomizerGUI::on_actionContents_triggered()
