@@ -11,6 +11,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_INSTALL_PREFIX /usr)
+
 if(MSVC)
     set(QT_EXTRA_COMPONENTS WinExtras)
 endif()
@@ -86,7 +88,8 @@ if(UNIX)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc DESTINATION bin/mpdr/doc)
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION bin/mpdr FILES_MATCHING PATTERN "*.qm")
     install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION bin/mpdr FILES_MATCHING PATTERN "qtbase_*")
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION bin/mpdr/resources/maps)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION bin/mpdr/resources)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/img DESTINATION bin/mpdr/resources)
 endif()
 
 # add documentation
