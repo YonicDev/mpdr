@@ -163,15 +163,15 @@ void DoorExcluder::initializeExcludedDoors() {
     phendrana["Shoreline Entrance"] = {false,false};
     phendrana["Phendrana Shorelines"] = {false,false,false,false,false,false};
     phendrana["Temple Entryway"] = {false,false};
-    phendrana["Shoreline Entrance"] = {false,false};
     phendrana["Save Station B"] = {false};
     phendrana["Ruins Entryway"] = {false,false};
     phendrana["Plaza Walkway"] = {false,false};
     phendrana["Ice Ruins Access"] = {false,false};
     phendrana["Chozo Ice Temple"] = {false,false};
-    phendrana["Ice Ruins West"] = {false,false};
+    phendrana["Ice Ruins West"] = {false,false,false};
     phendrana["Ice Ruins East"] = {false,false};
     phendrana["Chapel Tunnel"] = {false,false};
+    phendrana["Courtyard Entryway"] = {false,false};
     phendrana["Canyon Entryway"] = {false,false};
     phendrana["Chapel of the Elders"] = {false};
     phendrana["Ruined Courtyard"] = {false,false,false,false};
@@ -180,8 +180,9 @@ void DoorExcluder::initializeExcludedDoors() {
     phendrana["Specimen Storage"] = {false,false};
     phendrana["Quarantine Access"] = {false,false};
     phendrana["Research Entrance"] = {false,false,false};
-    phendrana["North Quarantine Tunnel"] = {false,false,false,false};
+    phendrana["North Quarantine Tunnel"] = {false,false};
     phendrana["Map Station"] = {false};
+    phendrana["Hydra Lab Entryway"] = {false,false};
     phendrana["Quarantine Cave"] = {false,false,true};
     phendrana["Research Lab Hydra"] = {false,true};
     phendrana["South Quarantine Tunnel"] = {false,false};
@@ -201,6 +202,7 @@ void DoorExcluder::initializeExcludedDoors() {
     phendrana["Research Core"] = {false,false};
     phendrana["Frost Cave"] = {false,false,false};
     phendrana["Hunter Cave"] = {false,false,false,false};
+    phendrana["East Tower"] = {false,false};
     phendrana["Research Core Access"] = {false,true};
     phendrana["Save Station C"] = {false};
     phendrana["Upper Edge Tunnel"] = {false,false};
@@ -209,7 +211,7 @@ void DoorExcluder::initializeExcludedDoors() {
     phendrana["Lake Tunnel"] = {false,false};
     phendrana["Aether Lab Entryway"] = {false,false};
     phendrana["Research Lab Aether"] = {false,true};
-    phendrana["Phendrana's Edge"] = {false,false,false};
+    phendrana["Phendrana's Edge"] = {false,false,false,true};
     phendrana["Gravity Chamber"] = {false,false};
     phendrana["Storage Cave"] = {false};
     phendrana["Security Cave"] = {true};
@@ -1052,6 +1054,298 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         };
     } else if (world == PhendranaDrifts) {
 
+        const QPoint Magmoor_Shorelines(827,197);
+        const QPoint Shorelines_Magmoor(827,419);
+        const QPoint Shorelines_IceTemple(685,504);
+        const QPoint Shorelines_SaveStation(804,709);
+        const QPoint Shorelines_RuinsWest(806,683);
+        const QPoint Shorelines_Walkway(886,669);
+        const QPoint Shorelines_RuinsEast(909,579);
+        const QPoint IceTemple_Shorelines(520,456);
+        const QPoint RuinsWest_Shorelines(825,818);
+        const QPoint Walkway_RuinsEast(1074,756);
+        const QPoint RuinsEast_Shorelines(1074,628);
+        const QPoint IceTemple_Chapel(376,604);
+        const QPoint RuinsWest_Courtyard(879,997);
+        const QPoint RuinsWest_Canyon(743,980);
+        const QPoint Chapel_IceTemple(226,605);
+        const QPoint Canyon_RuinsWest(578,932);
+        const QPoint Courtyard_RuinsWest(846,1188);
+        const QPoint Courtyard_SaveStation(778,1242);
+        const QPoint Courtyard_Research(896,1346);
+        const QPoint Courtyard_Quarantine(998,1244);
+        const QPoint Research_Courtyard(898,1488);
+        const QPoint North_Quarantine(1071,1360);
+        const QPoint Research_MapStation(835,1660);
+        const QPoint Research_Hydra(898,1703);
+        const QPoint Quarantine_North(1130,1613);
+        const QPoint Quarantine_South(1370,1783);
+        const QPoint Quarantine_Monitor(1490,1558);
+        const QPoint Hydra_Research(854,1881);
+        const QPoint Hydra_Observatory(799,1930);
+        const QPoint Quarantine_Magmoor(1266,2050);
+        const QPoint Observatory_Hydra(760,2068);
+        const QPoint Magmoor_Pike(1265,2162);
+        const QPoint Observatory_Tower1(759,2090); // Separate pair
+        const QPoint Observatory_Save(760,2298);
+        const QPoint Pike_Magmoor(1265,2318);
+        const QPoint Observatory_Tower2(377,1947); // Separate pair
+        const QPoint Tower_Observatory(422,1853);
+        const QPoint Pike_Research(1201,2406);
+        const QPoint Pike_Frost(1265-10,2470);
+        const QPoint Pike_Hunter(1265+10,2470);
+        const QPoint Tower_West(460,1801);
+        const QPoint Tower_East(558,1801);
+        const QPoint Research_Pike(1076,2412);
+        const QPoint Frost_Pike(1206,2836);
+        const QPoint Hunter_Pike(1332,2836);
+        const QPoint Core_Aether(1007,2336);
+        const QPoint Frost_SaveStation(1077,2929);
+        const QPoint Frost_Edge(1173,3046);
+        const QPoint Hunter_ChamberHall(1442,2883);
+        const QPoint Hunter_LakeHall(1452,2924);
+        const QPoint Hunter_Edge(1319,3011);
+        const QPoint Aether_Core(982,2248);
+        const QPoint Edge_Frost(1232-10,3223);
+        const QPoint Edge_Hunter(1232+10,3223);
+        const QPoint Gravity_OverWater(1566,2834);
+        const QPoint Gravity_UnderWater(1583,2924);
+        const QPoint Tower_Aether(595,1852);
+        const QPoint Aether_Tower1(639,1947);  // Separate pair
+        const QPoint Aether_Tower2(1020,2090); // Separate pair
+        const QPoint Edge_Storage(1300,3297);
+        const QPoint Edge_Security(1231,3369);
+
+        points["Transport to Magmoor Caverns West"] = {
+            DoorPoint(Magmoor_Shorelines,Up)
+        };
+        points["Shoreline Entrance"] = {
+            DoorPoint(Magmoor_Shorelines,Down),
+            DoorPoint(Shorelines_Magmoor,Up)
+        };
+        points["Phendrana Shorelines"] = {
+            DoorPoint(Shorelines_Magmoor,Down),
+            DoorPoint(Shorelines_IceTemple,Right),
+            DoorPoint(Shorelines_SaveStation,Right),
+            DoorPoint(Shorelines_RuinsWest,Up),
+            DoorPoint(Shorelines_Walkway,Up),
+            DoorPoint(Shorelines_RuinsEast,Left)
+        };
+        points["Temple Entryway"] = {
+            DoorPoint(IceTemple_Shorelines,Right),
+            DoorPoint(Shorelines_IceTemple,Left)
+        };
+        points["Save Station B"] = {
+            DoorPoint(Shorelines_SaveStation,Left)
+        };
+        points["Ruins Entryway"] = {
+            DoorPoint(RuinsWest_Shorelines,Up),
+            DoorPoint(Shorelines_RuinsWest,Down)
+        };
+        points["Plaza Walkway"] = {
+            DoorPoint(Shorelines_Walkway,Down),
+            DoorPoint(Walkway_RuinsEast,Left)
+        };
+        points["Ice Ruins Access"] = {
+            DoorPoint(RuinsEast_Shorelines,Left),
+            DoorPoint(Shorelines_RuinsEast,Right)
+        };
+        points["Chozo Ice Temple"] = {
+            DoorPoint(IceTemple_Shorelines,Left),
+            DoorPoint(IceTemple_Chapel,Right)
+        };
+        points["Ice Ruins West"] = {
+            DoorPoint(RuinsWest_Shorelines,Down),
+            DoorPoint(RuinsWest_Courtyard,Up),
+            DoorPoint(RuinsWest_Canyon,Right)
+        };
+        points["Ice Ruins East"] = {
+            DoorPoint(RuinsEast_Shorelines,Right),
+            DoorPoint(Walkway_RuinsEast,Right)
+        };
+        points["Chapel Tunnel"] = {
+            DoorPoint(Chapel_IceTemple,Right),
+            DoorPoint(IceTemple_Chapel,Left)
+        };
+        points["Courtyard Entryway"] = {
+            DoorPoint(Courtyard_RuinsWest,Up),
+            DoorPoint(RuinsWest_Courtyard,Down)
+        };
+        points["Canyon Entryway"] = {
+            DoorPoint(Canyon_RuinsWest,Right),
+            DoorPoint(RuinsWest_Canyon,Left)
+        };
+        points["Chapel of the Elders"] = {
+            DoorPoint(Chapel_IceTemple,Left)
+        };
+        points["Ruined Courtyard"] = {
+            DoorPoint(Courtyard_RuinsWest,Down),
+            DoorPoint(Courtyard_SaveStation,Right),
+            DoorPoint(Courtyard_Research,Up),
+            DoorPoint(Courtyard_Quarantine,Left)
+        };
+        points["Phendrana Canyon"] = {
+            DoorPoint(Canyon_RuinsWest,Left)
+        };
+        points["Save Station A"] = {
+            DoorPoint(Courtyard_SaveStation,Left)
+        };
+        points["Specimen Storage"] = {
+            DoorPoint(Research_Courtyard,Up),
+            DoorPoint(Courtyard_Research,Down)
+        };
+        points["Quarantine Access"] = {
+            DoorPoint(North_Quarantine,Up),
+            DoorPoint(Courtyard_Quarantine,Right)
+        };
+        points["Research Entrance"] = {
+            DoorPoint(Research_Courtyard,Down),
+            DoorPoint(Research_MapStation,Right),
+            DoorPoint(Research_Hydra,Up)
+        };
+        points["North Quarantine Tunnel"] = {
+            DoorPoint(Quarantine_North,Left),
+            DoorPoint(North_Quarantine,Down)
+        };
+        points["Map Station"] = {
+            DoorPoint(Research_MapStation,Left)
+        };
+        points["Hydra Lab Entryway"] = {
+            DoorPoint(Research_Hydra,Down),
+            DoorPoint(Hydra_Research,Up)
+        };
+        points["Quarantine Cave"] = {
+            DoorPoint(Quarantine_North,Right),
+            DoorPoint(Quarantine_South,Up),
+            DoorPoint(Quarantine_Monitor,Left)
+        };
+        points["Research Lab Hydra"] = {
+            DoorPoint(Hydra_Research,Down),
+            DoorPoint(Hydra_Observatory,Bottom)
+        };
+        points["South Quarantine Tunnel"] = {
+            DoorPoint(Quarantine_South,Down),
+            DoorPoint(Quarantine_Magmoor,Up)
+        };
+        points["Quarantine Monitor"] = {
+            DoorPoint(Quarantine_Monitor,Right)
+        };
+        points["Observatory Access"] = {
+            DoorPoint(Observatory_Hydra,Up),
+            DoorPoint(Hydra_Observatory,Top)
+        };
+        points["Transport to Magmoor Caverns South"] = {
+            DoorPoint(Magmoor_Pike,Up),
+            DoorPoint(Quarantine_Magmoor,Down)
+        };
+        points["Observatory"] = {
+            DoorPoint(Observatory_Hydra,Down),
+            DoorPoint(Observatory_Tower1,Down),
+            DoorPoint(Observatory_Save,Up)
+        };
+        points["Transport Access"] = {
+            DoorPoint(Magmoor_Pike,Down),
+            DoorPoint(Pike_Magmoor,Up)
+        };
+        points["West Tower Entrance"] = {
+            DoorPoint(Observatory_Tower2,Up),
+            DoorPoint(Tower_Observatory,Down)
+        };
+        points["Save Station D"] = {
+            DoorPoint(Observatory_Save,Down)
+        };
+        points["Frozen Pike"] = {
+            DoorPoint(Pike_Research,Right),
+            DoorPoint(Pike_Magmoor,Down),
+            DoorPoint(Pike_Frost,Up),
+            DoorPoint(Pike_Hunter,Up)
+        };
+        points["West Tower "] = {
+            DoorPoint(Tower_Observatory,Up),
+            DoorPoint(Tower_West,Left)
+        };
+        points["Pike Access"] = {
+            DoorPoint(Pike_Research,Left),
+            DoorPoint(Research_Pike,Right)
+        };
+        points["Frost Cave Access"] = {
+            DoorPoint(Pike_Frost,Down),
+            DoorPoint(Frost_Pike,Up)
+        };
+        points["Hunter Cave Access"] = {
+            DoorPoint(Pike_Hunter,Down),
+            DoorPoint(Hunter_Pike,Up)
+        };
+        points["Control Tower"] = {
+            DoorPoint(Tower_East,Left),
+            DoorPoint(Tower_West,Right)
+        };
+        points["Research Core"] = {
+            DoorPoint(Research_Pike,Left),
+            DoorPoint(Core_Aether,Down)
+        };
+        points["Frost Cave"] = {
+            DoorPoint(Frost_SaveStation,Right),
+            DoorPoint(Frost_Pike,Down),
+            DoorPoint(Frost_Edge,Up)
+        };
+        points["Hunter Cave"] = {
+            DoorPoint(Hunter_Pike,Down),
+            DoorPoint(Hunter_Edge,Up),
+            DoorPoint(Hunter_ChamberHall,Left),
+            DoorPoint(Hunter_LakeHall,Left)
+        };
+        points["East Tower"] = {
+            DoorPoint(Tower_Aether,Up),
+            DoorPoint(Tower_East,Right),
+        };
+        points["Research Core Access"] = {
+            DoorPoint(Core_Aether,Up),
+            DoorPoint(Aether_Core,Bottom)
+        };
+        points["Save Station C"] = {
+            DoorPoint(Frost_SaveStation,Left)
+        };
+        points["Upper Edge Tunnel"] = {
+            DoorPoint(Edge_Frost,Up),
+            DoorPoint(Frost_Edge,Down)
+        };
+        points["Lower Edge Tunnel"] = {
+            DoorPoint(Edge_Hunter,Up),
+            DoorPoint(Hunter_Edge,Down)
+        };
+        points["Chamber Access"] = {
+            DoorPoint(Hunter_ChamberHall,Right),
+            DoorPoint(Gravity_OverWater,Left)
+        };
+        points["Lake Tunnel"] = {
+            DoorPoint(Hunter_LakeHall,Right),
+            DoorPoint(Gravity_UnderWater,Left)
+        };
+        points["Aether Lab Entryway"] = {
+            DoorPoint(Tower_Aether,Down),
+            DoorPoint(Aether_Tower1,Up)
+        };
+        points["Research Lab Aether"] = {
+            DoorPoint(Aether_Tower2,Down),
+            DoorPoint(Aether_Core,Top)
+        };
+        points["Phendrana's Edge"] = {
+            DoorPoint(Edge_Hunter,Down),
+            DoorPoint(Edge_Frost,Down),
+            DoorPoint(Edge_Storage,Left),
+            DoorPoint(Edge_Security,Up)
+        };
+        points["Gravity Chamber"] = {
+            DoorPoint(Gravity_UnderWater,Right),
+            DoorPoint(Gravity_OverWater,Right)
+        };
+        points["Storage Cave"] = {
+            DoorPoint(Edge_Storage,Right)
+        };
+        points["Security Cave"] = {
+            DoorPoint(Edge_Security,Down)
+        };
     } else if (world == PhazonMines) {
 
     }
