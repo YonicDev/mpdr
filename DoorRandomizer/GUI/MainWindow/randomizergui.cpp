@@ -271,7 +271,7 @@ void RandomizerGUI::on_actionContents_triggered()
     QProcess *process = new QProcess;
     QStringList args;
     args << QLatin1String("-collectionFile")
-         << QCoreApplication::applicationDirPath().append("/doc/doc_collection.qhc")
+         << QCoreApplication::applicationDirPath().append("/doc/doc_collection_en.qhc")
          << QLatin1String("-enableRemoteControl");
     #ifdef WIN32
     QString command = QCoreApplication::applicationDirPath().append("/assistant");

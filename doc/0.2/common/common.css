@@ -1,0 +1,30 @@
+body {
+    font-family:sans-serif;
+    background-color:black;
+    background-image:url("bg.png");
+    color:white;
+}
+
+h1,h2,h3 {
+    color:orange;
+    border-bottom:2px solid orange;
+    padding:5px;
+}
+h2,h3 {
+    border:none;
+}
+.mono {
+    font-family: monospace;
+}
+img.responsive {
+    width:75%;
+    height:auto;
+}
+
+a, a:active, a:visited {
+    color:deepskyblue;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
