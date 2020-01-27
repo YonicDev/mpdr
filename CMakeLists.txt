@@ -17,7 +17,7 @@ if(MSVC)
     set(QT_EXTRA_COMPONENTS WinExtras)
 endif()
 
-find_package(Qt5 COMPONENTS Widgets LinguistTools Help ${QT_EXTRA_COMPONENTS} REQUIRED)
+find_package(Qt5 COMPONENTS Widgets LinguistTools Help WebEngineWidgets ${QT_EXTRA_COMPONENTS} REQUIRED)
 
 ### add project files
 # find headers and source files
@@ -60,6 +60,7 @@ else()
         ${MPDR_FORMS}
         ${MPDR_HEADERS}
         ${QM_FILES}
+        ${RESOURCE_FILES}
       )
 endif()
 
@@ -100,7 +101,7 @@ file(GLOB DOC_PROJECTS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "doc/*.qhcp")
 if(MSVC)
     foreach(DOC_PROJECT ${DOC_PROJECTS})
         string(REPLACE ".qhcp" ".qhc" DOC_CONTENTS ${DOC_PROJECT})
-        add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o ${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT})
+        add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o ${CMAKE_CURRENT_BINARY_DIR}/${DOC_CONTENTS})
     endforeach()
 elseif(UNIX)
     foreach(DOC_PROJECT ${DOC_PROJECTS})
@@ -118,5 +119,5 @@ elseif(UNIX)
     set(RANDOMPRIME_LIB libdl.so pthread.so)
 endif()
 
-target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets Qt5::Help randomprime ${RANDOMPRIME_LIB})
+target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets Qt5::Help Qt5::WebEngineWidgets randomprime ${RANDOMPRIME_LIB})
 target_include_directories(mpdr-qt PUBLIC ${MPDR_DIRS})
