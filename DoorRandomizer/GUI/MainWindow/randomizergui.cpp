@@ -14,7 +14,7 @@
 #include <randomizer.h>
 #include <doorexcluder.h>
 #include <aboutdialog.h>
-#include <helpdialog.h>
+#include <docdialog.h>
 
 RandomizerGUI::RandomizerGUI(QWidget *parent)
     : QMainWindow(parent)
@@ -269,7 +269,7 @@ void RandomizerGUI::on_actionAbout_MPDR_triggered()
 
 void RandomizerGUI::on_actionContents_triggered()
 {
-    HelpDialog *dialog = new HelpDialog(this);
+    DocDialog *dialog = new DocDialog(this);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
     dialog->open();
 }
