@@ -17,6 +17,7 @@ public:
     ~DocDialog();
 private slots:
     void processUrl(QUrl);
+    void changeVersion(QString);
 private:
     Ui::DocDialog *ui;
     QHelpEngine *engine;
