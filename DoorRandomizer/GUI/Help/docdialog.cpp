@@ -4,13 +4,25 @@
 #include <QHelpContentWidget>
 #include <QHelpIndexWidget>
 #include <QWebEngineHistory>
+#include <QFileInfo>
 
 DocDialog::DocDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DocDialog)
 {
 
-    engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
+    language = QLocale::system().name();
+    language.truncate(language.lastIndexOf("_"));
+
+    QString doc_path = QCoreApplication::applicationDirPath() + "/doc/doc_collection_"+language+".qhc";
+
+    QFileInfo trans_check(doc_path);
+    if(trans_check.exists() && trans_check.isFile())
+        engine = new QHelpEngine(doc_path,this);
+    else {
+        language = "en";
+        engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
+    }
     engine->setupData();
 
     ui->setupUi(this);
@@ -23,7 +35,7 @@ DocDialog::DocDialog(QWidget *parent) :
     ui->tabber->addTab(engine->indexWidget(),tr("Index"));
     connect(engine->contentWidget(),SIGNAL(linkActivated(QUrl)),this,SLOT(processUrl(QUrl)));
 
-    ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/0.2/en/index.html"));
+    ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/0.2/"+language+"/index.html"));
     connect(ui->browser,SIGNAL(urlChanged(QUrl)),this,SLOT(onBrowserRefresh()));
 }
 
@@ -58,7 +70,7 @@ void DocDialog::homePage(QString version_number) {
     if(version_number == "0.1")
         ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/index.html"));
     else
-        ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/en/index.html"));
+        ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/"+language+"/index.html"));
 }
 
 

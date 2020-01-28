@@ -28,6 +28,7 @@ private slots:
 private:
     Ui::DocDialog *ui;
     QHelpEngine *engine;
+    QString language;
     void homePage(QString version_number);
 };
 

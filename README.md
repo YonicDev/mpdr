@@ -44,6 +44,8 @@ You can save your configuration with JSON presets.
 
 ## Translation
 
+### User Interface
+
 The Qt version of MPDR can be localized using the same guidelines from the [Qt Linguist manual](https://doc.qt.io/qt-5/qtlinguist-index.html).
 
 MPDR will automatically determine which language to use from the system's current locale. In the future, an option to switch languages may be added.
@@ -57,9 +59,29 @@ To add a new language, you have two options:
 
 > **NOTE:** The logs produced by the backend ([randomprime](https://github.com/YonicDev/randomprime), the actual randomizer) cannot be translated.
 
+> **TIP:** It is heavily recommended that you use the source code for a stable release to translate the program.
+
 If you have an issue with translation such as requesting a disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
 
 > **WARNING:** If you update the MPDR repository to a newer revision and you were required to rebuild the whole project (including randomprime), the translation files might be erased in the process! Hopefully, you can recover them by [reseting/discarding](https://git-scm.com/docs/git-reset) the change that causes them to be removed. *However, all local changes that weren't commited to the repository will be permanently lost.* So make sure you backup the files either way!
+
+### Documentation
+
+To translate the documentation regarding the latest version to a new language, you'll need to duplicate the following:
+
+* The `doc_collection_en.qhcp` located in the `doc` folder. In this file, you'll have to remove all the doc entries of the previous versions unless you want to translate them as well.
+* The `doc_en.qhcp` located in the latest version folder in the `doc` directory.
+* The `en` folder located in the latest version folder in the `doc` directory.
+
+The `en` in the qhcp filenames and the `en` folder must be replaced with the language code specified in the [ISO 639-1 list of codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) that matches the language you want to translate to.
+
+Afterwards, you can simply translate the html documents within the folder you've just duplicated. When you're done, modify the references to the files in both qhcp files. Then, you'll have to [build the project](https://github.com/YonicDev/mpdr-qt#build) to apply the new documentation.
+
+The program should automatically be able to load the documentation set that matches the current system locale settings.
+
+For more information on the help files, check [The Qt Help Framework](https://doc.qt.io/qt-5/qthelp-framework.html) documentation.
+
+> **NOTE:** To apply all changes to the documentation, you will have to clear the CMake configuration, then rerun CMake, and finally build the project. If this takes quite some time, try changing a bit some of the cpp files in a non-destructive way (i.e. add a new line) and simply build the program.
 
 ## Build
 
