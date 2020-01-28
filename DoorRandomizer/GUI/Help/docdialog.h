@@ -18,9 +18,17 @@ public:
 private slots:
     void processUrl(QUrl);
     void changeVersion(QString);
+    void onBrowserRefresh();
+    void on_home_button_clicked();
+
+    void on_previous_button_clicked();
+
+    void on_forward_button_clicked();
+
 private:
     Ui::DocDialog *ui;
     QHelpEngine *engine;
+    void homePage(QString version_number);
 };
 
 #endif // DOCDIALOG_H

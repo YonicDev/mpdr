@@ -17,41 +17,95 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="previous_button">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
-        <string>Back</string>
+        <string notr="true"/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../../resources/res.qrc">
+         <normaloff>:/img/doc_icon_previous.png</normaloff>:/img/doc_icon_previous.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="forward_button">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
-        <string>Forward</string>
+        <string notr="true"/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../../resources/res.qrc">
+         <normaloff>:/img/doc_icon_next.png</normaloff>:/img/doc_icon_next.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="home_button">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
-        <string>Home</string>
+        <string notr="true"/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../../resources/res.qrc">
+         <normaloff>:/img/doc_icon_home.png</normaloff>:/img/doc_icon_home.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -130,6 +184,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../../resources/res.qrc"/>
+ </resources>
  <connections/>
 </ui>
