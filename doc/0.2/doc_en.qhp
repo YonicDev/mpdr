@@ -10,24 +10,24 @@
         <filterAttribute>mpdr</filterAttribute>
         <filterAttribute>0.2</filterAttribute>
         <toc>
-            <section title="MPDR 0.2" ref="en/index.html">
-                <section title="Requirements" ref="en/requirements.html"/>
-                <section title="User Interface" ref="en/interface.html"/>
-                <section title="Configuring MPDR" ref="en/configuration.html">
-                    <section title="Excluding doors" ref="en/exclusion.html"/>
+            <section title="MPDR 0.2" ref="0.2/en/index.html">
+                <section title="Requirements" ref="0.2/en/requirements.html"/>
+                <section title="User Interface" ref="0.2/en/interface.html"/>
+                <section title="Configuring MPDR" ref="0.2/en/configuration.html">
+                    <section title="Excluding doors" ref="0.2/en/exclusion.html"/>
                 </section>
-                <section title="Configuration presets" ref="en/presets.html"/>
-                <section title="FAQ" ref="en/faq.html"/>
-                <section title="Upcoming features" ref="en/todo.html"/>
+                <section title="Configuration presets" ref="0.2/en/presets.html"/>
+                <section title="FAQ" ref="0.2/en/faq.html"/>
+                <section title="Upcoming features" ref="0.2/en/todo.html"/>
             </section>
         </toc>
         <keywords>
-            <keyword name="preset" ref="en/presets.html"/>
-            <keyword name="ui" ref="en/interface.html"/>
+            <keyword name="preset" ref="0.2/en/presets.html"/>
+            <keyword name="ui" ref="0.2/en/interface.html"/>
         </keywords>
         <files>
-            <file>./common/*</file>
-            <file>./en/*</file>
+            <file>0.2/common/*</file>
+            <file>0.2/en/*</file>
         </files>
     </filterSection>
 </QtHelpProject>

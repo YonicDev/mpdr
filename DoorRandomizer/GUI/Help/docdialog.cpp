@@ -11,6 +11,8 @@ DocDialog::DocDialog(QWidget *parent) :
     ui(new Ui::DocDialog)
 {
 
+    const QString LATEST_VERSION = "0.2";
+
     language = QLocale::system().name();
     language.truncate(language.lastIndexOf("_"));
 
@@ -23,7 +25,15 @@ DocDialog::DocDialog(QWidget *parent) :
         language = "en";
         engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
     }
-    engine->setupData();
+
+    #if FALLBACK_DOCUMENTATION
+    // Reload the engine using english if docs for latest version aren't available
+    if(engine->currentFilter() != "MPDR v"+LATEST_VERSION) {
+        language = "en";
+        engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
+        engine->setupData();
+    }
+    #endif
 
     ui->setupUi(this);
 
@@ -35,7 +45,7 @@ DocDialog::DocDialog(QWidget *parent) :
     ui->tabber->addTab(engine->indexWidget(),tr("Index"));
     connect(engine->contentWidget(),SIGNAL(linkActivated(QUrl)),this,SLOT(processUrl(QUrl)));
 
-    ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/0.2/"+language+"/index.html"));
+    ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+LATEST_VERSION+"/"+LATEST_VERSION+"/"+language+"/index.html"));
     connect(ui->browser,SIGNAL(urlChanged(QUrl)),this,SLOT(onBrowserRefresh()));
 }
 

@@ -67,13 +67,15 @@ If you have an issue with translation such as requesting a disambiguation, [subm
 
 ### Documentation
 
+#### New translations
+
 To translate the documentation regarding the latest version to a new language, you'll need to duplicate the following:
 
 * The `doc_collection_en.qhcp` located in the `doc` folder. In this file, you'll have to remove all the doc entries of the previous versions unless you want to translate them as well.
-* The `doc_en.qhcp` located in the latest version folder in the `doc` directory.
-* The `en` folder located in the latest version folder in the `doc` directory.
+* The `doc_en.qhp` located in the latest version folder in the `doc` directory.
+* The `en` folder located in the base version folder and the latest revision folder in the version directory.
 
-The `en` in the qhcp filenames and the `en` folder must be replaced with the language code specified in the [ISO 639-1 list of codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) that matches the language you want to translate to.
+The `en` in the the files' names and the `en` folder name must be replaced with the language code specified in the [ISO 639-1 list of codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) that matches the language you want to translate to.
 
 Afterwards, you can simply translate the html documents within the folder you've just duplicated. When you're done, modify the references to the files in both qhcp files. Then, you'll have to [build the project](https://github.com/YonicDev/mpdr-qt#build) to apply the new documentation.
 
@@ -81,7 +83,17 @@ The program should automatically be able to load the documentation set that matc
 
 For more information on the help files, check [The Qt Help Framework](https://doc.qt.io/qt-5/qthelp-framework.html) documentation.
 
-> **NOTE:** To apply all changes to the documentation, you will have to clear the CMake configuration, then rerun CMake, and finally build the project. If this takes quite some time, try changing a bit some of the cpp files in a non-destructive way (i.e. add a new line) and simply build the program.
+> **NOTE:** To apply all changes to the documentation, you will have to clear the CMake configuration, then rerun CMake, and finally build the project.
+
+#### Updating translations
+
+Version numbers are indicated by the format `v{major version}.{minor version}.{revision}`.
+
+If you are adding a new version to an existing translation regardless of major or minor, you'll have to update the `<currentFilter>` and `<namespace>` fields in the collection qhcp file, and the `<filterAttribute>` and the `<customFilter name="">` entries in the ***new version***'s documentation qhp file to the target version. Otherwise, the new documentation will not be displayed properly.
+
+On the other hand, if you are adding a new revision, you'll have to duplicate the contents of the `en` folder inside the revision folder (which is inside the version directory) and expand the qhp file that corresponds to the target version so that it incorporates the files on that new folder.
+
+> **NOTE:** MPDR will fallback to the English documentation if the latest version's translated documentations are not available. Presently, this behavior can be disabled by setting the `FALLBACK_DOCUMENTATION` flag in docdialog.h to `0` at build time, but this can cause some functions of the documentation viewer to stop working correctly.
 
 ## Build
 

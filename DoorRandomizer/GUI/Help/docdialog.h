@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QHelpEngine>
 
+#define FALLBACK_DOCUMENTATION 1
+
 namespace Ui {
 class DocDialog;
 }
