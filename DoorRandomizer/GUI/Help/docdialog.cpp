@@ -5,6 +5,7 @@
 #include <QHelpIndexWidget>
 #include <QWebEngineHistory>
 #include <QFileInfo>
+#include <QMessageBox>
 
 DocDialog::DocDialog(QWidget *parent) :
     QDialog(parent),
@@ -24,6 +25,9 @@ DocDialog::DocDialog(QWidget *parent) :
     else {
         language = "en";
         engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
+        QMessageBox::warning(this,tr("MPDR Documentation"),
+            //: %1 = Already translated system language name.
+            tr("No documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
     }
 
     #if FALLBACK_DOCUMENTATION
@@ -31,6 +35,9 @@ DocDialog::DocDialog(QWidget *parent) :
     if(engine->currentFilter() != "MPDR v"+LATEST_VERSION) {
         language = "en";
         engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
+        QMessageBox::warning(this,tr("MPDR Documentation"),
+            //: %1 = Already translated system language name.
+            tr("The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
         engine->setupData();
     }
     #endif
@@ -41,8 +48,8 @@ DocDialog::DocDialog(QWidget *parent) :
     ui->versionSelector->setCurrentText(engine->currentFilter());
     connect(ui->versionSelector,SIGNAL(currentTextChanged(QString)),this,SLOT(changeVersion(QString)));
 
-    ui->tabber->addTab(engine->contentWidget(),tr("Content"));
-    ui->tabber->addTab(engine->indexWidget(),tr("Index"));
+    ui->tabber->addTab(engine->contentWidget(),tr("Content","table-of-contents"));
+    ui->tabber->addTab(engine->indexWidget(),tr("Index","keyword-index"));
     connect(engine->contentWidget(),SIGNAL(linkActivated(QUrl)),this,SLOT(processUrl(QUrl)));
 
     ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+LATEST_VERSION+"/"+LATEST_VERSION+"/"+language+"/index.html"));
@@ -55,14 +62,35 @@ DocDialog::~DocDialog()
 }
 
 void DocDialog::processUrl(QUrl url) {
+
+    // Target url: file:///path/to/doc/#{version: taken from filter}/#{revision: taken from namespace}/#{language}/file.html
+
     QString unprocessed_url = url.toString();
-    QString domain_name = "qthelp://"+engine->namespaceName(QCoreApplication::applicationDirPath()+ "/doc/doc_collection_en.qhc");
+
+    #if WIN32
+        QString processed_url = "file:///";
+    #else
+        QString processed_url = "file://"
+    #endif
 
     int version_number_index = engine->currentFilter().length() - engine->currentFilter().lastIndexOf("v")-1;
     QString version_number = engine->currentFilter().right(version_number_index);
 
-    unprocessed_url.insert(unprocessed_url.lastIndexOf("/doc/")+5,version_number+"/");
-    QString processed_url = "file:///"+unprocessed_url.replace(0,domain_name.length(),QCoreApplication::applicationDirPath());
+    if(version_number!="0.1") {
+        QRegularExpression revision_regex("/doc/([0-9]\\.[0-9](?:\\.[0-9])?)");
+        QString revision_number = revision_regex.match(unprocessed_url).captured(1);
+
+        QRegularExpression file_regex("/doc/[0-9]\\.[0-9]\\.?[0-9]?/[a-z]{2}/(\\S+)");
+        QString filename = file_regex.match(unprocessed_url).captured(1);
+
+        processed_url += QCoreApplication::applicationDirPath() + "/doc/" + version_number + "/" + revision_number + "/" + language + "/" + filename;
+    } else {
+        QRegularExpression file_regex("/doc/(\\S+)");
+        QString filename = file_regex.match(unprocessed_url).captured(1);
+
+        processed_url += QCoreApplication::applicationDirPath() + "/doc/" + version_number + "/" + filename;
+    }
+
     ui->browser->setUrl(QUrl(processed_url));
     onBrowserRefresh();
 }

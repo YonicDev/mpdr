@@ -10,15 +10,15 @@
         <filterAttribute>mpdr</filterAttribute>
         <filterAttribute>0.2</filterAttribute>
         <toc>
-            <section title="MPDR 0.2" ref="es/index.html">
-                <section title="Requirements" ref="es/requirements.html"/>
-                <section title="User Interface" ref="es/interface.html"/>
-                <section title="Configuring MPDR" ref="es/configuration.html">
-                    <section title="Excluding doors" ref="es/exclusion.html"/>
+            <section title="MPDR 0.2" ref="0.2/es/index.html">
+                <section title="Requirements" ref="0.2/es/requirements.html"/>
+                <section title="User Interface" ref="0.2/es/interface.html"/>
+                <section title="Configuring MPDR" ref="0.2/es/configuration.html">
+                    <section title="Excluding doors" ref="0.2/es/exclusion.html"/>
                 </section>
-                <section title="Configuration presets" ref="es/presets.html"/>
-                <section title="FAQ" ref="es/faq.html"/>
-                <section title="Upcoming features" ref="es/todo.html"/>
+                <section title="Configuration presets" ref="0.2/es/presets.html"/>
+                <section title="FAQ" ref="0.2/es/faq.html"/>
+                <section title="Upcoming features" ref="0.2/es/todo.html"/>
             </section>
         </toc>
         <keywords>
@@ -26,8 +26,8 @@
             <keyword name="ui" ref="es/interface.html"/>
         </keywords>
         <files>
-            <file>common/*</file>
-            <file>es/*</file>
+            <file>0.2/common/*</file>
+            <file>0.2/es/*</file>
         </files>
     </filterSection>
 </QtHelpProject>
