@@ -70,7 +70,7 @@ void DocDialog::processUrl(QUrl url) {
     #if WIN32
         QString processed_url = "file:///";
     #else
-        QString processed_url = "file://"
+        QString processed_url = "file://";
     #endif
 
     int version_number_index = engine->currentFilter().length() - engine->currentFilter().lastIndexOf("v")-1;
