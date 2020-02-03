@@ -105,10 +105,15 @@ void DocDialog::changeVersion(QString new_ver) {
 }
 
 void DocDialog::homePage(QString version_number) {
+    #if WIN32
+        QString schema = "file:///";
+    #else
+        QString schema = "file://";
+    #endif
     if(version_number == "0.1")
-        ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/index.html"));
+        ui->browser->setUrl(QUrl(schema+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/index.html"));
     else
-        ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/"+language+"/index.html"));
+        ui->browser->setUrl(QUrl(schema+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/"+version_number+"/"+language+"/index.html"));
 }
 
 
