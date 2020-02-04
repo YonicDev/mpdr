@@ -33,7 +33,7 @@ foreach (_headerFile ${MPDR_HEADERS})
 endforeach()
 
 # translations
-# To make a new translation file, fill the NEW_TS variable with "LanguagePacks/mpdr_x.ts"
+# To make or update a new translation file, fill the NEW_TS variable with "LanguagePacks/mpdr_x.ts"
 # where "x" is the locale for a corresponding language.
 # Run CMake, build the project and empty the NEW_TS variable again so that it can
 # compile the program correctly.

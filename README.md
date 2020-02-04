@@ -59,6 +59,8 @@ To add a new language, you have two options:
 
 If you have an issue with translation such as requesting a disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
 
+To update an existing translation file, follow the same steps as if you were to generate one, but use the same filename as the one that exists.
+
 > **WARNING:** If you update the MPDR repository to a newer revision and you were required to rebuild the whole project (including randomprime), the translation files might be erased in the process! Hopefully, you can recover them by [reseting/discarding](https://git-scm.com/docs/git-reset) the change that causes them to be removed. *However, all local changes that weren't commited to the repository will be permanently lost.* So make sure you backup the files either way!
 
 ## Build
