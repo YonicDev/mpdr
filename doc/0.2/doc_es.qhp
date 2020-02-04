@@ -22,8 +22,8 @@
             </section>
         </toc>
         <keywords>
-            <keyword name="preset" ref="es/presets.html"/>
-            <keyword name="ui" ref="es/interface.html"/>
+            <keyword name="preset" ref="0.2/es/presets.html"/>
+            <keyword name="ui" ref="0.2/es/interface.html"/>
         </keywords>
         <files>
             <file>0.2/common/*</file>

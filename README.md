@@ -93,6 +93,8 @@ If you are adding a new version to an existing translation regardless of major o
 
 On the other hand, if you are adding a new revision, you'll have to duplicate the contents of the `en` folder inside the revision folder (which is inside the version directory) and expand the qhp file that corresponds to the target version so that it incorporates the files on that new folder.
 
+The keywords should be updated to link to the newer articles as well!
+
 > **NOTE:** MPDR will fallback to the English documentation if the latest version's translated documentations are not available. Presently, this behavior can be disabled by setting the `FALLBACK_DOCUMENTATION` flag in docdialog.h to `0` at build time, but this can cause some functions of the documentation viewer to stop working correctly.
 
 ## Build
