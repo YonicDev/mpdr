@@ -259,6 +259,7 @@ void DoorExcluder::initializeExcludedDoors() {
     tallon["Transport to Chozo Ruins South"] = {false};
     tallon["Life Grove"] = {true};
     tallon["Transport to Phazon Mines East"] = {false};
+    mines["Transport to Tallon Overworld South"] = {false};
     mines["Quarry Access"] = {false,false};
     mines["Main Quarry"] = {false,false,false,false};
     mines["Waste Disposal"] = {false,false};
@@ -270,6 +271,7 @@ void DoorExcluder::initializeExcludedDoors() {
     mines["Storage Depot B"] = {false};
     mines["Elevator Access A"] = {false,false};
     mines["Storage Depot A"] = {false};
+    mines["Security Access B"] = {true,true};
     mines["Elite Research"] = {false,true};
     mines["Elevator A"] = {false,false};
     mines["Elite Control Access"] = {false,false};
@@ -1348,6 +1350,221 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         };
     } else if (world == PhazonMines) {
 
+        const QPoint Tallon_Quarry(1629,425);
+        const QPoint Quarry_Tallon(1516,466);
+        const QPoint Quarry_Ore(1348,427);
+        const QPoint Quarry_SaveStation(1395,618);
+        const QPoint Quarry_Security(1294,620);
+        const QPoint Ore_Quarry(1329,358);
+        const QPoint Security_Quarry(1188,651);
+        const QPoint Ore_ResearchHall(1264,289+10);
+        const QPoint Ore_GrappleBeam(1329,220);
+        const QPoint Ore_Elevator(1264,289-10);
+        const QPoint Security_Research(1128,514);
+        const QPoint Security_Depot(1128,498);
+        const QPoint Research_OreHall(1179,291);
+        const QPoint ElevatorA_Ore(1214,222);
+        const QPoint Research_Security(1089,365);
+        const QPoint ElevatorA_EliteControl(1230,1309);
+        const QPoint EliteControl_ElevatorA(1311,1399);
+        const QPoint EliteControl_Maintenance(1159,1471);
+        const QPoint EliteControl_Omega(1202,1528);
+        const QPoint Maintenance_EliteControl(1026,1539);
+        const QPoint Omega_EliteControl(1249,1653);
+        const QPoint Processing_Maintenance(334,1119);
+        const QPoint Processing_Magmoor(231,1033);
+        const QPoint Processing_Quarters(238,1057);
+        const QPoint Omega_MapStation(1210,1823);
+        const QPoint Omega_DynamoHall(1283,1802);
+        const QPoint Magmoor_Processing(230,908);
+        const QPoint Quarters_Processing(176,1156);
+        const QPoint Dynamo_OmegaHall(1398,1750);
+        const QPoint Quarters_MetroidHall(177,1419);
+        const QPoint Dynamo_QuarantineHall(1464,1546);
+        const QPoint Dynamo_SaveStation(1469,1759);
+        const QPoint Metroid_QuartersHall(265,1484);
+        const QPoint Quarantine_DynamoHall(1417,1421);
+        const QPoint Metroid_FungalHall(597,1453);
+        const QPoint Metroid_SaveStation(324,1620);
+        const QPoint Quarantine_ElevatorB(1500,1061);
+        const QPoint ElevatorB_Quarantine(1462,942);
+        const QPoint FungalHall_Metroid(675,1389);
+        const QPoint FungalHall_Missile(813,1290);
+        const QPoint FungalHall_Phazon(751,1032);
+        const QPoint ElevatorB_FungalHall(770,521);
+        const QPoint FungalHall_ElevatorB(739,630);
+        const QPoint Phazon_FungalHall(662,973);
+
+        points["Transport to Tallon Overworld South"] = {
+            DoorPoint(Tallon_Quarry,Right)
+        };
+        points["Quarry Access"] = {
+            DoorPoint(Quarry_Tallon,Right),
+            DoorPoint(Tallon_Quarry,Left)
+        };
+        points["Main Quarry"] = {
+            DoorPoint(Quarry_Ore,Down),
+            DoorPoint(Quarry_Tallon,Left),
+            DoorPoint(Quarry_SaveStation,Up),
+            DoorPoint(Quarry_Security,Up)
+        };
+        points["Waste Disposal"] = {
+            DoorPoint(Quarry_Ore,Up),
+            DoorPoint(Ore_Quarry,Down)
+        };
+        points["Save Station Mines A"] = {
+            DoorPoint(Quarry_SaveStation,Down)
+        };
+        points["Security Access A"] = {
+            DoorPoint(Quarry_Security,Down),
+            DoorPoint(Security_Quarry,Right)
+        };
+        points["Ore Processing"] = {
+            DoorPoint(Ore_ResearchHall,Right),
+            DoorPoint(Ore_GrappleBeam,Down),
+            DoorPoint(Ore_Quarry,Up),
+            DoorPoint(Ore_Elevator,Right)
+        };
+        points["Mine Security Station"] = {
+            DoorPoint(Security_Quarry,Left),
+            DoorPoint(Security_Research,Bottom),
+            DoorPoint(Security_Depot,Down)
+        };
+        points["Research Access"] = {
+            DoorPoint(Ore_ResearchHall,Left),
+            DoorPoint(Research_OreHall,Right)
+        };
+        points["Storage Depot B"] = {
+            DoorPoint(Ore_GrappleBeam,Up)
+        };
+        points["Elevator Access A"] = {
+            DoorPoint(Ore_Elevator,Left),
+            DoorPoint(ElevatorA_Ore,Right)
+        };
+        points["Storage Depot A"] = {
+            DoorPoint(Security_Depot,Up)
+        };
+        points["Elite Research"] = {
+            DoorPoint(Research_OreHall,Left),
+            DoorPoint(Research_Security,Top)
+        };
+        points["Security Access B"] = {
+            DoorPoint(Research_Security,Bottom),
+            DoorPoint(Security_Research,Top)
+        };
+        points["Elevator A"] = {
+            DoorPoint(ElevatorA_Ore,Left),
+            DoorPoint(ElevatorA_EliteControl,Left)
+        };
+        points["Elite Control Access"] = {
+            DoorPoint(ElevatorA_EliteControl,Right),
+            DoorPoint(EliteControl_ElevatorA,Up)
+        };
+        points["Elite Control"] = {
+            DoorPoint(EliteControl_Maintenance,Right),
+            DoorPoint(EliteControl_ElevatorA,Down),
+            DoorPoint(EliteControl_Omega,Bottom)
+        };
+        points["Maintenance Tunnel"] = {
+            DoorPoint(EliteControl_Maintenance,Left),
+            DoorPoint(Maintenance_EliteControl,Down)
+        };
+        points["Ventilation Shaft"] = {
+            DoorPoint(Omega_EliteControl,Up),
+            DoorPoint(EliteControl_Omega,Top)
+        };
+        points["Phazon Processing Center"] = {
+            DoorPoint(Processing_Magmoor,Down),
+            DoorPoint(Processing_Maintenance,Up),
+            DoorPoint(Processing_Quarters,Right)
+        };
+        points["Omega Research"] = {
+            DoorPoint(Omega_MapStation,Up),
+            DoorPoint(Omega_EliteControl,Down),
+            DoorPoint(Omega_DynamoHall,Top)
+        };
+        points["Transport Access"] = {
+            DoorPoint(Processing_Magmoor,Up),
+            DoorPoint(Magmoor_Processing,Down)
+        };
+        points["Processing Center Access"] = {
+            DoorPoint(Processing_Quarters,Left),
+            DoorPoint(Quarters_Processing,Up)
+        };
+        points["Map Station Mines"] = {
+            DoorPoint(Omega_MapStation,Down)
+        };
+        points["Dynamo Access"] = {
+            DoorPoint(Dynamo_OmegaHall,Left),
+            DoorPoint(Omega_DynamoHall,Bottom)
+        };
+        points["Transport to Magmoor Caverns South"] = {
+            DoorPoint(Magmoor_Processing,Up)
+        };
+        points["Elite Quarters"] = {
+            DoorPoint(Quarters_MetroidHall,Up),
+            DoorPoint(Quarters_Processing,Down)
+        };
+        points["Central Dynamo"] = {
+            DoorPoint(Dynamo_OmegaHall,Right),
+            DoorPoint(Dynamo_QuarantineHall,Down),
+            DoorPoint(Dynamo_SaveStation,Up)
+        };
+        points["Elite Quarters Access"] = {
+            DoorPoint(Metroid_QuartersHall,Left),
+            DoorPoint(Quarters_MetroidHall,Down)
+        };
+        points["Quarantine Access A"] = {
+            DoorPoint(Dynamo_QuarantineHall,Up),
+            DoorPoint(Quarantine_DynamoHall,Down)
+        };
+        points["Save Station Mines B"] = {
+            DoorPoint(Dynamo_SaveStation,Down)
+        };
+        points["Metroid Quarantine B"] = {
+            DoorPoint(Metroid_FungalHall,Left),
+            DoorPoint(Metroid_QuartersHall,Right),
+            DoorPoint(Metroid_SaveStation,Up)
+        };
+        points["Metroid Quarantine A"] = {
+            DoorPoint(Quarantine_DynamoHall,Up),
+            DoorPoint(Quarantine_ElevatorB,Down)
+        };
+        points["Quarantine Access B"] = {
+            DoorPoint(Metroid_FungalHall,Right),
+            DoorPoint(FungalHall_Metroid,Down)
+        };
+        points["Save Station Mines C"] = {
+            DoorPoint(Metroid_SaveStation,Down)
+        };
+        points["Elevator Access B"] = {
+            DoorPoint(Quarantine_ElevatorB,Up),
+            DoorPoint(ElevatorB_Quarantine,Down)
+        };
+        points["Fungal Hall B"] = {
+            DoorPoint(FungalHall_Missile,Left),
+            DoorPoint(FungalHall_Metroid,Up),
+            DoorPoint(FungalHall_Phazon,Down)
+        };
+        points["Elevator B"] = {
+            DoorPoint(ElevatorB_Quarantine,Up),
+            DoorPoint(ElevatorB_FungalHall,Up)
+        };
+        points["Missile Station Mines"] = {
+            DoorPoint(FungalHall_Missile,Right)
+        };
+        points["Phazon Mining Tunnel"] = {
+            DoorPoint(FungalHall_Phazon,Up),
+            DoorPoint(Phazon_FungalHall,Down)
+        };
+        points["Fungal Hall Access"] = {
+            DoorPoint(FungalHall_ElevatorB,Up),
+            DoorPoint(ElevatorB_FungalHall,Down)
+        };
+        points["Fungal Hall A"] = {
+            DoorPoint(Phazon_FungalHall,Up),
+            DoorPoint(FungalHall_ElevatorB,Down)
+        };
     }
 
     RoomDoorList worldmap = excluded_doors->at(world);
