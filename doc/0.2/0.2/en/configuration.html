@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Configuration | MPDR Documentation v0.1</title>
+		<title>Configuration | MPDR Documentation v0.2</title>
 		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -23,7 +23,11 @@
 				<h2>Advanced properties</h2>
 				<p>These properties can be controlled from the windows that pop up from the Advanced settings buttons in the main window.</p>
 				<h3>Excluded doors</h3>
-					<p>Currently it's not possible to exclude doors from being randomized.</p>
+					<center><img src="./2-interface-4.png"/></center>
+					<p>You can choose which doors shall not be randomized. All excluded doors will have the same color as they would in the original game.</p>
+					<p>By default, all doors that MPDR cannot randomize are excluded.</p>
+					<div class="ambox">Because they can't be randomized, their exclusion cannot be undone.</div>
+					<p>For more information, check the <a href="./exclusion.html">Excluding doors</a> article.</p>
 			    <h3>Initial pickups</h3>
 					<center><img class="responsive" style="max-width:531px" src="./2-interface-2.png"/></center>
 					<p>You can choose which upgrades and expansions you'll start with upon landing on Tallon Overworld. Note that currently some pickups cannot be toggled on or off.</p>
@@ -55,11 +59,8 @@
 					<h4>Miscellaneous patches</h4>
 					<p>These patches are merely aesthetical.</p>
 					<ul>
-						<li><b>Fix Flaaghra music files:</b> In the 0-00 version, the Flaaghra music's loop is broken, making it impossible to hear the whole theme.
-						By using a Metroid Prime Trilogy disc file, it's possible to fix it so that the entire theme can be played.</li>
+						<li><b>Fix Flaaghra music files:</b> In the 0-00 version, the Flaaghra music uses a shortened version. By using a Metroid Prime Trilogy disc file, MPDR will copy the full theme for Flaaghra so that it can be heard in that version.</li>
 						<li><b>Keep Attract Mode:</b> If active, the videos that show on the title screen after a while will not be erased.</li>
 					</ul>
 	</body>
-
-	<script></script>
 </html>

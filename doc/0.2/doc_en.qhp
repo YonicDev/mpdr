@@ -11,6 +11,7 @@
         <filterAttribute>0.2</filterAttribute>
         <toc>
             <section title="MPDR 0.2" ref="0.2/en/index.html">
+                <section title="What's new" ref="0.2/en/whatsnew.html"/>
                 <section title="Requirements" ref="0.2/en/requirements.html"/>
                 <section title="User Interface" ref="0.2/en/interface.html"/>
                 <section title="Configuring MPDR" ref="0.2/en/configuration.html">
@@ -24,6 +25,10 @@
         <keywords>
             <keyword name="preset" ref="0.2/en/presets.html"/>
             <keyword name="ui" ref="0.2/en/interface.html"/>
+            <keyword name="exclude" ref="0.2/en/exclusion.html"/>
+            <keyword name="exclusion" ref="0.2/en/exclusion.html"/>
+            <keyword name="features" ref="0.2/en/whatsnew.html"/>
+            <keyword name="faq" ref="0.2/en/faq.html"/>
         </keywords>
         <files>
             <file>0.2/common/*</file>
