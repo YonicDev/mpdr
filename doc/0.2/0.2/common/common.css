@@ -13,12 +13,11 @@ h1,h2,h3 {
 h2,h3 {
     border:none;
 }
+h4,h5,h6 {
+    color:#fcdb8f;
+}
 .mono {
     font-family: monospace;
-}
-img.responsive {
-    width:75%;
-    height:auto;
 }
 
 a, a:active, a:visited {
@@ -27,4 +26,30 @@ a, a:active, a:visited {
 }
 a:hover {
     text-decoration: underline;
+}
+
+.ambox {
+    padding:10px;
+    background-color:rgba(23,132,234,0.333);
+    border-left:5px solid #1784EA;
+}
+
+.ambox.warning {
+    background-color:rgba(120,80,0,0.5);
+    border-color: orange;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+}
+
+figcaption.imgver {
+    font-family: monospace;
+    font-size:9pt;
+    color:rgb(180,244,255);
+    font-style: normal;
 }

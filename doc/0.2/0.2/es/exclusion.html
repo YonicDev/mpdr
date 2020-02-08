@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Excluyendo puertas | Documentación de MPDR v0.2</title>
+		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>Excluyendo puertas</h1>
+		<figure>
+			<img src="4-doorexcluder-0.png"/>
+		</figure>
+		<p>La herramienta de exclusión de puertas sirve de asistente para seleccionar qué puertas no se deben randomizar.
+		Muestra un mapa en 2D con la ubicación de todas las puertas de una de las cinco áreas principales del juego.
+		Puedes mover el mapa arrastrándolo o usando los deslizadores a los lados del mapa. Para cambiar de área, haz clic sobre las pestañas en la parte superior.</p>
+		<p>Las puertas aparecen en <b style="color:#03b813">verde</b> si van a ser randomizadas y en <b style="color:#c31717">rojo</b> si no se randomizarán.
+		Cuando seleccionas una puerta haciendo clic sobre su icono, un <span style="border:1px blue solid;padding:0 0.3em;">borde azul</span> aparecerá a su alrededor.
+		La casilla de abajo te permite indicar si la puerta seleccionada será excluida de ser randomizada o no.</p>
+		<h2>Pares de puertas</h2>
+		<p>Cada "puerta" en Metroid Prime consta de un par de "objetos que representan las puertas", y cada uno pertenece a cada lado de las habitaciones que conectan.
+		MPDR distingue cada puerta de un par de puertas por separado, por lo que es muy importante saber qué lado de cada par estás editando en todo momento.
+		La herramienta te permite identificar la puerta que estás editando con el campo de Habitación, mostrando su nombre en inglés,
+		y el número ID de esa puerta con respecto a los que están en la misma habitación.</p>
+		<p>La mayoría de puertas de cada par se colocan juntas en el mapa, pero en los casos en los que haya una habitación o más separada del resto,
+		se separan las puertas que conectan a ellas (como el Altar del Guerrero en la imagen superior).</p>
+		<h2>Colocación de puertas</h2>
+		<p>Como los mapas se ven desde una vista de pájaro, es difícil tener en cuenta la altura en la que se encuentran las puertas.
+		Para arreglar este problema, la herramienta utiliza el siguiente convenio para colocar puertas:</p>
+		<center><img src="../common/4-doorexcluder-1.png"/> <img src="../common/4-doorexcluder-2.png"/></center>
+		<ul>
+			<li>Para los pares que se encuentran en el suelo y el techo, el que está en el suelo se coloca a la izquierda is placed to the left, y el del techo a la derecha.</li>
+			<li>Para los pares que se encuentran directamente encima o debajo de otra, la pareja superior se coloca a la izquierda o encima de las inferiores, dependiendo de su orientación.
+			La pareja inferior se ubica a la derecha o por debajo de las inferiores, dependiendo de su orientación.</li>
+		</ul>
+		<div class="ambox">Estas no se aplican cuando las puertas están separadas, como los ascensores dentro de las Minas de Phazon. En este caso, el par superior se ubica en el nivel superior,
+		donde normalmente estarían en la habitación marcada en el mapa, y el par de abajo se ubica en el inferior, donde estaría el ascensor en el mapa si estuviera conectado a ese nivel.
+		<br style="clear:both;"/><br style="clear:both;"/><center><img src="../common/4-doorexcluder-3.png"/> <img src="../common/4-doorexcluder-4.png"/></center></div>
+		<h2>Puertas no randomizables</h2>
+		<p>Algunas puertas, bien sea por las limitaciones actuales de MPDR o porque no son puertas que necesitan ser disparadas para abrirse, no pueden randomizarse. Estos incluyen:</p>
+		<ul>
+			<li>Todas las puertas ubicadas en el suelo o en el techo</li>
+			<li><i>Todas las puertas de Morfosfera.</i></li>
+			<li><i>Todas las puertas del reactor de la Fragata.</i></li>
+			<li>Todas las puertas del sistema de ventilación de la Fragata.</li>
+			<li><i>La puerta que solo puede abrirse por un lado en la Plaza Principal que conecta con el Accesoa a la Plaza Access en las Ruinas Chozo.</i></li>
+			<li>La puerta que lleva de la Torre Oeste a la Torre de Control en Phendrana.</li>
+		</ul>
+		<div class="ambox warning"><b>NOTA:</b> Esta última no se ha confirmado todavía si puede randomizarse o no, por lo que actualmente queda marcada como que se puede randomizar,
+		aunque a efectos prácticos actualmente parece que no puede ser randomizada.</div>
+		<p>Las puertas marcadas con <i>cursiva</i> nunca se podrán randomizar, ni siquiera en futuras versiones, debido a que no necesitan ser disparadas para abrirse.</p>
+	</body>
+</html>
