@@ -40,6 +40,9 @@ DocDialog::DocDialog(QWidget *parent) :
             tr("The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
         engine->setupData();
     }
+    #else
+    QString filter_text = engine->currentFilter();
+    QString supported_version = filter_text.right(filter_text.indexOf("v")-2);
     #endif
 
     ui->setupUi(this);
@@ -52,8 +55,11 @@ DocDialog::DocDialog(QWidget *parent) :
     ui->tabber->addTab(engine->indexWidget(),tr("Index","keyword-index"));
     connect(engine->contentWidget(),SIGNAL(linkActivated(QUrl)),this,SLOT(processUrl(QUrl)));
     connect(engine->indexWidget(),SIGNAL(linkActivated(QUrl,QString)),this,SLOT(processUrl(QUrl)));
-
-    ui->browser->setUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/doc/"+LATEST_VERSION+"/"+LATEST_VERSION+"/"+language+"/index.html"));
+    #if FALLBACK_DOCUMENTATION
+    homePage(LATEST_VERSION);
+    #else
+    homePage(supported_version);
+    #endif
     connect(ui->browser,SIGNAL(urlChanged(QUrl)),this,SLOT(onBrowserRefresh()));
 }
 
