@@ -3,12 +3,24 @@
 
 #include <string>
 #include <stdint.h>
+#include <map>
+#include <vector>
 
 #include <QJsonObject>
 
-#define MPDRP_VERSION 2
+#define MPDRP_VERSION 3
 
 using namespace std;
+
+typedef map<QString,vector<bool>> RoomDoorList;
+
+enum World {
+    TallonOverworld,
+    ChozoRuins,
+    MagmoorCaverns,
+    PhendranaDrifts,
+    PhazonMines
+};
 
 class DoorWeights final {
 public:
@@ -45,8 +57,13 @@ public:
     DoorWeights weights;
     uint64_t starting_pickups;
     PatcherSettings additional_settings;
+    vector<RoomDoorList> excluded_doors;
+    vector<RoomDoorList> untouched_doors;
+
     void serialize(QJsonObject &json);
     int deserialize(const QJsonObject &json);
+private:
+    void initialize_doors();
 };
 
 #endif // PRESET_H

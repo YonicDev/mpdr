@@ -9,11 +9,12 @@ DoorExcluder::DoorExcluder(QWidget *parent, Preset *main_preset)
     , ui(new Ui::DoorExcluder)
 {
     ui->setupUi(this);
+
     preset = main_preset;
+    excluded_doors = vector<RoomDoorList>(preset->excluded_doors);
+
     QString mapimg_path = QCoreApplication::applicationDirPath().append("/resources/maps/");
     ui->label_DoorError->setStyleSheet("QLabel { color:transparent; }");
-
-    initializeExcludedDoors();
 
     initializeMap(ui->map_tallon,QPixmap(mapimg_path + "tallon_map.jpg"));
     initializeMap(ui->map_chozo,QPixmap(mapimg_path + "chozo_map.jpg"));
@@ -30,8 +31,8 @@ DoorExcluder::DoorExcluder(QWidget *parent, Preset *main_preset)
 
 DoorExcluder::~DoorExcluder()
 {
+    delete selected_icon;
     delete ui;
-    delete excluded_doors;
 }
 
 void DoorExcluder::showEvent(QShowEvent *) {
@@ -83,260 +84,6 @@ void DoorExcluder::on_checkBox_clicked(bool checked)
 {
     if(selected_icon!=nullptr)
         selected_icon->exclude(checked);
-}
-
-void DoorExcluder::initializeExcludedDoors() {
-
-    excluded_doors = new vector<RoomDoorList>();
-
-    RoomDoorList tallon;
-    RoomDoorList chozo;
-    RoomDoorList magmoor;
-    RoomDoorList phendrana;
-    RoomDoorList mines;
-
-    chozo["Transport to Tallon Overworld North"] = {false};
-    chozo["Ruins Entrance"] = {false,false};
-    chozo["Main Plaza"] = {false,false,false,false,true,true};
-    chozo["Ruined Fountain Access"] = {false,false};
-    chozo["Ruined Shrine Access"] = {false,false};
-    chozo["Nursery Access"] = {false,false};
-    chozo["Plaza Access"] = {false,false};
-    chozo["Ruined Fountain"] = {false,false,false};
-    chozo["Ruined Shrine"] = {false,false};
-    chozo["Eyon Tunnel"] = {false,false};
-    chozo["Vault"] = {false,false};
-    chozo["Training Chamber"] = {false,true};
-    chozo["Arboretum Access"] = {false,false};
-    chozo["Meditation Fountain"] = {false,false};
-    chozo["Tower of Light Access"] = {false,false};
-    chozo["Ruined Nursery"] = {false,false,false};
-    chozo["Vault Access"] = {false,false};
-    chozo["Training Chamber Access"] = {false,false};
-    chozo["Arboretum"] = {false,false,false};
-    chozo["Magma Pool"] = {false,false};
-    chozo["Tower of Light"] = {false,true};
-    chozo["Save Station 1"] = {false};
-    chozo["North Atrium"] = {false,false};
-    chozo["Transport to Magmoor Caverns North"] = {false,false,false};
-    chozo["Sunchamber Lobby"] = {false,false};
-    chozo["Gathering Hall Access"] = {false,false};
-    chozo["Tower Chamber"] = {true};
-    chozo["Ruined Gallery"] = {false,false,false};
-    chozo["Sun Tower"] = {false,false};
-    chozo["Transport Access North"] = {false,false};
-    chozo["Sunchamber Access"] = {false,false};
-    chozo["Gathering Hall"] = {false,false,false,false};
-    chozo["Totem Access"] = {false,false};
-    chozo["Map Station"] = {false};
-    chozo["Sun Tower Access"] = {false,false};
-    chozo["Hive Totem"] = {false,false};
-    chozo["Sunchamber"] = {false,false};
-    chozo["Watery Hall Access"] = {false,false};
-    chozo["Save Station 2"] = {false};
-    chozo["East Atrium"] = {false,false};
-    chozo["Watery Hall"] = {false,false};
-    chozo["Energy Core Access"] = {false,false};
-    chozo["Dynamo Access"] = {false,false};
-    chozo["Energy Core"] = {true,false,false};
-    chozo["Dynamo"] = {false};
-    chozo["Burn Dome Access"] = {false,true};
-    chozo["West Furnace Access"] = {false,false};
-    chozo["Burn Dome"] = {false};
-    chozo["Furnace"] = {false,false,true};
-    chozo["East Furnace Access"] = {false,false};
-    chozo["Crossway Access West"] = {false,true};
-    chozo["Hall of the Elders"] = {false,false,false,false,true};
-    chozo["Crossway"] = {false,false,false};
-    chozo["Reflecting Pool Access"] = {false,false};
-    chozo["Elder Hall Access"] = {false,false};
-    chozo["Crossway Access South"] = {false,false};
-    chozo["Elder Chamber"] = {true};
-    chozo["Reflecting Pool"] = {false,false,false,false};
-    chozo["Save Station 3"] = {false,false};
-    chozo["Transport Access South"] = {false,false};
-    chozo["Antechamber"] = {false};
-    chozo["Transport to Tallon Overworld East"] = {false};
-    chozo["Transport to Tallon Overworld South"] = {false};
-    chozo["Piston Hall"] = {true,true};
-    phendrana["Transport to Magmoor Caverns West"] = {false};
-    phendrana["Shoreline Entrance"] = {false,false};
-    phendrana["Phendrana Shorelines"] = {false,false,false,false,false,false};
-    phendrana["Temple Entryway"] = {false,false};
-    phendrana["Save Station B"] = {false};
-    phendrana["Ruins Entryway"] = {false,false};
-    phendrana["Plaza Walkway"] = {false,false};
-    phendrana["Ice Ruins Access"] = {false,false};
-    phendrana["Chozo Ice Temple"] = {false,false};
-    phendrana["Ice Ruins West"] = {false,false,false};
-    phendrana["Ice Ruins East"] = {false,false};
-    phendrana["Chapel Tunnel"] = {false,false};
-    phendrana["Courtyard Entryway"] = {false,false};
-    phendrana["Canyon Entryway"] = {false,false};
-    phendrana["Chapel of the Elders"] = {false};
-    phendrana["Ruined Courtyard"] = {false,false,false,false};
-    phendrana["Phendrana Canyon"] = {false};
-    phendrana["Save Station A"] = {false};
-    phendrana["Specimen Storage"] = {false,false};
-    phendrana["Quarantine Access"] = {false,false};
-    phendrana["Research Entrance"] = {false,false,false};
-    phendrana["North Quarantine Tunnel"] = {false,false};
-    phendrana["Map Station"] = {false};
-    phendrana["Hydra Lab Entryway"] = {false,false};
-    phendrana["Quarantine Cave"] = {false,false,true};
-    phendrana["Research Lab Hydra"] = {false,true};
-    phendrana["South Quarantine Tunnel"] = {false,false};
-    phendrana["Quarantine Monitor"] = {true};
-    phendrana["Observatory Access"] = {false,true};
-    phendrana["Transport to Magmoor Caverns South"] = {false,false};
-    phendrana["Observatory"] = {false,false,false};
-    phendrana["Transport Access"] = {false,false};
-    phendrana["West Tower Entrance"] = {false,false};
-    phendrana["Save Station D"] = {false};
-    phendrana["Frozen Pike"] = {false,false,false,false};
-    phendrana["West Tower "] = {false,false}; //todo: Door_index in all of these is 0?
-    phendrana["Pike Access"] = {false,false};
-    phendrana["Frost Cave Access"] = {false,false};
-    phendrana["Hunter Cave Access"] = {false,false};
-    phendrana["Control Tower"] = {false,false};
-    phendrana["Research Core"] = {false,false};
-    phendrana["Frost Cave"] = {false,false,false};
-    phendrana["Hunter Cave"] = {false,false,false,false};
-    phendrana["East Tower"] = {false,false};
-    phendrana["Research Core Access"] = {false,true};
-    phendrana["Save Station C"] = {false};
-    phendrana["Upper Edge Tunnel"] = {false,false};
-    phendrana["Lower Edge Tunnel"] = {false,false};
-    phendrana["Chamber Access"] = {false,false};
-    phendrana["Lake Tunnel"] = {false,false};
-    phendrana["Aether Lab Entryway"] = {false,false};
-    phendrana["Research Lab Aether"] = {false,true};
-    phendrana["Phendrana's Edge"] = {false,false,false,true};
-    phendrana["Gravity Chamber"] = {false,false};
-    phendrana["Storage Cave"] = {false};
-    phendrana["Security Cave"] = {true};
-    tallon["Landing Site"] = {false,false,false,false,false};
-    tallon["Gully"] = {false,false};
-    tallon["Canyon Cavern"] = {false,false};
-    tallon["Temple Hall"] = {false,false};
-    tallon["Alcove"] = {false};
-    tallon["Waterfall Cavern"] = {false,false};
-    tallon["Tallon Canyon"] = {false,false,false,false};
-    tallon["Temple Security Station"] = {false,false};
-    tallon["Frigate Crash Site"] = {false,false,false};
-    tallon["Transport Tunnel A"] = {false,false};
-    tallon["Root Tunnel"] = {false,false};
-    tallon["Temple Lobby"] = {false,false};
-    tallon["Frigate Access Tunnel"] = {false,false};
-    tallon["Overgrown Cavern"] = {false,false};
-    tallon["Transport to Chozo Ruins West"] = {false};
-    tallon["Root Cave"] = {false,false,false};
-    tallon["Artifact Temple"] = {false};
-    tallon["Main Ventilation Shaft Section C"] = {true,false};
-    tallon["Main Ventilation Shaft Section B"] = {true,true,true,true};
-    tallon["Main Ventilation Shaft Section A"] = {true,true};
-    tallon["Transport Tunnel C"] = {false,false};
-    tallon["Transport Tunnel B"] = {false,false};
-    tallon["Arbor Chamber"] = {false};
-    tallon["Transport to Chozo Ruins East"] = {false};
-    tallon["Transport to Magmoor Caverns East"] = {false};
-    tallon["Reactor Core"] = {true,true};
-    tallon["Reactor Access"] = {true,true,false};
-    tallon["Cargo Freight Lift to Deck Gamma"] = {true,false};
-    tallon["Savestation"] = {false};
-    tallon["Deck Beta Transit Hall"] = {false,false};
-    tallon["Biohazard Containment"] = {false,false};
-    tallon["Deck Beta Security Hall"] = {false,false};
-    tallon["Biotech Research Area 1"] = {false,false};
-    tallon["Deck Beta Conduit Hall"] = {false,false};
-    tallon["Connection Elevator to Deck Beta"] = {false,false};
-    tallon["Hydro Access Tunnel"] = {false,false};
-    tallon["Great Tree Hall"] = {false,false,false,false,false};
-    tallon["Great Tree Chamber"] = {false};
-    tallon["Transport Tunnel D"] = {false,false};
-    tallon["Life Grove Tunnel"] = {false,true};
-    tallon["Transport Tunnel E"] = {false,false};
-    tallon["Transport to Chozo Ruins South"] = {false};
-    tallon["Life Grove"] = {true};
-    tallon["Transport to Phazon Mines East"] = {false};
-    mines["Transport to Tallon Overworld South"] = {false};
-    mines["Quarry Access"] = {false,false};
-    mines["Main Quarry"] = {false,false,false,false};
-    mines["Waste Disposal"] = {false,false};
-    mines["Save Station Mines A"] = {false};
-    mines["Security Access A"] = {false,false};
-    mines["Ore Processing"] = {false,false,false,false};
-    mines["Mine Security Station"] = {false,true,false};
-    mines["Research Access"] = {false,false};
-    mines["Storage Depot B"] = {false};
-    mines["Elevator Access A"] = {false,false};
-    mines["Storage Depot A"] = {false};
-    mines["Security Access B"] = {true,true};
-    mines["Elite Research"] = {false,true};
-    mines["Elevator A"] = {false,false};
-    mines["Elite Control Access"] = {false,false};
-    mines["Elite Control"] = {false,false,true};
-    mines["Maintenance Tunnel"] = {false,false};
-    mines["Ventilation Shaft"] = {false,true};
-    mines["Phazon Processing Center"] = {false,false,false};
-    mines["Omega Research"] = {false,false,true};
-    mines["Transport Access"] = {false,false};
-    mines["Processing Center Access"] = {false,false};
-    mines["Map Station Mines"] = {false};
-    mines["Dynamo Access"] = {false,true};
-    mines["Transport to Magmoor Caverns South"] = {false};
-    mines["Elite Quarters"] = {false,false};
-    mines["Central Dynamo"] = {false,false,false};
-    mines["Elite Quarters Access"] = {false,false};
-    mines["Quarantine Access A"] = {false,false};
-    mines["Save Station Mines B"] = {false};
-    mines["Metroid Quarantine B"] = {false,false,false};
-    mines["Metroid Quarantine A"] = {false,false};
-    mines["Quarantine Access B"] = {false,false};
-    mines["Save Station Mines C"] = {false};
-    mines["Elevator Access B"] = {false,false};
-    mines["Fungal Hall B"] = {false,false,false};
-    mines["Elevator B"] = {false,false};
-    mines["Missile Station Mines"] = {false};
-    mines["Phazon Mining Tunnel"] = {false,false};
-    mines["Fungal Hall Access"] = {false,false};
-    mines["Fungal Hall A"] = {false,false};
-    magmoor["Transport to Chozo Ruins North"] = {false};
-    magmoor["Burning Trail"] = {false,false,false};
-    magmoor["Lake Tunnel"] = {false,false};
-    magmoor["Save Station Magmoor A"] = {false};
-    magmoor["Lava Lake"] = {false,false};
-    magmoor["Pit Tunnel"] = {false,false};
-    magmoor["Triclops Pit"] = {false,false,false};
-    magmoor["Monitor Tunnel"] = {false,false};
-    magmoor["Storage Cavern"] = {false};
-    magmoor["Monitor Station"] = {false,false,false,false};
-    magmoor["Transport Tunnel A"] = {false,false};
-    magmoor["Warrior Shrine"] = {false,true};
-    magmoor["Shore Tunnel"] = {false,false};
-    magmoor["Transport to Phendrana Drifts North"] = {false};
-    magmoor["Fiery Shores"] = {false,false,true};
-    magmoor["Transport Tunnel B"] = {false,false};
-    magmoor["Transport to Tallon Overworld West"] = {false,false};
-    magmoor["Twin Fires Tunnel"] = {false,false};
-    magmoor["Twin Fires"] = {false,false};
-    magmoor["North Core Tunnel"] = {false,false};
-    magmoor["Geothermal Core"] = {false,false,false};
-    magmoor["Plasma Processing"] = {false};
-    magmoor["South Core Tunnel"] = {false,false};
-    magmoor["Magmoor Workstation"] = {false,false,false};
-    magmoor["Workstation Tunnel"] = {false,false};
-    magmoor["Transport Tunnel C"] = {false,false};
-    magmoor["Transport to Phazon Mines West"] = {false};
-    magmoor["Transport to Phendrana Drifts South"] = {false,false};
-    magmoor["Save Station Magmoor B"] = {false};
-
-
-    excluded_doors->push_back(tallon);
-    excluded_doors->push_back(chozo);
-    excluded_doors->push_back(magmoor);
-    excluded_doors->push_back(phendrana);
-    excluded_doors->push_back(mines);
 }
 
 void DoorExcluder::addIcons(QGraphicsView *map, World world) {
@@ -1567,7 +1314,8 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         };
     }
 
-    RoomDoorList worldmap = excluded_doors->at(world);
+    RoomDoorList worldmap = preset->untouched_doors.at(world);
+    RoomDoorList exclumap = preset->excluded_doors.at(world);
 
     for(auto room = points.begin();room!=points.end();++room) {
         QString room_name = room->first;
@@ -1575,7 +1323,18 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         for (auto door = c_room.begin();door!=c_room.end();++door) {
            auto door_index = door-c_room.begin();
            DoorPoint point = points.at(room_name).at(door_index);
-           map->scene()->addItem(new DoorMapIcon(this,world,room_name,door_index,point,worldmap[room_name][door_index]));
+           DoorMapIcon *icon = new DoorMapIcon(this,world,room_name,door_index,point,worldmap[room_name][door_index]);
+           icon->exclude(exclumap[room_name][door_index]);
+           map->scene()->addItem(icon);
         }
     }
+}
+
+void DoorExcluder::excludeDoor(World world,QString room, int index, bool exclude) {
+    excluded_doors.at(world)[room][index] = exclude;
+}
+
+void DoorExcluder::on_buttonBox_accepted()
+{
+    preset->excluded_doors.swap(excluded_doors);
 }

@@ -90,6 +90,8 @@ bool DoorMapIcon::canBeExcluded() {
 
 void DoorMapIcon::exclude(bool excluded) {
     m_Excluded = excluded;
+    doorExcluder->excludeDoor(m_World,m_areaName,m_doorID,m_Excluded);
+
     QColor fill = excluded?QColor(0x731717):QColor(0x03b813);
     setBrush(QBrush(fill));
     update(this->rect());
