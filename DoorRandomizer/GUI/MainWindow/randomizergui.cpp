@@ -14,6 +14,7 @@
 #include <randomizer.h>
 #include <doorexcluder.h>
 #include <aboutdialog.h>
+#include <docdialog.h>
 
 RandomizerGUI::RandomizerGUI(QWidget *parent)
     : QMainWindow(parent)
@@ -268,23 +269,9 @@ void RandomizerGUI::on_actionAbout_MPDR_triggered()
 
 void RandomizerGUI::on_actionContents_triggered()
 {
-    QProcess *process = new QProcess;
-    QStringList args;
-    args << QLatin1String("-collectionFile")
-         << QCoreApplication::applicationDirPath().append("/doc/doc_collection.qhc")
-         << QLatin1String("-enableRemoteControl");
-    #ifdef WIN32
-    QString command = QCoreApplication::applicationDirPath().append("/assistant");
-    #else
-    // Because Linux has to build from source,
-    // we're assuming Qt Assistant is already installed
-    const QString command = "assistant";
-    #endif
-
-    process->start(command,args);
-    if(!process->waitForStarted())
-        return;
-
+    DocDialog *dialog = new DocDialog(this);
+    dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
+    dialog->open();
 }
 
 void RandomizerGUI::on_buttonDoors_clicked()

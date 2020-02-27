@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Configuración | Documentación de MPDR v0.2</title>
+		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>Configurando MPDR</h1>
+			<p>Puedes configurar cómo MPDR randomiza las puertas modificando sus diferentes parámetros.</p>
+			<h2>Propiedades básicas</h2>
+				<p>Todos los ajustes básicos se pueden modificar desde la ventana principal.</p>
+				<h3>Semilla</h3>
+					<p>La semilla es un número entre 0 y 4.294.967.295 (equivalente a 2<sup>32</sup>-1) que utiliza el randomizador para determinar cuál será el color de cada puerta.</p>
+					<p>Puedes escribir un número de ese rango, generarlo aleatoriamente con el botón Generar, o usar la hora actual como semilla.</p>
+					<p>Por defecto MPDR usa el momento exacto en el que se abrió el programa.</p>
+				<h3>Influencia de puertas</h3>
+			        <p>La influencia de puertas modifica la probabilidad de que salga un color particular en todas las puertas de un área.<br/>
+					hay cinco valores, una para cada una de las áreas principales del juego
+					(Superficie de Tallon, Ruinas Chozo, Cavernas Magmoor, Phendrana y las Minas de Phazon).</p>
+				    <p>Cada valor se controla con un deslizador que va del 0 al 100, los cuales representan el <b>porcentaje de probabilidades</b> de que salga un color determinado para una puerta.<br/>
+				    Por ejemplo, un área con 50% de puertas azules y un 50% de puertas moradas contendrá solo puertas azules y moradas, y la probabilidad es igual para ambas opciones.</p>
+					<div class="ambox warning"><b>AVISO:</b> Como son porcentajes, <b>la suma de los porcentajes de cada área debe ser exactamente igual a 100.</b></div>
+				<h2>Propiedades avanzadas</h2>
+				<p>Estos ajustes se pueden modificar en las ventanas secundarias que salen al pulsar los botones de la sección Propiedades avanzadas.</p>
+				<h3>Puertas excluidas</h3>
+					<center><img src="./2-interface-4.png"/></center>
+					<p>Se puede seleccionar qué puertas excluir del proceso de randomización. Si una puerta es excluida, tendrá el mismo color que en el juego original.</p>
+					<p>Por defecto, todas las puertas que MPDR no puede randomizar son excluidas.</p>
+					<div class="ambox">Estas puertas son las únicas a las que no se les puede volver a incluir para ser randomizadas.</div>
+					<p>Para más información, consulta el apartado <a href="./exclusion.html">Excluyendo puertas</a>.</p>
+			    <h3>Mejoras iniciales</h3>
+					<center><img class="responsive" style="max-width:531px" src="./2-interface-2.png"/></center>
+					<p>Puedes escoger con qué mejoras comenzar al aterrizar en la Superficie de Tallon.</p>
+					<div class="ambox warning"><b>AVISO:</b> Algunas mejoras no pueden activarse o desactivarse. En el futuro, el Difusor de Hielo y el Lanzallamas se podrán activar.</div>
+					<p>Los misiles se expresan en su cantidad total, y las flechas añaden o restan 5 unidades a esa cantidad.</p>
+					<p>El máximo para las expansiones es el mismo que en el juego original (250 misiles, 14 tanques de energía y 8 bombas de energía).</p>
+					<p>Puedes ignorar el campo de 0s y 1s; sirve para funciones de testeo y será eliminado en futuras versiones.</p>
+				<h3>Ajustes de parches</h3>
+					<p>Los ajustes de esta ventana configuran las modificaciones que ajustan la dificultad del juego y varios atajos para los speedrunners.</p>
+					<center><img class="responsive" style="max-width:654px" src="./2-interface-3.png"/></center>
+					<h4>Saltar secuencias</h4>
+						<p>Estos ajustes permiten saltarse ciertos elementos del juego.</p>
+						<ul>
+							<li><b>Saltar mensajes de mejora:</b> El juego no se pausará cuando obtengas una mejora o expansión, y en su lugar se mostrará un pequeño mensaje en la parte superior del visor.</li>
+							<li><b>Saltar Fragata Pirata:</b> Al empezar una nueva partida, se salta la sección de la Fragata de los Piratas y empieza directamente aterrizando en la Superficie de Tallon.</li>
+							<li><b>Saltar Cráter del Impacto</b> El teletransportador al Cráter de Impacto es reemplazado a un transportador hacia las secuencias finales del juego.</li>
+						</ul>
+						<p>Por defecto, solo se salta la Fragata.</p>
+					<h4>Dificultad</h4>
+						<p>Estas propiedades ajustan la dificultad del juego.</p>
+						<ul>
+							<li><b>Protección al calor extremo</b> Se puede escoger entre otorgar protección con cualquier traje salvo el Traje más básico, o que solo lo haga el Traje Climático.</li>
+							<li><b>Resistencia:</b> Si seleccionas "Usar el más resistente", utilizas la resistencia al daño equivalente al traje más resistente en el juego original, independientemente de qué trajes lleves.
+							"Combinar resistencias" calcula la resistencia al daño dada por cada traje obtenido.</li>
+							<li><b>Bomba Ganzúa:</b> (Aún no implementado) Si activas esta opción, podrás abrir cualquier puerta con una Bomba de Energía.</li>
+						</ul>
+						<p>Por defecto utiliza las opciones originales del juego: Solo el Traje Climático da protección al calor extremo y siempre se usa el traje más resistente para la reducción de daño.</p>
+					<h4>Otras opciones</h4>
+					<p>Estos parches son puramente estéticos.</p>
+					<ul>
+						<li><b>Arreglar música de Flaaghra:</b> En la versión 0-00, la música de Flaaghra está incompleta. Usando un disco de Metroid Prime Trilogy, es posible reemplazarlo por el tema completo.</li>
+						<li><b>Mantener vídeos de título:</b> Si se activa, los vídeos que aparecen en la pantalla de título tras dejarlo estar un rato no serán eliminados.</li>
+					</ul>
+	</body>
+
+	<script></script>
+</html>

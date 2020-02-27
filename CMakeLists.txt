@@ -17,7 +17,7 @@ if(MSVC)
     set(QT_EXTRA_COMPONENTS WinExtras)
 endif()
 
-find_package(Qt5 COMPONENTS Widgets LinguistTools Help ${QT_EXTRA_COMPONENTS} REQUIRED)
+find_package(Qt5 COMPONENTS Widgets LinguistTools Help WebEngineWidgets ${QT_EXTRA_COMPONENTS} REQUIRED)
 
 ### add project files
 # find headers and source files
@@ -43,6 +43,7 @@ set_source_files_properties(${NEW_TS} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/LanguagePacks")
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES} ${NEW_TS} OPTIONS -source-language en)
 qt5_add_translation(QM_FILES ${TS_FILES} ${NEW_TS})
+qt5_add_resources(MPDR_SOURCES "${CMAKE_SOURCE_DIR}/resources/res.qrc")
 
 # add the executable
 if(MSVC)
@@ -60,6 +61,7 @@ else()
         ${MPDR_FORMS}
         ${MPDR_HEADERS}
         ${QM_FILES}
+        ${RESOURCE_FILES}
       )
 endif()
 
@@ -84,8 +86,7 @@ if(UNIX)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr-qt.svg DESTINATION share/icons/hicolor/scalable/apps/)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.desktop DESTINATION share/applications/)
     install(TARGETS mpdr-qt DESTINATION bin/mpdr)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION bin/mpdr FILES_MATCHING PATTERN "*.qch")
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc DESTINATION bin/mpdr/doc)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION bin/mpdr)
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION bin/mpdr FILES_MATCHING PATTERN "*.qm")
     install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION bin/mpdr FILES_MATCHING PATTERN "qtbase_*")
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION bin/mpdr/resources)
@@ -96,10 +97,17 @@ endif()
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/doc/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/doc)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/maps DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/resources)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/img DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/resources)
+file(GLOB DOC_PROJECTS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "doc/*.qhcp")
 if(MSVC)
-    add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhcp -o ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc)
+    foreach(DOC_PROJECT ${DOC_PROJECTS})
+        string(REPLACE ".qhcp" ".qhc" DOC_CONTENTS ${DOC_PROJECT})
+        add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o ${CMAKE_CURRENT_BINARY_DIR}/${DOC_CONTENTS})
+    endforeach()
 elseif(UNIX)
-    add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator ARGS ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhcp -o ${CMAKE_CURRENT_BINARY_DIR}/doc/doc_collection.qhc)
+    foreach(DOC_PROJECT ${DOC_PROJECTS})
+        string(REPLACE ".qhcp" ".qhc" DOC_CONTENTS ${DOC_PROJECT})
+        add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o "${CMAKE_CURRENT_BINARY_DIR}/${DOC_CONTENTS}")
+    endforeach()
 endif()
 
 #find library
@@ -111,5 +119,5 @@ elseif(UNIX)
     set(RANDOMPRIME_LIB libdl.so pthread.so)
 endif()
 
-target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets Qt5::Help randomprime ${RANDOMPRIME_LIB})
+target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets Qt5::Help Qt5::WebEngineWidgets randomprime ${RANDOMPRIME_LIB})
 target_include_directories(mpdr-qt PUBLIC ${MPDR_DIRS})
