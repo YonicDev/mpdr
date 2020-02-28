@@ -8,6 +8,9 @@ cache:
         - randomprime/target
         - build/randomprime/x86_64-unknown-linux-gnu
         - build/randomprime/powerpc-unknown-linux-gnu
+branches:
+    except:
+        - continuous
 before_cache:
       - rm -rfv ../randomprime/target/debug/incremental/{randomprime,build_script_build}-*
       - rm -rfv ../randomprime/target/debug/.fingerprint/randomprime-*
