@@ -147,7 +147,7 @@ void DocDialog::processUrl(QUrl url) {
         QString target = QCoreApplication::applicationDirPath();
     #else
         QString processed_url = "file://";
-        QString target = used_path;
+        QString target = QCoreApplication::applicationDirPath() + "/../share/mpdr";
     #endif
 
     int version_number_index = engine->currentFilter().length() - engine->currentFilter().lastIndexOf("v")-1;
@@ -185,7 +185,7 @@ void DocDialog::homePage(QString version_number) {
         QString target = QCoreApplication::applicationDirPath();
     #else
         QString schema = "file://";
-        QString target = used_path;
+        QString target = QCoreApplication::applicationDirPath() + "/../share/mpdr";
     #endif
     if(version_number == "0.1")
         ui->browser->setUrl(QUrl(schema+target+"/doc/"+version_number+"/index.html"));

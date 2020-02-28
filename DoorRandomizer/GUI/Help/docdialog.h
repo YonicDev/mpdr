@@ -36,7 +36,7 @@ private:
     #ifdef WIN32
     const QString dir_path = QCoreApplication::applicationDirPath();
     #else
-    const QString dir_path = "../share/mpdr";
+    const QString dir_path = QCoreApplication::applicationDirPath() + "/../share/mpdr";
     const QString install_path = "/usr/share/mpdr";
     QString used_path;
     #endif
