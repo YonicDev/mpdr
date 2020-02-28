@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QHelpEngine>
+#include <QCoreApplication>
 
 #define FALLBACK_DOCUMENTATION 1
 

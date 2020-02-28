@@ -16,7 +16,6 @@ DocDialog::DocDialog(QWidget *parent) :
 
     language = QLocale::system().name();
     language.truncate(language.lastIndexOf("_"));
-    language = "et";
 
     #ifdef WIN32
     QString doc_path = QCoreApplication::applicationDirPath() + "/doc/doc_collection_"+language+".qhc";
