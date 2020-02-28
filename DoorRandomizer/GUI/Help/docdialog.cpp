@@ -22,7 +22,7 @@ DocDialog::DocDialog(QWidget *parent) :
     #else
     QString doc_path = install_path + "/doc/doc_collection_"+language+".qhc";
     #endif
-    qDebug() << doc_path;
+    qDebug() << "Trying to load doc from system files at" << doc_path;
 
     QFileInfo trans_check(doc_path);
     #ifdef WIN32
@@ -43,6 +43,7 @@ DocDialog::DocDialog(QWidget *parent) :
     } else {
         doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
         trans_check = QFileInfo(doc_path);
+        qDebug() << "Not found. Trying to load doc from local app files at" << doc_path;
         if(trans_check.exists() && trans_check.isFile()) {
            used_path = dir_path;
            engine = new QHelpEngine(doc_path,this);
@@ -54,12 +55,14 @@ DocDialog::DocDialog(QWidget *parent) :
             language = "en";
             doc_path = install_path + "/doc/doc_collection_"+language+".qhc";
             trans_check = QFileInfo(doc_path);
+            qDebug() << "Trying to load doc from system files at" << doc_path;
             if(trans_check.exists() && trans_check.isFile()) {
                 used_path = install_path;
                 engine = new QHelpEngine(used_path + "/doc/doc_collection_en.qhc",this);
             } else {
                 doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
                 trans_check = QFileInfo(doc_path);
+                qDebug() << "Not found. Trying to load doc from local app files at" << doc_path;
                 if(trans_check.exists() && trans_check.isFile()) {
                     used_path = dir_path;
                     engine = new QHelpEngine(used_path + "/doc/doc_collection_en.qhc",this);
@@ -78,6 +81,7 @@ DocDialog::DocDialog(QWidget *parent) :
     #else
         QString target = install_path;
     #endif
+    qDebug() << engine->currentFilter();
     if(engine->currentFilter() != "MPDR v"+LATEST_VERSION) {
         language = "en";
         #ifndef WIN32

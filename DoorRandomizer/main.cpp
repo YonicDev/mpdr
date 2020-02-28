@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     QString languagepacks_path = QCoreApplication::applicationDirPath().append("/LanguagePacks/");
     #else
     QString languagepacks_syspath = "/usr/share/mpdr/LanguagePacks/";
-    QString languagepacks_path = QCoreApplication::applicationDirPath().append("/LanguagePacks/");
+    QString languagepacks_path = QCoreApplication::applicationDirPath().append("/../share/mpdr/LanguagePacks/");
     #endif
     QString translation_file = QString("qtbase_%1.qm").arg(locale);
     QString alt_translation_file = QString("qt_%1.qm").arg(locale);
