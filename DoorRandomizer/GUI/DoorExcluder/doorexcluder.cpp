@@ -13,7 +13,7 @@ DoorExcluder::DoorExcluder(QWidget *parent, Preset *main_preset)
     preset = main_preset;
     excluded_doors = vector<RoomDoorList>(preset->excluded_doors);
 
-    QString mapimg_path = QCoreApplication::applicationDirPath().append("/resources/maps/");
+    QString mapimg_path = "://resources/maps/";
     ui->label_DoorError->setStyleSheet("QLabel { color:transparent; }");
 
     initializeMap(ui->map_tallon,QPixmap(mapimg_path + "tallon_map.jpg"));

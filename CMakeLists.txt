@@ -43,7 +43,7 @@ set_source_files_properties(${NEW_TS} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/LanguagePacks")
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES} ${NEW_TS} OPTIONS -source-language en)
 qt5_add_translation(QM_FILES ${TS_FILES} ${NEW_TS})
-qt5_add_resources(MPDR_SOURCES "${CMAKE_SOURCE_DIR}/resources/res.qrc")
+qt5_add_resources(MPDR_SOURCES "${CMAKE_SOURCE_DIR}/mpdr.qrc")
 
 # add the executable
 if(MSVC)
@@ -85,12 +85,12 @@ endif()
 if(UNIX)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr-qt.svg DESTINATION share/icons/hicolor/scalable/apps/)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.desktop DESTINATION share/applications/)
-    install(TARGETS mpdr-qt DESTINATION bin/mpdr)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION bin/mpdr)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION bin/mpdr FILES_MATCHING PATTERN "*.qm")
-    install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION bin/mpdr FILES_MATCHING PATTERN "qtbase_*")
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION bin/mpdr/resources)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/img DESTINATION bin/mpdr/resources)
+    install(TARGETS mpdr-qt DESTINATION bin)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION share/mpdr)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION share/mpdr FILES_MATCHING PATTERN "*.qm")
+    install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION share/mpdr FILES_MATCHING PATTERN "qtbase_*")
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION share/mpdr/resources)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/img DESTINATION share/mpdr/resources)
 endif()
 
 # add documentation

@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>img/doc_icon_home.png</file>
-        <file>img/doc_icon_next.png</file>
-        <file>img/doc_icon_previous.png</file>
-    </qresource>
-</RCC>

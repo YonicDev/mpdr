@@ -16,28 +16,97 @@ DocDialog::DocDialog(QWidget *parent) :
 
     language = QLocale::system().name();
     language.truncate(language.lastIndexOf("_"));
+    language = "et";
 
+    #ifdef WIN32
     QString doc_path = QCoreApplication::applicationDirPath() + "/doc/doc_collection_"+language+".qhc";
+    #else
+    QString doc_path = install_path + "/doc/doc_collection_"+language+".qhc";
+    #endif
+    qDebug() << doc_path;
 
     QFileInfo trans_check(doc_path);
+    #ifdef WIN32
     if(trans_check.exists() && trans_check.isFile())
         engine = new QHelpEngine(doc_path,this);
     else {
         language = "en";
-        engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
+        engine = new QHelpEngine(dir_path + "/doc/doc_collection_en.qhc",this);
         QMessageBox::warning(this,tr("MPDR Documentation"),
             //: %1 = Already translated system language name.
             tr("No documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
     }
+    #else
+    if(trans_check.exists() && trans_check.isFile()) {
+        engine = new QHelpEngine(doc_path,this);
+        used_path = install_path;
+        qDebug() << "Docs found on system files";
+    } else {
+        doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
+        trans_check = QFileInfo(doc_path);
+        if(trans_check.exists() && trans_check.isFile()) {
+           used_path = dir_path;
+           engine = new QHelpEngine(doc_path,this);
+           qDebug() << "Docs found on local app files";
+        } else {
+            QMessageBox::warning(this,tr("MPDR Documentation"),
+                //: %1 = Already translated system language name.
+                tr("No documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
+            language = "en";
+            doc_path = install_path + "/doc/doc_collection_"+language+".qhc";
+            trans_check = QFileInfo(doc_path);
+            if(trans_check.exists() && trans_check.isFile()) {
+                used_path = install_path;
+                engine = new QHelpEngine(used_path + "/doc/doc_collection_en.qhc",this);
+            } else {
+                doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
+                trans_check = QFileInfo(doc_path);
+                if(trans_check.exists() && trans_check.isFile()) {
+                    used_path = dir_path;
+                    engine = new QHelpEngine(used_path + "/doc/doc_collection_en.qhc",this);
+                } else {
+                    QMessageBox::critical(this,tr("MPDR Documentation"),tr("The documentation could not be loaded. Make sure the application is installed with make install!"));
+                }
+            }
+        }
+    }
+    #endif
 
     #if FALLBACK_DOCUMENTATION
     // Reload the engine using english if docs for latest version aren't available
+    #ifdef WIN32
+        QString target = QCoreApplication::applicationDirPath();
+    #else
+        QString target = install_path;
+    #endif
     if(engine->currentFilter() != "MPDR v"+LATEST_VERSION) {
         language = "en";
-        engine = new QHelpEngine(QCoreApplication::applicationDirPath() + "/doc/doc_collection_en.qhc",this);
+        #ifndef WIN32
+        qDebug() << "Trying to load English docs at" << target + "/doc/doc_collection_en.qhc";
+        trans_check = QFileInfo(target+ "/doc/doc_collection_en.qhc");
+        if(!(trans_check.exists() && trans_check.isFile())) {
+            qDebug() << "Could not load at install path, trying with " << target + "/doc/doc_collection_en.qhc";
+            target = dir_path;
+            trans_check = QFileInfo(target+ "/doc/doc_collection_en.qhc");
+            if(!(trans_check.exists() && trans_check.isFile())) {
+                QMessageBox::critical(this,tr("MPDR Documentation"),tr("The documentation could not be loaded. Make sure the application is installed with make install!"));
+            } else {
+                used_path = dir_path;
+            }
+        } else {
+            used_path = install_path;
+        }
+        #endif
+        engine = new QHelpEngine(target + "/doc/doc_collection_en.qhc",this);
+        #ifndef WIN32
+        if(trans_check.exists() && trans_check.isFile()) {
+        #endif
         QMessageBox::warning(this,tr("MPDR Documentation"),
             //: %1 = Already translated system language name.
             tr("The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
+        #ifndef WIN32
+        }
+        #endif
         engine->setupData();
     }
     #else
@@ -76,8 +145,10 @@ void DocDialog::processUrl(QUrl url) {
 
     #if WIN32
         QString processed_url = "file:///";
+        QString target = QCoreApplication::applicationDirPath();
     #else
         QString processed_url = "file://";
+        QString target = used_path;
     #endif
 
     int version_number_index = engine->currentFilter().length() - engine->currentFilter().lastIndexOf("v")-1;
@@ -89,13 +160,11 @@ void DocDialog::processUrl(QUrl url) {
 
         QRegularExpression file_regex("/doc/[0-9]\\.[0-9]\\.?[0-9]?/[a-z]{2}/(\\S+)");
         QString filename = file_regex.match(unprocessed_url).captured(1);
-
-        processed_url += QCoreApplication::applicationDirPath() + "/doc/" + version_number + "/" + revision_number + "/" + language + "/" + filename;
+        processed_url += target + "/doc/" + version_number + "/" + revision_number + "/" + language + "/" + filename;
     } else {
         QRegularExpression file_regex("/doc/(\\S+)");
         QString filename = file_regex.match(unprocessed_url).captured(1);
-
-        processed_url += QCoreApplication::applicationDirPath() + "/doc/" + version_number + "/" + filename;
+        processed_url += target + "/doc/" + version_number + "/" + filename;
     }
 
     ui->browser->setUrl(QUrl(processed_url));
@@ -114,13 +183,16 @@ void DocDialog::changeVersion(QString new_ver) {
 void DocDialog::homePage(QString version_number) {
     #if WIN32
         QString schema = "file:///";
+        QString target = QCoreApplication::applicationDirPath();
     #else
         QString schema = "file://";
+        QString target = used_path;
     #endif
     if(version_number == "0.1")
-        ui->browser->setUrl(QUrl(schema+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/index.html"));
+        ui->browser->setUrl(QUrl(schema+target+"/doc/"+version_number+"/index.html"));
     else
-        ui->browser->setUrl(QUrl(schema+QCoreApplication::applicationDirPath()+"/doc/"+version_number+"/"+version_number+"/"+language+"/index.html"));
+        ui->browser->setUrl(QUrl(schema+target+"/doc/"+version_number+"/"+version_number+"/"+language+"/index.html"));
+    qDebug() << schema+target+"/doc/"+version_number+"/"+version_number+"/"+language+"/index.html";
 }
 
 
