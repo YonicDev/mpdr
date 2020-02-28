@@ -39,6 +39,7 @@ DocDialog::DocDialog(QWidget *parent) :
     if(trans_check.exists() && trans_check.isFile()) {
         engine = new QHelpEngine(doc_path,this);
         used_path = install_path;
+        engine->setupData();
         qDebug() << "Docs found on system files";
     } else {
         doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
@@ -47,6 +48,7 @@ DocDialog::DocDialog(QWidget *parent) :
         if(trans_check.exists() && trans_check.isFile()) {
            used_path = dir_path;
            engine = new QHelpEngine(doc_path,this);
+           engine->setupData();
            qDebug() << "Docs found on local app files";
         } else {
             QMessageBox::warning(this,tr("MPDR Documentation"),
@@ -59,6 +61,7 @@ DocDialog::DocDialog(QWidget *parent) :
             if(trans_check.exists() && trans_check.isFile()) {
                 used_path = install_path;
                 engine = new QHelpEngine(used_path + "/doc/doc_collection_en.qhc",this);
+                engine->setupData();
             } else {
                 doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
                 trans_check = QFileInfo(doc_path);
@@ -66,6 +69,7 @@ DocDialog::DocDialog(QWidget *parent) :
                 if(trans_check.exists() && trans_check.isFile()) {
                     used_path = dir_path;
                     engine = new QHelpEngine(used_path + "/doc/doc_collection_en.qhc",this);
+                    engine->setupData();
                 } else {
                     QMessageBox::critical(this,tr("MPDR Documentation"),tr("The documentation could not be loaded. Make sure the application is installed with make install!"));
                 }
