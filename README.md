@@ -44,6 +44,8 @@ You can save your configuration with JSON presets.
 
 ## Translation
 
+> **NOTE:** It is heavily recommended that you use the source code for the latest "translator friendly" release to translate the program. You can find these on the Releases tab, and checking the Tags version.
+
 ### User Interface
 
 The Qt version of MPDR can be localized using the same guidelines from the [Qt Linguist manual](https://doc.qt.io/qt-5/qtlinguist-index.html).
@@ -58,8 +60,6 @@ To add a new language, you have two options:
 * **Copy one of the existing translation files.** This is NOT recommended as some translation files might become updated as the program is developed.
 
 > **NOTE:** The logs produced by the backend ([randomprime](https://github.com/YonicDev/randomprime), the actual randomizer) cannot be translated.
-
-> **TIP:** It is heavily recommended that you use the source code for a stable release to translate the program.
 
 If you have an issue with translation such as requesting a disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
 

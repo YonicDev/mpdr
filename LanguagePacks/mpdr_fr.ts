@@ -23,11 +23,11 @@
     <name>DocDialog</name>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="14"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="35"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="52"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="68"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="92"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="104"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="34"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="54"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="74"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="99"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="111"/>
         <source>MPDR Documentation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,32 +42,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="37"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="54"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="36"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="56"/>
         <source>No documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="68"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="92"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="74"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="99"/>
         <source>The documentation could not be loaded. Make sure the application is installed with make install!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="106"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="113"/>
         <source>The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="123"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="130"/>
         <source>Content</source>
         <comment>table-of-contents</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="124"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="131"/>
         <source>Index</source>
         <comment>keyword-index</comment>
         <translation type="unfinished"></translation>

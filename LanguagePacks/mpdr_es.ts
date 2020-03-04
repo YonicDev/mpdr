@@ -11,7 +11,7 @@
     <message>
         <location filename="../DoorRandomizer/GUI/About/aboutdialog.ui" line="41"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MPDR version 0.2&lt;br/&gt;MIT License YonicStudios 2019&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/YonicDev/mpdr-qt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://discord.gg/9Wxb37&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Modding Discord&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;http://discord.gg/WWGcay6&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Randomizer Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/About/aboutdialog.ui" line="65"/>
@@ -23,11 +23,11 @@
     <name>DocDialog</name>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="14"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="35"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="52"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="68"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="92"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="104"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="34"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="54"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="74"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="99"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="111"/>
         <source>MPDR Documentation</source>
         <translation>Documentación de MPDR</translation>
     </message>
@@ -42,32 +42,32 @@
         <translation>Haz doble clic sobre un tema para ver su contenido.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="37"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="54"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="36"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="56"/>
         <source>No documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished">No se encuentra la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="68"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="92"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="74"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="99"/>
         <source>The documentation could not be loaded. Make sure the application is installed with make install!</source>
         <translation type="unfinished">No se ha podido cargar la documentación. ¡Asegúrate de que la aplicación está instalada con make install!</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="106"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="113"/>
         <source>The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished">No se ha podido encontrar la última versión de la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="123"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="130"/>
         <source>Content</source>
         <comment>table-of-contents</comment>
         <translation>Contenidos</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="124"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="131"/>
         <source>Index</source>
         <comment>keyword-index</comment>
         <translation>Índice</translation>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../DoorRandomizer/GUI/DoorExcluder/doorexcluder.ui" line="14"/>
         <source>Exclude doors</source>
-        <translation type="unfinished">Excluir puertas</translation>
+        <translation>Excluir puertas</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/DoorExcluder/doorexcluder.ui" line="24"/>
@@ -108,27 +108,27 @@
     <message>
         <location filename="../DoorRandomizer/GUI/DoorExcluder/doorexcluder.ui" line="79"/>
         <source>Door properties</source>
-        <translation type="unfinished">Propiedades de la puerta seleccionada</translation>
+        <translation>Propiedades de la puerta seleccionada</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/DoorExcluder/doorexcluder.ui" line="88"/>
         <source>Excluded</source>
-        <translation type="unfinished">Excluida</translation>
+        <translation>Excluir</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/DoorExcluder/doorexcluder.ui" line="98"/>
         <source>This door cannot be randomized.</source>
-        <translation type="unfinished">Esta puerta no se puede randomizar.</translation>
+        <translation>Esta puerta no se puede randomizar.</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/DoorExcluder/doorexcluder.ui" line="105"/>
         <source>Room:</source>
-        <translation type="unfinished">Habitación:</translation>
+        <translation>Sala:</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/DoorExcluder/doorexcluder.ui" line="115"/>
         <source>Door:</source>
-        <translation type="unfinished">Puerta:</translation>
+        <translation>Puerta:</translation>
     </message>
 </context>
 <context>
@@ -136,7 +136,7 @@
     <message>
         <location filename="../DoorRandomizer/GUI/PickupSettings/initialpickupsettings.ui" line="17"/>
         <source>Configure starting pickups</source>
-        <translation type="unfinished">Configurar mejoras iniciales</translation>
+        <translation>Configurar mejoras iniciales</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/PickupSettings/initialpickupsettings.ui" line="29"/>
@@ -332,7 +332,7 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="37"/>
         <source>This will make the game not pause when you collect an upgrade or expansion</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Esto hará que el juego no se pause cuando consigas una mejora o expansión</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="40"/>
@@ -358,7 +358,7 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="73"/>
         <source>Combine the obtained suits&apos; defenses</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Combinar las defensas de los trajes obtenidos</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="76"/>
@@ -381,7 +381,7 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="100"/>
         <source>Use the total damage reduction when you normally get the suits in sequence</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Usar la reducción de daño total al obtener los trajes en la secuencia intencionada</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="103"/>
@@ -429,7 +429,7 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="177"/>
         <source>Either American or European version</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Versión Americana o Europea</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="187"/>
@@ -458,7 +458,7 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
     <message>
         <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="14"/>
         <source>Metroid Prime Door Randomizer</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="26"/>
@@ -609,7 +609,7 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="967"/>
         <source>Starting pickups...</source>
         <extracomment>This button opens up a panel that configures which items will the player start with in the game</extracomment>
-        <translation type="unfinished">Mejoras iniciales...</translation>
+        <translation>Mejoras iniciales...</translation>
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.ui" line="974"/>
