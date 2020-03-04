@@ -23,8 +23,12 @@
             </section>
         </toc>
         <keywords>
-            <keyword name="preset" ref="0.2/es/presets.html"/>
+            <keyword name="perfil" ref="0.2/es/presets.html"/>
             <keyword name="ui" ref="0.2/es/interface.html"/>
+            <keyword name="excluir" ref="0.2/es/exclusion.html"/>
+            <keyword name="exclusión" ref="0.2/es/exclusion.html"/>
+            <keyword name="características" ref="0.2/es/whatsnew.html"/>
+            <keyword name="faq" ref="0.2/es/faq.html"/>
         </keywords>
         <files>
             <file>0.2/common/*</file>
