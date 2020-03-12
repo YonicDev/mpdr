@@ -36,12 +36,14 @@ private:
     #ifdef WIN32
     const QString dir_path = QCoreApplication::applicationDirPath();
     #else
-    const QString dir_path = QCoreApplication::applicationDirPath() + "/../share/mpdr";
+    const QString local_path = QCoreApplication::applicationDirPath();
+    const QString appimage_path = QCoreApplication::applicationDirPath() + "/../share/mpdr";
     const QString install_path = "/usr/share/mpdr";
     QString used_path;
     #endif
 
-    void homePage(QString version_number);
+    void homePage();
+    void loadDocs(bool critical,QString window_text);
 };
 
 #endif // DOCDIALOG_H

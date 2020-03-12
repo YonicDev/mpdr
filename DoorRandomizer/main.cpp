@@ -20,8 +20,10 @@ int main(int argc, char *argv[])
     #ifdef WIN32
     QString languagepacks_path = QCoreApplication::applicationDirPath().append("/LanguagePacks/");
     #else
-    QString languagepacks_syspath = "/usr/share/mpdr/LanguagePacks/";
-    QString languagepacks_path = QCoreApplication::applicationDirPath().append("/../share/mpdr/LanguagePacks/");
+    QString languagepacks_system_path = "/usr/share/mpdr/LanguagePacks/";
+    QString languagepacks_appimage_path = QCoreApplication::applicationDirPath().append("/../share/mpdr/LanguagePacks/");
+    QString languagepacks_local_path = QCoreApplication::applicationDirPath().append("/LanguagePacks/");
+    a.setWindowIcon(QIcon(QCoreApplication::applicationDirPath().append("/../share/applications/mpdr.desktop")));
     #endif
     QString translation_file = QString("qtbase_%1.qm").arg(locale);
     QString alt_translation_file = QString("qt_%1.qm").arg(locale);
@@ -38,12 +40,15 @@ int main(int argc, char *argv[])
         a.installTranslator(&app_translator);
     }
     #else
-    if(app_translator.load(languagepacks_syspath + QString("mpdr_%1.qm").arg(locale))) {
-        a.installTranslator(&app_translator);
-        qDebug() << "Translation files found on system.";
-    } else if(app_translator.load(languagepacks_path + QString("mpdr_%1.qm").arg(locale))) {
+    if(app_translator.load(languagepacks_local_path + QString("mpdr_%1.qm").arg(locale))) {
         a.installTranslator(&app_translator);
         qDebug() << "Translation files found on build files.";
+    } else if(app_translator.load(languagepacks_appimage_path + QString("mpdr_%1.qm").arg(locale))) {
+        a.installTranslator(&app_translator);
+        qDebug() << "Translation files found on AppImage.";
+    } else if(app_translator.load(languagepacks_system_path + QString("mpdr_%1.qm").arg(locale))) {
+        a.installTranslator(&app_translator);
+        qDebug() << "Translation files found on system.";
     }
     #endif
     RandomizerGUI w;
