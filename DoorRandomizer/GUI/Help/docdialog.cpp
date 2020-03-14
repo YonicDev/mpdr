@@ -119,7 +119,7 @@ void DocDialog::processUrl(QUrl url) {
 
     #if WIN32
         QString processed_url = "file:///";
-        QString target = QCoreApplication::applicationDirPath();
+        QString used_path = QCoreApplication::applicationDirPath();
     #else
         QString processed_url = "file://";
     #endif
@@ -161,7 +161,7 @@ void DocDialog::homePage() {
     qDebug() << filter_text;
     #if WIN32
         QString schema = "file:///";
-        QString target = QCoreApplication::applicationDirPath();
+        QString used_path = QCoreApplication::applicationDirPath();
     #else
         QString schema = "file://";
     #endif

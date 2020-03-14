@@ -23,11 +23,10 @@
     <name>DocDialog</name>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="14"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="34"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="54"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="74"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="99"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="111"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="26"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="69"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="98"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="101"/>
         <source>MPDR Documentation</source>
         <translation>Documentación de MPDR</translation>
     </message>
@@ -42,32 +41,36 @@
         <translation>Haz doble clic sobre un tema para ver su contenido.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="36"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="56"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="22"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="71"/>
         <source>No documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished">No se encuentra la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="74"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="99"/>
         <source>The documentation could not be loaded. Make sure the application is installed with make install!</source>
-        <translation type="unfinished">No se ha podido cargar la documentación. ¡Asegúrate de que la aplicación está instalada con make install!</translation>
+        <translation type="obsolete">No se ha podido cargar la documentación. ¡Asegúrate de que la aplicación está instalada con make install!</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="113"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="28"/>
         <source>The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished">No se ha podido encontrar la última versión de la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="130"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="30"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="103"/>
+        <source>The English documentation could not be loaded!</source>
+        <translation type="unfinished">¡No se ha podido cargar la documentación en inglés!</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="40"/>
         <source>Content</source>
         <comment>table-of-contents</comment>
         <translation>Contenidos</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="131"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="41"/>
         <source>Index</source>
         <comment>keyword-index</comment>
         <translation>Índice</translation>
