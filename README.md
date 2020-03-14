@@ -4,12 +4,14 @@ This program allows you to change the types of doors in Metroid Prime randomly.
 
 This is the Qt version of MPDR, which will eventually replace the previous version working in wxWidgets.
 
+> **NOTE:** From version 0.3 onward, the wxWidgets repository will be deleted and be replaced with this repository (mpdr-qt), which will be renamed to mpdr.
+
 ## Supported platforms
 
 Currently, MPDR supports the following **64-bit** systems:
 
 * **Windows 7** and newer.
-* **Linux:** Tested on Arch and Ubuntu-based distributions.
+* **Linux:** Most distributions released after Ubuntu 16.04 LTS (Xenial), including rolling release distros like Arch.
 
 MPDR is also designed to work with Mac OS in the future.
 
@@ -34,13 +36,13 @@ You can save your configuration with JSON presets.
 ## Q & A
 
 * **Q: Can I use this with the [Metroid Prime Item Radomizer](https://github.com/etaylor8086/metroid-prime-randomizer)?**
-  * A: No, but it's possible that I might combine both randomizers in a single package.
+  * A: No, but it's possible that I might combine both randomizers in a single package. However, some versions might be able to use already modified disc images temporarily.
 * **Q: But can I use the save files from the Item Randomizer?**
   * A: Yes, although this might be subject to change in the future.
 * **Q: Are all configurations clearable?**
   * A: In theory, yes, so long as the Blue door weight remains high enough.
 * **Q: Will you support Metroid Prime 2?**
-  * A: Not at this moment.
+  * A: No.
 
 ## Translation
 
@@ -109,6 +111,7 @@ Although MPDR has been designed to be cross-platform, the setup and build config
 
 * **[CMake](https://cmake.org/download/) 3.5** or higher.
 * **[Qt 5.13.2](https://www.qt.io/download)**, recommended with Qt Creator and Qt Docs as it includes the Clang compiler.
+  * If you're not using the Clang compiler, you'll need the **MSVC** compiler included in [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/) in Windows, or the **[GCC 7.4](https://gcc.gnu.org/)** compiler in Linux.
 * **The [Rust](https://www.rust-lang.org/install.html) language:** Install the `nightly` toolchain alongside the `powerpc-unknown-linux-gnu` target, as indicated [here](https://github.com/YonicDev/randomprime/blob/master/compile_to_ppc/README.md).
 
 ### Procedure
@@ -121,9 +124,15 @@ $ git clone --recurse-submodules "https://github.com/YonicDev/mpdr"
 
 Then open the `CMakeLists.txt` file in Qt Creator to create the project. After configuring the project you simply have to hit the Build & Run button.
 
-> If you are prompted to select kits, you may select Clang or MSVC (Windows) / GCC (Linux), or both.
+If you are prompted to select kits, you may select Clang, an OS-specific kit (MSVC for Windows, and GCC for Linux), or both.
 
-You may choose either Debug or Release configuration.
+The compiler in the kit you choose must support C++17. Here is a list of supported compiler versions:
+
+| MSVC               | GCC   | Clang |
+| :----------------: | :-:   | :---: |
+| Visual Studio 2017 | 7.4   | 7     |
+
+You may choose either Debug or Release configuration. The Minimum Size Release configuration is used to deploy prebuilt releases.
 
 ### Updating the repository
 
@@ -132,7 +141,8 @@ You can simply update the changes in the repository by performing a git pull. So
 1. Run CMake again.
 2. Clean all CMake configuration.
 3. Rebuild all projects.
-4. Delete the build folder.
-5. Delete the repository and clone it again.
+4. Install the OS-specific kit, delete the CMakeLists.txt.user file in the repository folder, reopen the project and select the OS-specific kit.
+5. Delete the build folders.
+6. Delete the repository and clone it again.
 
 If neither of these steps has worked, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) indicating your operating system and configuration, as well as all the steps you've made for configuring the whole thing.
