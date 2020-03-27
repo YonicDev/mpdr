@@ -11,9 +11,8 @@ This is the Qt version of MPDR, which will eventually replace the previous versi
 Currently, MPDR supports the following **64-bit** systems:
 
 * **Windows 7** and newer.
+* **mac OS High Sierra (10.13)** and newer.
 * **Linux:** Most distributions released after Ubuntu 16.04 LTS (Xenial), including rolling release distros like Arch.
-
-MPDR is also designed to work with Mac OS in the future.
 
 ## Usage
 
@@ -114,6 +113,8 @@ Although MPDR has been designed to be cross-platform, the setup and build config
   * If you're not using the Clang compiler, you'll need the **MSVC** compiler included in [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/) in Windows, or the **[GCC 7.4](https://gcc.gnu.org/)** compiler in Linux.
 * **The [Rust](https://www.rust-lang.org/install.html) language:** Install the `nightly` toolchain alongside the `powerpc-unknown-linux-gnu` target, as indicated [here](https://github.com/YonicDev/randomprime/blob/master/compile_to_ppc/README.md).
 
+> **(mac OS only):** The Clang compiler provided by Qt is too old in Qt 5.13.2, so you must install **[Xcode 9.3](https://developer.apple.com/xcode/)** or newer. The Command Developer Tools will work just fine.
+
 ### Procedure
 
 Run the following command in your command line to clone the repository:
@@ -124,13 +125,15 @@ $ git clone --recurse-submodules "https://github.com/YonicDev/mpdr"
 
 Then open the `CMakeLists.txt` file in Qt Creator to create the project. After configuring the project you simply have to hit the Build & Run button.
 
-If you are prompted to select kits, you may select Clang, an OS-specific kit (MSVC for Windows, and GCC for Linux), or both.
+If you are prompted to select kits, you may select Clang/LLVM, an OS-specific kit (MSVC for Windows, and GCC for macOS and Linux), or both.
 
 The compiler in the kit you choose must support C++17. Here is a list of supported compiler versions:
 
-| MSVC               | GCC   | Clang |
-| :----------------: | :-:   | :---: |
-| Visual Studio 2017 | 7.4   | 7     |
+|OS     | MSVC               | GCC       | Clang     |
+|:-----:| :-----------------:| :--------:| :--------:|
+|Windows| Visual Studio 2017 | -         | 7         |
+|mac OS | -                  | Xcode 9.3 | Xcode 9.3 |
+|Linux  | -                  | 7.4       | 7         |
 
 You may choose either Debug or Release configuration. The Minimum Size Release configuration is used to deploy prebuilt releases.
 

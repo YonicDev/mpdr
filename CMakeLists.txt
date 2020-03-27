@@ -15,6 +15,8 @@ set(CMAKE_INSTALL_PREFIX /usr)
 
 if(MSVC)
     set(QT_EXTRA_COMPONENTS WinExtras)
+elseif(APPLE)
+    set(QT_EXTRA_COMPONENTS MacExtras)
 endif()
 
 find_package(Qt5 COMPONENTS Widgets LinguistTools Help WebEngineWidgets ${QT_EXTRA_COMPONENTS} REQUIRED)
@@ -115,6 +117,8 @@ set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 
 if(MSVC)
     set(RANDOMPRIME_LIB Qt5::WinExtras ws2_32 userenv advapi32)
+elseif(APPLE)
+    set(RANDOMPRIME_LIB Qt5::MacExtras)
 elseif(UNIX)
     set(RANDOMPRIME_LIB libdl.so pthread.so)
 endif()
