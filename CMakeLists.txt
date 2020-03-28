@@ -57,7 +57,17 @@ if(MSVC)
         ${QM_FILES}
         mpdr.rc
     )
-else()
+elseif(APPLE)
+    add_executable(mpdr-qt
+        MACOSX_BUNDLE
+        ${MPDR_SOURCES}
+        ${MPDR_FORMS}
+        ${MPDR_HEADERS}
+        ${QM_FILES}
+        ${RESOURCE_FILES}
+    )
+    set_target_properties(mpdr-qt PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/resources/Info.plist)
+elseif(UNIX)
     add_executable(mpdr-qt
         ${MPDR_SOURCES}
         ${MPDR_FORMS}
@@ -84,7 +94,9 @@ if(MSVC)
 endif()
 
 #make install configuration
-if(UNIX)
+if(APPLE)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.icns DESTINATION /Contents/Resources)
+elseif(UNIX)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr-qt.svg DESTINATION share/icons/hicolor/scalable/apps/)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.desktop DESTINATION share/applications/)
     install(TARGETS mpdr-qt DESTINATION bin)
