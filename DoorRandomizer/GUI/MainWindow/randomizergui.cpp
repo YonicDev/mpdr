@@ -82,7 +82,7 @@ void RandomizerGUI::on_pickupsButton_clicked()
 {
     InitialPickupSettings *dialog = new InitialPickupSettings(this,preset);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }
 
 void RandomizerGUI::on_buttonBrowseInput_clicked()
@@ -103,7 +103,7 @@ void RandomizerGUI::on_buttonPatches_clicked()
 {
     PatchSettingsPanel *dialog = new PatchSettingsPanel(this,preset);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }
 
 void RandomizerGUI::on_buttonGenerateSeed_clicked()
@@ -271,7 +271,7 @@ void RandomizerGUI::on_actionContents_triggered()
 {
     DocDialog *dialog = new DocDialog(this);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }
 
 void RandomizerGUI::on_buttonDoors_clicked()
@@ -279,5 +279,5 @@ void RandomizerGUI::on_buttonDoors_clicked()
     setCursor(Qt::WaitCursor);
     DoorExcluder *dialog = new DoorExcluder(this,preset);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }

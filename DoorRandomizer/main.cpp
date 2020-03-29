@@ -19,6 +19,9 @@ int main(int argc, char *argv[])
 
     #ifdef WIN32
     QString languagepacks_path = QCoreApplication::applicationDirPath().append("/LanguagePacks/");
+    #elif defined(Q_OS_MACOS)
+    QString languagepacks_path = QCoreApplication::applicationDirPath().append("/../Resources/LanguagePacks/");
+    qt_translations_path = QCoreApplication::applicationDirPath().append("/../Resources/translations/");
     #else
     QString languagepacks_system_path = "/usr/share/mpdr/LanguagePacks/";
     QString languagepacks_appimage_path = QCoreApplication::applicationDirPath().append("/../share/mpdr/LanguagePacks/");
@@ -35,7 +38,7 @@ int main(int argc, char *argv[])
     } else if(qt_translator.load(qt_trans_system_path + alt_translation_file)) {
         a.installTranslator(&qt_translator);
     }
-    #ifdef WIN32
+    #if defined(WIN32) || defined(Q_OS_MACOS)
     if(app_translator.load(languagepacks_path + QString("mpdr_%1.qm").arg(locale))) {
         a.installTranslator(&app_translator);
     }

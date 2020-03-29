@@ -54,6 +54,8 @@ DocDialog::~DocDialog()
 void DocDialog::loadDocs(bool critical,QString window_text) {
     #ifdef WIN32
     QString doc_path = QCoreApplication::applicationDirPath() + "/doc/doc_collection_"+language+".qhc";
+    #elif defined(Q_OS_MACOS)
+    QString doc_path = QCoreApplication::applicationDirPath() + "/../Resources/doc/doc_collection_"+language+".qhc";
     #else
     QString doc_path = local_path + "/doc/doc_collection_"+language+".qhc";
     #endif
@@ -69,6 +71,21 @@ void DocDialog::loadDocs(bool critical,QString window_text) {
         QMessageBox::warning(this,tr("MPDR Documentation"),
             //: %1 = Already translated system language name.
             tr("No documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
+    }
+    #elif defined (Q_OS_MACOS)
+    if(trans_check.exists() && trans_check.isFile()) {
+        engine = new QHelpEngine(doc_path,this);
+        qDebug() << "Docs found in app files.";
+    } else {
+        if(critical) {
+            QMessageBox::critical(this,tr("MPDR Documentation"),window_text);
+            delete this;
+        } else {
+            language = "en";
+            engine = new QHelpEngine(dir_path + "/doc/doc_collection_en.qhc",this);
+            QMessageBox::warning(this,tr("MPDR Documentation"),window_text);
+            loadDocs(true,tr("The English documentation could not be loaded!"));
+        }
     }
     #else
     qDebug() << "Trying to load doc from local files at" << doc_path;
@@ -117,9 +134,12 @@ void DocDialog::processUrl(QUrl url) {
 
     QString unprocessed_url = url.toString();
 
-    #if WIN32
+    #if defined(WIN32)
         QString processed_url = "file:///";
         QString used_path = QCoreApplication::applicationDirPath();
+    #elif defined(Q_OS_MACOS)
+        QString processed_url = "file://";
+        QString used_path = QCoreApplication::applicationDirPath().append("/../Resources");
     #else
         QString processed_url = "file://";
     #endif
@@ -159,9 +179,12 @@ void DocDialog::homePage() {
     QString filter_text = engine->currentFilter();
     QString version_number = filter_text.right(filter_text.indexOf("v")-2);
     qDebug() << filter_text;
-    #if WIN32
+    #if defined(WIN32)
         QString schema = "file:///";
         QString used_path = QCoreApplication::applicationDirPath();
+    #elif defined(Q_OS_MACOS)
+        QString schema = "file://";
+        QString used_path = QCoreApplication::applicationDirPath().append("/../Resources");
     #else
         QString schema = "file://";
     #endif

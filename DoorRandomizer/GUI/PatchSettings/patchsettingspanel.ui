@@ -3,14 +3,14 @@
  <class>PatchSettingsPanel</class>
  <widget class="QDialog" name="PatchSettingsPanel">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
-    <height>282</height>
+    <width>786</width>
+    <height>294</height>
    </rect>
   </property>
   <property name="windowTitle">
