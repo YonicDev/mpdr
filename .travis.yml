@@ -44,4 +44,4 @@ script:
     - bash ./.travis/script.sh
 after_success:
     - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then bash upload.sh mpdr-qt.dmg; else bash upload.sh Metroid_Prime_Door_Randomizer*.AppImage*; fi
+    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then bash upload.sh build/mpdr-qt.dmg; else bash upload.sh build/Metroid_Prime_Door_Randomizer*.AppImage*; fi
