@@ -32,45 +32,15 @@ addons:
         packages:
             - g++-7
 before_install:
-    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo add-apt-repository ppa:beineri/opt-qt-5.14.1-xenial -y; fi
-    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update -qq; fi
-    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then source ~/.bashrc; fi
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then bash ./.travis/before_install.sh; fi
     - mkdir build
 install:
-    - 'if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-        wget https://github.com/PostgresApp/PostgresApp/releases/download/v2.3.3e/Postgres-2.3.3e-9.4-9.5-9.6-10-11-12.dmg;
-        sudo hdiutil attach Postgres-2.3.3e-9.4-9.5-9.6-10-11-12.dmg;
-        sudo cp -R "/Volumes/Postgres-2.3.3e-9.4-9.5-9.6-10-11-12/Postgres.app" /Applications;
-        sudo hdiutil detach "/Volumes/Postgres-2.3.3e-9.4-9.5-9.6-10-11-12";
-    else
-        sudo apt-get -y install qt514base qt514webengine qt514tools qt514svg qt514translations libgl1-mesa-dev;
-        source /opt/qt*/bin/qt*-env.sh
-    fi'
-
+    - bash ./.travis/install.sh
 before_script:
     - rustup target add --toolchain nightly powerpc-unknown-linux-gnu;
-    - 'if [ "$TRAVIS_OS_NAME" = "osx" ]; then ln -s /usr/local/opt/qt/bin/qhelpgenerator /usr/local/bin/;  find $Qt5_DIR;
-    else
-        sudo cp /opt/qt*/bin/qhelpgenerator /bin/;
-    fi'
+    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then ln -s /usr/local/opt/qt/bin/qhelpgenerator /usr/local/bin/;  else sudo cp /opt/qt*/bin/qhelpgenerator /bin/; fi
 script:
-    - cd randomprime
-    - cargo build --release
-    - cd ../build
-    - 'if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-        cmake .. -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_PREFIX_PATH=/usr/local;
-        make DESTDIR=./mpdr-qt.app install;
-        /usr/local/opt/qt/bin/macdeployqt mpdr-qt.app -dmg -fs=APFS;
-    else
-        cmake .. -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7 -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib;
-        cmake --build . --target all -j $(nproc);
-        make DESTDIR=appdir -j$(nproc) install ; find appdir/;
-        find $TRAVIS_BUILD_DIR \( -name "moc_*" -or -name "*.o" -or -name "qrc_*" -or -name "Makefile*" -or -name "*.a" \) -exec rm {} \;
-        wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage";
-        chmod a+x linuxdeployqt-continuous-x86_64.AppImage;
-        export VERSION=0.2;
-        ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -verbose=2 -bundle-non-qt-libs -qmake=/opt/qt514/bin/qmake -extra-plugins=iconengines/libqsvgicon.so,platformthemes/libqgtk3.so;
-    fi'
+    - bash ./.travis/script.sh
 after_success:
     - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
     - if [ "$TRAVIS_OS_NAME" = "osx" ]; then bash upload.sh mpdr-qt.dmg; else bash upload.sh Metroid_Prime_Door_Randomizer*.AppImage*; fi
