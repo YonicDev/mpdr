@@ -15,7 +15,6 @@ cache:
 branches:
     only:
         - master
-        - macos
         - /^(?i:translator-friendly)-.*$/
 before_cache:
     - cargo clean -p ../randomprime
