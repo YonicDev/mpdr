@@ -32,10 +32,11 @@ addons:
         packages:
             - g++-7
 before_install:
-    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then bash ./.travis/before_install.sh; fi
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then bash ./.travis/before_install.sh && source ~/.bashrc; fi
     - mkdir build
 install:
     - bash ./.travis/install.sh
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then source /opt/qt*/bin/qt*-env.sh; fi
 before_script:
     - rustup target add --toolchain nightly powerpc-unknown-linux-gnu;
     - if [ "$TRAVIS_OS_NAME" = "osx" ]; then ln -s /usr/local/opt/qt/bin/qhelpgenerator /usr/local/bin/;  else sudo cp /opt/qt*/bin/qhelpgenerator /bin/; fi
