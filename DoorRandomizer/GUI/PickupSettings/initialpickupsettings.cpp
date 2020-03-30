@@ -41,10 +41,6 @@ void InitialPickupSettings::set_bitfield(uint64_t value) {
 }
 
 void InitialPickupSettings::read_from_bitfield() {
-    char buffer[65];
-    for(int i=0;i<64;i++)buffer[63-i]=(bitfield>>i)&1?'1':'0';
-    buffer[64] = NULL;
-
     set_checkbox(ui->checkBox_VisorScan,bitfield>>0 &1);
     set_numericfield(ui->spinBox_Missiles,bitfield>>1 &0xff);
     set_numericfield(ui->spinBox_ETanks,bitfield>>9 & ((1 << 4)-1));
@@ -69,7 +65,6 @@ void InitialPickupSettings::read_from_bitfield() {
     set_checkbox(ui->checkBox_IceSpreader,bitfield>>34 &1);
     set_checkbox(ui->checkBox_Flamethrower,bitfield>>35 &1);
     // TODO: Maybe add Phazon Beam, Combat Visor and Power suit
-    ui->lineEdit->setText(buffer);
 }
 
 void InitialPickupSettings::set_checkbox(QCheckBox *field, uint64_t value) {
@@ -107,12 +102,6 @@ void InitialPickupSettings::write_to_bitfield() {
             static_cast<uint64_t>(ui->checkBox_IceSpreader->isChecked()) << 34 |
             static_cast<uint64_t>(ui->checkBox_Flamethrower->isChecked()) << 35;
             // TODO: Maybe add Phazon Beam, Combat Visor and Power suit
-
-            static char buffer[65];
-            for(int i=0;i<64;i++)buffer[63-i]=(bitfield>>i)&1?'1':'0';
-            buffer[64] = NULL;
-
-            ui->lineEdit->setText(buffer);
 }
 
 void InitialPickupSettings::on_buttonBox_accepted()
