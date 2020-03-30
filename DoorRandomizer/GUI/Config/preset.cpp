@@ -23,6 +23,7 @@ Preset::Preset() {
     additional_settings.trilogy_iso = "";
     additional_settings.stagger_suit_damage = false;
     additional_settings.varia_heat_protection = false;
+    additional_settings.powerbomb_lockpick = false;
 
     initialize_doors();
 }
@@ -110,6 +111,7 @@ void PatcherSettings::serialize(QJsonObject &json) {
     json["skip_hudmemos"] = skip_hudmemos;
     json["stagger_suit_damage"] = stagger_suit_damage;
     json["varia_heat_protection"] = varia_heat_protection;
+    json["powerbomb_lockpick"] = powerbomb_lockpick;
 }
 
 int Preset::deserialize(const QJsonObject &json) {
@@ -311,7 +313,10 @@ int PatcherSettings::deserialize(const QJsonObject &json) {
             skip_hudmemos = obj["skip_crater"].toBool();
             stagger_suit_damage = obj["stagger_suit_damage"].toBool();
             varia_heat_protection = obj["varia_heat_protection"].toBool();
-
+            if(obj.contains("powerbomb_lockpick") && obj["powerbomb_lockpick"].isBool())
+                powerbomb_lockpick = obj["powerbomb_lockpick"].toBool();
+            else
+                powerbomb_lockpick = false;
             return 0;
         } else
             return -2;

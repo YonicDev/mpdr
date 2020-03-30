@@ -136,10 +136,20 @@
         <item row="2" column="0">
          <widget class="QCheckBox" name="checkBox_bomblockpick">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="text">
            <string extracomment="This means to enable using the Power bomb as a tool to force a door to open regardless of its color">Power bomb lock-picking</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QCheckBox" name="checkBox_supermetroiddoors">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Super Metroid-like doors</string>
           </property>
          </widget>
         </item>

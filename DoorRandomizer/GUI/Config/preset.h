@@ -43,6 +43,7 @@ public:
     QString trilogy_iso;
     bool stagger_suit_damage;
     bool varia_heat_protection;
+    bool powerbomb_lockpick;
     void serialize(QJsonObject &json);
     int deserialize(const QJsonObject &json);
     PatcherSettings operator=(const PatcherSettings settings);
