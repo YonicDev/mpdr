@@ -96,6 +96,7 @@ endif()
 #make install configuration
 if(APPLE)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.icns DESTINATION /Contents/Resources)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/icudtl.dat DESTINATION /Contents/Resources)
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION /Contents/Resources FILES_MATCHING PATTERN "*.qm")
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION /Contents/Resources)
 elseif(UNIX)
