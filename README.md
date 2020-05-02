@@ -25,10 +25,12 @@ to these types:
 * **White** (Ice Beam only)
 * **Red** (Plasma Beam only)
 
-> **NOTE:** Doors from Pirate Frigate, Impact Crater, and reactor doors from the Crashed Frigate will not be randomized. Currently, vertical doors (placed on the ground or the ceiling), and doors from the Crashed Frigate's ventilation system can't be randomized either.
+> **NOTE:** Doors from Pirate Frigate, Impact Crater, and reactor doors from the Crashed Frigate will not be randomized. Currently, doors placed on the ground or the ceiling can't be randomized either.
 
 The amount of doors of any given color can be adjusted with **door weights**.
 These adjust the chance of any door to be that particular color, and are given in percentages, grouped by areas (Tallon Overworld, Chozo Ruins, Magmoor Caverns, Phendrana Drifts and Phazon Mines).
+
+Doors can also be excluded from the randomization process, having the same color as they do in the original game.
 
 You can save your configuration with JSON presets.
 
@@ -58,7 +60,7 @@ MPDR will automatically determine which language to use from the system's curren
 To add a new language, you have two options:
 
 * **Generate a fresh translation file by [building the project](https://github.com/YonicDev/mpdr-qt#build).** You'll have to modify the `CMakeLists.txt` before building the program. The file itself has guidelines on how to do it.
-* **Copy one of the existing translation files.** This is NOT recommended as some translation files might become updated as the program is developed.
+* **Copy one of the existing translation files.** This is only recommended to do in Release and Translator Friendly builds.
 
 > **NOTE:** The logs produced by the backend ([randomprime](https://github.com/YonicDev/randomprime), the actual randomizer) cannot be translated.
 
@@ -111,29 +113,35 @@ Although MPDR has been designed to be cross-platform, the setup and build config
 * **[CMake](https://cmake.org/download/) 3.5** or higher.
 * **[Qt 5.13.2](https://www.qt.io/download)**, recommended with Qt Creator and Qt Docs as it includes the Clang compiler.
   * If you're not using the Clang compiler, you'll need the **MSVC** compiler included in [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/) in Windows, or the **[GCC 7.4](https://gcc.gnu.org/)** compiler in Linux.
+  > **(mac OS only):** The Clang compiler provided by Qt is too old in Qt 5.13.2, so you must install **[Xcode 9.3](https://developer.apple.com/xcode/)** or newer. The Command Developer Tools will work just fine.
 * **The [Rust](https://www.rust-lang.org/install.html) language:** Install the `nightly` toolchain alongside the `powerpc-unknown-linux-gnu` target, as indicated [here](https://github.com/YonicDev/randomprime/blob/master/compile_to_ppc/README.md).
-
-> **(mac OS only):** The Clang compiler provided by Qt is too old in Qt 5.13.2, so you must install **[Xcode 9.3](https://developer.apple.com/xcode/)** or newer. The Command Developer Tools will work just fine.
+  * If you've downloaded using rustup, you can use this command to install the correct target and toolchain:
+  ```sh
+  $ rustup-init -y --profile default --default-toolchain nightly --target powerpc-unknown-linux-gnu
+  ```
+  > **(Windows only)**, you might have to install the `x86_64-pc-windows-msvc` target as well. Simply add it to the --target parameter alongside the other.
 
 ### Procedure
 
-Run the following command in your command line to clone the repository:
+1. Run the following command in your command line to clone the repository:
 
-```sh
-$ git clone --recurse-submodules "https://github.com/YonicDev/mpdr"
-```
+  ```sh
+  $ git clone --recurse-submodules "https://github.com/YonicDev/mpdr"
+  ```
 
-Then open the `CMakeLists.txt` file in Qt Creator to create the project. After configuring the project you simply have to hit the Build & Run button.
+2. After that, go to the randomprime submodule and run `cargo build`. Due to an issue with the compilation procedure, this extra step must be taken.
 
-If you are prompted to select kits, you may select Clang/LLVM, an OS-specific kit (MSVC for Windows, and GCC for macOS and Linux), or both.
+3. Once it's been compiled, return to the mpdr-qt folder and open the `CMakeLists.txt` file in Qt Creator to create the project. After configuring the project you simply have to hit the Build & Run button.
 
-The compiler in the kit you choose must support C++17. Here is a list of supported compiler versions:
+  * If you are prompted to select kits, you may select Clang/LLVM, an OS-specific kit (MSVC for Windows, and GCC for macOS and Linux), or both.
 
-|OS     | MSVC               | GCC       | Clang     |
-|:-----:| :-----------------:| :--------:| :--------:|
-|Windows| Visual Studio 2017 | -         | 7         |
-|mac OS | -                  | Xcode 9.3 | Xcode 9.3 |
-|Linux  | -                  | 7.4       | 7         |
+    The compiler in the kit you choose must support C++17. Here is a list of supported compiler versions:
+
+    |OS     | MSVC               | GCC       | Clang     |
+    |:-----:| :-----------------:| :--------:| :--------:|
+    |Windows| Visual Studio 2017 | -         | 7         |
+    |mac OS | -                  | Xcode 9.3 | Xcode 9.3 |
+    |Linux  | -                  | 7.4       | 7         |
 
 You may choose either Debug or Release configuration. The Minimum Size Release configuration is used to deploy prebuilt releases.
 

@@ -24,9 +24,11 @@
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="14"/>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="26"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="69"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="98"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="101"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="71"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="81"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="86"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="115"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="118"/>
         <source>MPDR Documentation</source>
         <translation>Documentación de MPDR</translation>
     </message>
@@ -42,7 +44,7 @@
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="22"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="71"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="73"/>
         <source>No documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished">No se encuentra la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
@@ -59,7 +61,8 @@
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="30"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="103"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="87"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="120"/>
         <source>The English documentation could not be loaded!</source>
         <translation type="unfinished">¡No se ha podido cargar la documentación en inglés!</translation>
     </message>
@@ -409,12 +412,17 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="unfinished">Bomba Ganzúa</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="154"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="152"/>
+        <source>Super Metroid-like doors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="164"/>
         <source>Misc</source>
         <translation type="unfinished">Otras opciones</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="160"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="170"/>
         <source>Fix Flaahgra music files</source>
         <extracomment>Either &quot;to fix broken music files&quot; or &quot;to use the full version of Flaahgra&apos;s song&quot;</extracomment>
         <translation type="unfinished">Arreglar música de Flaahgra</translation>
@@ -424,34 +432,34 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="obsolete">Arreglar música de Flaahgra</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="167"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="177"/>
         <source>Metroid Prime Trilogy disk:</source>
         <extracomment>Where is the Metroid Prime Trilogy disk?</extracomment>
         <translation type="unfinished">Disco de Metroid Prime Trilogy:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="177"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="187"/>
         <source>Either American or European version</source>
         <translation type="unfinished">Versión Americana o Europea</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="187"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="197"/>
         <source>Browse...</source>
         <translation type="unfinished">Examinar...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="194"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="204"/>
         <source>Keep Attract mode</source>
         <extracomment>To keep a series of videos that can be seen in the title screen after not pressing anything for a while.</extracomment>
         <translation type="unfinished">Mantener vídeos de título</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="64"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="65"/>
         <source>Select a Metroid Prime NTSC 0-00/0-02  disc image</source>
         <translation type="unfinished">Selecciona una imagen de disco de Metroid Prime NTSC 0-00 o 0-02</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="64"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="65"/>
         <source>Standard disk images (*.iso *.gcm)</source>
         <translation type="unfinished">Imagen estándar de disco (*.iso *.gcm)</translation>
     </message>

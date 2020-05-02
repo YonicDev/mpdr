@@ -10,6 +10,7 @@
         <filterAttribute>mpdr</filterAttribute>
         <filterAttribute>0.2</filterAttribute>
         <toc>
+            <section title="MPDR 0.2.1" ref="0.2.1/en/index.html"/>
             <section title="MPDR 0.2" ref="0.2/en/index.html">
                 <section title="What's new" ref="0.2/en/whatsnew.html"/>
                 <section title="Requirements" ref="0.2/en/requirements.html"/>

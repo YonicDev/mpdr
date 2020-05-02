@@ -24,9 +24,11 @@
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="14"/>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="26"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="69"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="98"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="101"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="71"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="81"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="86"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="115"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="118"/>
         <source>MPDR Documentation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,7 +44,7 @@
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="22"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="71"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="73"/>
         <source>No documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished"></translation>
@@ -55,7 +57,8 @@
     </message>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="30"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="103"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="87"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="120"/>
         <source>The English documentation could not be loaded!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -405,12 +408,17 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="unfinished">Verrouiller bombe de puissance</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="154"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="152"/>
+        <source>Super Metroid-like doors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="164"/>
         <source>Misc</source>
         <translation type="unfinished">Autres options</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="160"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="170"/>
         <source>Fix Flaahgra music files</source>
         <extracomment>Either &quot;to fix broken music files&quot; or &quot;to use the full version of Flaahgra&apos;s song&quot;</extracomment>
         <translation type="unfinished">Corriger les fichiers audio pour Flaahgra</translation>
@@ -420,34 +428,34 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="obsolete">Corriger les fichiers audio pour Flaahgra</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="167"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="177"/>
         <source>Metroid Prime Trilogy disk:</source>
         <extracomment>Where is the Metroid Prime Trilogy disk?</extracomment>
         <translation type="unfinished">Disque de Metroid Prime Trilogy:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="177"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="187"/>
         <source>Either American or European version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="187"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="197"/>
         <source>Browse...</source>
         <translation type="unfinished">Parcourir...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="194"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="204"/>
         <source>Keep Attract mode</source>
         <extracomment>To keep a series of videos that can be seen in the title screen after not pressing anything for a while.</extracomment>
         <translation type="unfinished">Garder vidéos joués pendant l&apos;écran titre</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="64"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="65"/>
         <source>Select a Metroid Prime NTSC 0-00/0-02  disc image</source>
         <translation type="unfinished">Sélectionner une image de disque de Metroid Prime NTSC 0-00/0-02</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="64"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="65"/>
         <source>Standard disk images (*.iso *.gcm)</source>
         <translation type="unfinished">Images de disque standard (*.iso *.gcm)</translation>
     </message>

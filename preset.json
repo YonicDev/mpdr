@@ -116,8 +116,8 @@
                 true
             ],
             "Main Ventilation Shaft Section A": [
-                true,
-                true
+                false,
+                false
             ],
             "Main Ventilation Shaft Section B": [
                 true,
@@ -126,7 +126,7 @@
                 true
             ],
             "Main Ventilation Shaft Section C": [
-                true,
+                false,
                 false
             ],
             "Overgrown Cavern": [
@@ -140,7 +140,7 @@
             ],
             "Reactor Core": [
                 true,
-                true
+                false
             ],
             "Root Cave": [
                 false,
@@ -1004,6 +1004,7 @@
     "mpdrp_version": 3,
     "patch_settings": {
         "fix_flaaghra_music": false,
+        "powerbomb_lockpick": false,
         "skip_crater": false,
         "skip_frigate": true,
         "skip_hudmemos": false,

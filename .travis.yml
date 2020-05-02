@@ -4,10 +4,10 @@ jobs:
     include:
         - os: linux
           dist: xenial
-          env: CC=gcc-7 CXX=g++-7 VERSION=0.2
+          env: CC=gcc-7 CXX=g++-7 VERSION=0.2.1
         - os: osx
           osx_image: xcode9.4
-          env: Qt5_DIR="/usr/local/opt/qt" VERSION=0.2
+          env: Qt5_DIR="/usr/local/opt/qt" VERSION=0.2.1
 cache:
     directories:
         - $HOME/.cargo
