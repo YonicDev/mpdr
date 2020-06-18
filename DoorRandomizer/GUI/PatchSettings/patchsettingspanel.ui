@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>786</width>
-    <height>294</height>
+    <height>375</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -157,6 +157,41 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Door modifications (experimental)</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="checkBox_enablevaultdoor">
+        <property name="toolTip">
+         <string>This will enable randomizing the door leading to the Vault in Chozo Ruins' Main Plaza.</string>
+        </property>
+        <property name="text">
+         <string>Enable one-way door randomization</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_enableverticaldoor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Enable vertical door randomization</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </item>
    <item>
     <widget class="QGroupBox" name="groupBox_3">

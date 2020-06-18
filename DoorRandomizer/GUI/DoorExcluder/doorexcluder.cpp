@@ -1323,7 +1323,12 @@ void DoorExcluder::addIcons(QGraphicsView *map, World world) {
         for (auto door = c_room.begin();door!=c_room.end();++door) {
            auto door_index = door-c_room.begin();
            DoorPoint point = points.at(room_name).at(door_index);
-           DoorMapIcon *icon = new DoorMapIcon(this,world,room_name,door_index,point,worldmap[room_name][door_index]);
+           bool force_exclude;
+           if(world == ChozoRuins && room_name=="Main Plaza" && door_index==4)
+               force_exclude = !preset->additional_settings.enable_vault_ledge_door;
+           else
+               force_exclude = worldmap[room_name][door_index];
+           DoorMapIcon *icon = new DoorMapIcon(this,world,room_name,door_index,point,force_exclude);
            icon->exclude(exclumap[room_name][door_index]);
            map->scene()->addItem(icon);
         }

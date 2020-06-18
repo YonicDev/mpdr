@@ -44,6 +44,8 @@ public:
     bool stagger_suit_damage;
     bool varia_heat_protection;
     bool powerbomb_lockpick;
+    bool enable_vault_ledge_door;
+    bool patch_map;
     void serialize(QJsonObject &json);
     int deserialize(const QJsonObject &json);
     PatcherSettings operator=(const PatcherSettings settings);
