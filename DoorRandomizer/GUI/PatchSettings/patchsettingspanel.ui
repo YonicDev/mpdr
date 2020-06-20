@@ -199,31 +199,14 @@
       <string>Misc</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_fixflaaghra">
-        <property name="text">
-         <string extracomment="Either &quot;to fix broken music files&quot; or &quot;to use the full version of Flaahgra's song&quot;">Fix Flaahgra music files</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string extracomment="Where is the Metroid Prime Trilogy disk?">Metroid Prime Trilogy disk:</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="lineFlaaghra">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="placeholderText">
-         <string>Either American or European version</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
+      <item row="2" column="2">
        <widget class="QPushButton" name="browseButton">
         <property name="enabled">
          <bool>false</bool>
@@ -233,10 +216,37 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_fixflaaghra">
+        <property name="text">
+         <string extracomment="Either &quot;to fix broken music files&quot; or &quot;to use the full version of Flaahgra's song&quot;">Fix Flaahgra music files</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineFlaaghra">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Either American or European version</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
        <widget class="QCheckBox" name="checkBox_keepattractmode">
         <property name="text">
          <string extracomment="To keep a series of videos that can be seen in the title screen after not pressing anything for a while.">Keep Attract mode</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBox_patchmap">
+        <property name="text">
+         <string>Patch area maps</string>
         </property>
         <property name="checked">
          <bool>true</bool>

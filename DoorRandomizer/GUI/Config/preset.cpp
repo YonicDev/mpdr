@@ -24,6 +24,7 @@ Preset::Preset() {
     additional_settings.stagger_suit_damage = false;
     additional_settings.varia_heat_protection = false;
     additional_settings.powerbomb_lockpick = false;
+    additional_settings.patch_map = true;
     additional_settings.enable_vault_ledge_door = false;
 
     initialize_doors();
@@ -114,6 +115,7 @@ void PatcherSettings::serialize(QJsonObject &json) {
     json["varia_heat_protection"] = varia_heat_protection;
     json["powerbomb_lockpick"] = powerbomb_lockpick;
     json["enable_one_way_doors"] = enable_vault_ledge_door;
+    json["patch_map"] = patch_map;
 }
 
 int Preset::deserialize(const QJsonObject &json) {
@@ -319,6 +321,12 @@ int PatcherSettings::deserialize(const QJsonObject &json) {
                 powerbomb_lockpick = obj["powerbomb_lockpick"].toBool();
             else
                 powerbomb_lockpick = false;
+
+            if(obj.contains("patch_map") && obj["patch_map"].isBool())
+                patch_map = obj["patch_map"].toBool();
+            else
+                patch_map = true;
+
             if(obj.contains("enable_one_way_doors") && obj["enable_one_way_doors"].isBool())
                 enable_vault_ledge_door = obj["enable_one_way_doors"].toBool();
             else
