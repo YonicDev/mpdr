@@ -255,6 +255,7 @@ void RandomizerGUI::process_message(QJsonObject data) {
             taskbar_progress->reset();
             taskbar_progress->hide();
         #endif
+        QApplication::beep();
         QMessageBox::information(this,tr("Done"),tr("Succesfully patched the game!"));
     }
     log(type,message);
