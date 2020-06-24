@@ -32,7 +32,7 @@ private:
     QHelpEngine *engine;
     QString language;
 
-    #if defined(WIN32) || defined(Q_OS_MACOS)
+    #if defined(WIN32) || defined(__APPLE__)
     const QString dir_path = QCoreApplication::applicationDirPath();
     #else
     const QString local_path = QCoreApplication::applicationDirPath();

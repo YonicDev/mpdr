@@ -49,7 +49,7 @@ DocDialog::~DocDialog()
 void DocDialog::loadDocs(bool critical,QString window_text) {
     #if defined(Q_OS_WIN)
     QString doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
-    #elif defined(Q_OS_MACOS)
+    #elif __APPLE__
     QString doc_path = dir_path + "/../Resources/doc/doc_collection_"+language+".qhc";
     #else
     QString doc_path = local_path + "/doc/doc_collection_"+language+".qhc";
@@ -71,12 +71,14 @@ void DocDialog::loadDocs(bool critical,QString window_text) {
             loadDocs(true,tr("The English documentation could not be loaded!"));
         }
     }
-    #elif defined(Q_OS_MACOS)
+    #elif defined(__APPLE__)
+    qDebug() << "Trying to load doc from app files at" << doc_path;
     if(trans_check.exists() && trans_check.isFile()) {
         engine = new QHelpEngine(doc_path,this);
         qDebug() << "Docs found in app files.";
     } else {
         doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
+        qDebug() << "Not found in local files. Trying to load doc from AppImage at" << doc_path;
         trans_check = QFileInfo(doc_path);
         if(trans_check.exists() && trans_check.isFile()) {
             engine = new QHelpEngine(doc_path,this);
@@ -142,7 +144,7 @@ void DocDialog::processUrl(QUrl url) {
     #if defined(WIN32)
         QString processed_url = "file:///";
         QString used_path = QCoreApplication::applicationDirPath();
-    #elif defined(Q_OS_MACOS)
+    #elif defined(__APPLE__)
         QString processed_url = "file://";
         QString used_path = QCoreApplication::applicationDirPath().append("/../Resources");
     #else
@@ -168,7 +170,7 @@ void DocDialog::homePage() {
     #if defined(Q_OS_WIN)
         QString schema = "file:///";
         QString used_path = QCoreApplication::applicationDirPath();
-    #elif defined(Q_OS_MACOS)
+    #elif defined(__APPLE__)
         QString schema = "file://";
         QString used_path = QCoreApplication::applicationDirPath().append("/../Resources");
     #else
