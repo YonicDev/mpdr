@@ -257,6 +257,9 @@ void RandomizerGUI::process_message(QJsonObject data) {
         #endif
         QApplication::beep();
         QMessageBox::information(this,tr("Done"),tr("Succesfully patched the game!"));
+    } if(type == "warning") {
+        QApplication::beep();
+        QMessageBox::warning(this,tr("Warning"),tr("The selected disk image is an item-randomized game.\nPatching this type of disk images is experimental.\nSome patch settings will not be applied."));
     }
     log(type,message);
 }
