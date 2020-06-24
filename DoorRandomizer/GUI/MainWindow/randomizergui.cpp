@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include <QProcess>
+#include <QDebug>
 
 #include <initialpickupsettings.h>
 #include <patchsettingspanel.h>
@@ -242,6 +243,7 @@ void RandomizerGUI::process_message(QJsonObject data) {
         #endif
         ui->progressBar->setMaximum(100);
         QMessageBox::critical(this,tr("Error"),tr("An error has occurred while patching:\n") + message);
+        qDebug() << message;
         #ifdef WIN32
             taskbar_progress->reset();
             taskbar_progress->hide();
