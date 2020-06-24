@@ -34,8 +34,8 @@
         <string notr="true"/>
        </property>
        <property name="icon">
-        <iconset resource="../../../resources/res.qrc">
-         <normaloff>:/img/doc_icon_previous.png</normaloff>:/img/doc_icon_previous.png</iconset>
+        <iconset resource="../../../mpdr.qrc">
+         <normaloff>:/resources/img/doc_icon_previous.png</normaloff>:/resources/img/doc_icon_previous.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -66,8 +66,8 @@
         <string notr="true"/>
        </property>
        <property name="icon">
-        <iconset resource="../../../resources/res.qrc">
-         <normaloff>:/img/doc_icon_next.png</normaloff>:/img/doc_icon_next.png</iconset>
+        <iconset resource="../../../mpdr.qrc">
+         <normaloff>:/resources/img/doc_icon_next.png</normaloff>:/resources/img/doc_icon_next.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -95,8 +95,8 @@
         <string notr="true"/>
        </property>
        <property name="icon">
-        <iconset resource="../../../resources/res.qrc">
-         <normaloff>:/img/doc_icon_home.png</normaloff>:/img/doc_icon_home.png</iconset>
+        <iconset resource="../../../mpdr.qrc">
+         <normaloff>:/resources/img/doc_icon_home.png</normaloff>:/resources/img/doc_icon_home.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -185,7 +185,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../../resources/res.qrc"/>
+  <include location="../../../mpdr.qrc"/>
  </resources>
  <connections/>
 </ui>

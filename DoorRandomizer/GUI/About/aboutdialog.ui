@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>368</width>
-    <height>136</height>
+    <height>192</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MPDR version 0.2&lt;br/&gt;MIT License YonicStudios 2019&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/YonicDev/mpdr-qt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://discord.gg/9Wxb37&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Modding Discord&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;http://discord.gg/WWGcay6&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Randomizer Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MPDR version 0.3&lt;br/&gt;MIT License YonicStudios 2020&lt;/p&gt;&lt;p&gt;Using randomprime version 0.2.3&lt;br/&gt;MIT License aprilwade (syncathetic) 2020&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/YonicDev/mpdr-qt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://discord.gg/9Wxb37&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Modding Discord&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;http://discord.gg/WWGcay6&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Randomizer Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>

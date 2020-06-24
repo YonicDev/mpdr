@@ -1,0 +1,46 @@
+language: rust
+rust: nightly
+jobs:
+    include:
+        - os: linux
+          dist: xenial
+          env: CC=gcc-7 CXX=g++-7 VERSION=0.2.1
+        - os: osx
+          osx_image: xcode9.4
+          env: Qt5_DIR="/usr/local/opt/qt" VERSION=0.2.1
+cache:
+    directories:
+        - $HOME/.cargo
+        - randomprime/target
+branches:
+    only:
+        - master
+        - /^(?i:translator-friendly)-.*$/
+before_cache:
+    - cargo clean -p ../randomprime
+    - rm -rfv ../randomprime/target/release/incremental/{randomprime,build_script_build}-*
+    - rm -rfv ../randomprime/target/release/.fingerprint/randomprime-*
+    - rm -rfv ../randomprime/target/release/build/randomprime-*
+    - rm -rfv ../randomprime/target/release/deps/librandomprime-*
+    - rm -rfv ../randomprime/target/release/deps/randomprime-*
+    - rm -rfv ../randomprime/target/release/{randomprime,librandomprime}.d
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-7
+before_install:
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then bash ./.travis/before_install.sh && source ~/.bashrc; fi
+    - mkdir build
+install:
+    - bash ./.travis/install.sh
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then source /opt/qt*/bin/qt*-env.sh; fi
+before_script:
+    - rustup target add --toolchain nightly powerpc-unknown-linux-gnu;
+    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then ln -s /usr/local/opt/qt/bin/qhelpgenerator /usr/local/bin/;  else sudo cp /opt/qt*/bin/qhelpgenerator /bin/; fi
+script:
+    - bash ./.travis/script.sh
+after_success:
+    - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then bash upload.sh build/mpdr-qt.dmg; else bash upload.sh build/Metroid_Prime_Door_Randomizer*.AppImage*; fi

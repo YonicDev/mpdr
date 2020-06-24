@@ -20,6 +20,9 @@ PatchSettingsPanel::PatchSettingsPanel(QWidget *parent, Preset *main_preset) :
     set_checkbox(ui->checkBox_skipcrater,preset->additional_settings.skip_crater);
     set_checkbox(ui->checkBox_skiphudmemos,preset->additional_settings.skip_hudmemos);
     set_checkbox(ui->checkBox_fixflaaghra,preset->additional_settings.fix_flaaghra_music);
+    set_checkbox(ui->checkBox_bomblockpick,preset->additional_settings.powerbomb_lockpick);
+    set_checkbox(ui->checkBox_enablevaultdoor,preset->additional_settings.enable_vault_ledge_door);
+    set_checkbox(ui->checkBox_patchmap,preset->additional_settings.patch_map);
     if(preset->additional_settings.fix_flaaghra_music)
         ui->lineFlaaghra->setText(preset->additional_settings.trilogy_iso);
     ui->radioHeatDamageVaria->setChecked(preset->additional_settings.varia_heat_protection);
@@ -50,7 +53,11 @@ void PatchSettingsPanel::on_buttonBox_accepted()
                 ui->lineFlaaghra->text():"";
     preset->additional_settings.varia_heat_protection = ui->radioHeatDamageVaria->isChecked();
     preset->additional_settings.stagger_suit_damage = ui->radioStaggerProtection->isChecked();
-
+    preset->additional_settings.powerbomb_lockpick = ui->checkBox_bomblockpick->isChecked();
+    preset->additional_settings.patch_map = ui->checkBox_patchmap->isChecked();
+    preset->additional_settings.enable_vault_ledge_door = ui->checkBox_enablevaultdoor->isChecked();
+    if(!preset->additional_settings.enable_vault_ledge_door)
+        preset->excluded_doors.at(World::ChozoRuins).at("Main Plaza")[4] = true;
 }
 
 void PatchSettingsPanel::on_checkBox_fixflaaghra_stateChanged(int state)

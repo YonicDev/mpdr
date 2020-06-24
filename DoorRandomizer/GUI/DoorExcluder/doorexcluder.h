@@ -6,8 +6,6 @@
 
 #include <preset.h>
 
-typedef std::map<QString,std::vector<bool>> RoomDoorList;
-
 enum DoorOrientation {
     Horizontal,
     Vertical,
@@ -44,14 +42,6 @@ namespace Ui {
 class DoorExcluder;
 }
 
-enum World {
-    TallonOverworld,
-    ChozoRuins,
-    MagmoorCaverns,
-    PhendranaDrifts,
-    PhazonMines
-};
-
 class DoorExcluder : public QDialog
 {
     Q_OBJECT
@@ -60,20 +50,22 @@ public:
     DoorExcluder(QWidget *parent = nullptr,Preset *main_preset = nullptr);
     ~DoorExcluder();
     void loadDoorDetails(DoorMapIcon *icon);
+    void excludeDoor(World world,QString room,int index,bool exclude);
 
 private slots:
     void on_checkBox_clicked(bool checked);
+
+    void on_buttonBox_accepted();
 
 private:
     Ui::DoorExcluder *ui;
     DoorMapIcon *selected_icon = nullptr;
     Preset *preset = nullptr;
-    vector<RoomDoorList> *excluded_doors;
+    vector<RoomDoorList> excluded_doors;
 
     void showEvent(QShowEvent *) override;
 
     void initializeMap(QGraphicsView *map,QPixmap image);
-    void initializeExcludedDoors();
     void addIcons(QGraphicsView *map,World world);
 };
 

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/img/doc_icon_home.png</file>
+        <file>resources/img/doc_icon_next.png</file>
+        <file>resources/img/doc_icon_previous.png</file>
+        <file>resources/img/mpdr_logo.png</file>
+        <file>resources/maps/chozo_map.jpg</file>
+        <file>resources/maps/magmoor_map.jpg</file>
+        <file>resources/maps/mines_map.jpg</file>
+        <file>resources/maps/phendrana_map.jpg</file>
+        <file>resources/maps/tallon_map.jpg</file>
+    </qresource>
+</RCC>

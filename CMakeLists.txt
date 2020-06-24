@@ -15,6 +15,8 @@ set(CMAKE_INSTALL_PREFIX /usr)
 
 if(MSVC)
     set(QT_EXTRA_COMPONENTS WinExtras)
+elseif(APPLE)
+    set(QT_EXTRA_COMPONENTS MacExtras)
 endif()
 
 find_package(Qt5 COMPONENTS Widgets LinguistTools Help WebEngineWidgets ${QT_EXTRA_COMPONENTS} REQUIRED)
@@ -33,7 +35,7 @@ foreach (_headerFile ${MPDR_HEADERS})
 endforeach()
 
 # translations
-# To make a new translation file, fill the NEW_TS variable with "LanguagePacks/mpdr_x.ts"
+# To make or update a new translation file, fill the NEW_TS variable with "LanguagePacks/mpdr_x.ts"
 # where "x" is the locale for a corresponding language.
 # Run CMake, build the project and empty the NEW_TS variable again so that it can
 # compile the program correctly.
@@ -43,7 +45,7 @@ set_source_files_properties(${NEW_TS} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/LanguagePacks")
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES} ${NEW_TS} OPTIONS -source-language en)
 qt5_add_translation(QM_FILES ${TS_FILES} ${NEW_TS})
-qt5_add_resources(MPDR_SOURCES "${CMAKE_SOURCE_DIR}/resources/res.qrc")
+qt5_add_resources(MPDR_SOURCES "${CMAKE_SOURCE_DIR}/mpdr.qrc")
 
 # add the executable
 if(MSVC)
@@ -55,7 +57,17 @@ if(MSVC)
         ${QM_FILES}
         mpdr.rc
     )
-else()
+elseif(APPLE)
+    add_executable(mpdr-qt
+        MACOSX_BUNDLE
+        ${MPDR_SOURCES}
+        ${MPDR_FORMS}
+        ${MPDR_HEADERS}
+        ${QM_FILES}
+        ${RESOURCE_FILES}
+    )
+    set_target_properties(mpdr-qt PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/resources/Info.plist)
+elseif(UNIX)
     add_executable(mpdr-qt
         ${MPDR_SOURCES}
         ${MPDR_FORMS}
@@ -82,15 +94,20 @@ if(MSVC)
 endif()
 
 #make install configuration
-if(UNIX)
+if(APPLE)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.icns DESTINATION /Contents/Resources)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/icudtl.dat DESTINATION /Contents/Resources)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION /Contents/Resources FILES_MATCHING PATTERN "*.qm")
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION /Contents/Resources)
+elseif(UNIX)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr-qt.svg DESTINATION share/icons/hicolor/scalable/apps/)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.desktop DESTINATION share/applications/)
-    install(TARGETS mpdr-qt DESTINATION bin/mpdr)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION bin/mpdr)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION bin/mpdr FILES_MATCHING PATTERN "*.qm")
-    install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION bin/mpdr FILES_MATCHING PATTERN "qtbase_*")
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION bin/mpdr/resources)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/img DESTINATION bin/mpdr/resources)
+    install(TARGETS mpdr-qt DESTINATION bin)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION share/mpdr)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION share/mpdr FILES_MATCHING PATTERN "*.qm")
+    install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION share/mpdr FILES_MATCHING PATTERN "qtbase_*")
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/maps DESTINATION share/mpdr/resources)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/resources/img DESTINATION share/mpdr/resources)
 endif()
 
 # add documentation
@@ -115,6 +132,8 @@ set(RANDOMPRIME_DIR $<IF:$<CONFIG:Debug>,debug,release>)
 
 if(MSVC)
     set(RANDOMPRIME_LIB Qt5::WinExtras ws2_32 userenv advapi32)
+elseif(APPLE)
+    set(RANDOMPRIME_LIB Qt5::MacExtras)
 elseif(UNIX)
     set(RANDOMPRIME_LIB libdl.so pthread.so)
 endif()

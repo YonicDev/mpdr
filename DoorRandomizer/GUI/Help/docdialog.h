@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QHelpEngine>
+#include <QCoreApplication>
 
 #define FALLBACK_DOCUMENTATION 1
 
@@ -31,7 +32,18 @@ private:
     Ui::DocDialog *ui;
     QHelpEngine *engine;
     QString language;
-    void homePage(QString version_number);
+
+    #if defined(WIN32) || defined(Q_OS_MACOS)
+    const QString dir_path = QCoreApplication::applicationDirPath();
+    #else
+    const QString local_path = QCoreApplication::applicationDirPath();
+    const QString appimage_path = QCoreApplication::applicationDirPath() + "/../share/mpdr";
+    const QString install_path = "/usr/share/mpdr";
+    QString used_path;
+    #endif
+
+    void homePage();
+    void loadDocs(bool critical,QString window_text);
 };
 
 #endif // DOCDIALOG_H

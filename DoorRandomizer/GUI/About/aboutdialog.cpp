@@ -7,7 +7,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString logo_path = QCoreApplication::applicationDirPath().append("/resources/img/");
+    QString logo_path = "://resources/img/";
     QPixmap logo(logo_path.append("mpdr_logo.png"));
 
     ui->icon->setPixmap(logo.scaled(256,256,Qt::KeepAspectRatio,Qt::SmoothTransformation));

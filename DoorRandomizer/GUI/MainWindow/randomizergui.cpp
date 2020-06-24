@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include <QProcess>
+#include <QDebug>
 
 #include <initialpickupsettings.h>
 #include <patchsettingspanel.h>
@@ -82,7 +83,7 @@ void RandomizerGUI::on_pickupsButton_clicked()
 {
     InitialPickupSettings *dialog = new InitialPickupSettings(this,preset);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }
 
 void RandomizerGUI::on_buttonBrowseInput_clicked()
@@ -103,7 +104,7 @@ void RandomizerGUI::on_buttonPatches_clicked()
 {
     PatchSettingsPanel *dialog = new PatchSettingsPanel(this,preset);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }
 
 void RandomizerGUI::on_buttonGenerateSeed_clicked()
@@ -242,6 +243,7 @@ void RandomizerGUI::process_message(QJsonObject data) {
         #endif
         ui->progressBar->setMaximum(100);
         QMessageBox::critical(this,tr("Error"),tr("An error has occurred while patching:\n") + message);
+        qDebug() << message;
         #ifdef WIN32
             taskbar_progress->reset();
             taskbar_progress->hide();
@@ -255,7 +257,11 @@ void RandomizerGUI::process_message(QJsonObject data) {
             taskbar_progress->reset();
             taskbar_progress->hide();
         #endif
+        QApplication::beep();
         QMessageBox::information(this,tr("Done"),tr("Succesfully patched the game!"));
+    } if(type == "warning") {
+        QApplication::beep();
+        QMessageBox::warning(this,tr("Warning"),tr("The selected disk image is an item-randomized game.\nPatching this type of disk images is experimental.\nSome patch settings will not be applied."));
     }
     log(type,message);
 }
@@ -271,7 +277,7 @@ void RandomizerGUI::on_actionContents_triggered()
 {
     DocDialog *dialog = new DocDialog(this);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }
 
 void RandomizerGUI::on_buttonDoors_clicked()
@@ -279,5 +285,5 @@ void RandomizerGUI::on_buttonDoors_clicked()
     setCursor(Qt::WaitCursor);
     DoorExcluder *dialog = new DoorExcluder(this,preset);
     dialog->setWindowFlags(Qt::Dialog|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint|Qt::WindowCloseButtonHint);
-    dialog->open();
+    dialog->show();
 }
