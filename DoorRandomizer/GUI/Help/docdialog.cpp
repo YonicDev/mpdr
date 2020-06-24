@@ -23,14 +23,14 @@ DocDialog::DocDialog(QWidget *parent) :
         if(QMessageBox::warning(this,tr("MPDR Documentation"),
             //: %1 = Already translated system language name.
             tr("The documentation for your system language (%1) is outdated.\nWould you like to show the English documentation instead?").arg(QLocale::system().nativeLanguageName()),
-            QMessageBox::Yes|QMessageBox::No,QMessageBox::No)) {
+            QMessageBox::Yes|QMessageBox::No,QMessageBox::No) == QMessageBox::Yes) {
             language = "en";
             loadDocs(true,tr("The English documentation could not be loaded!"));
         }
     }
 
     ui->setupUi(this);
-    ui->version_label->setText(engine->currentFilter());
+    ui->version_label->setText(engine->customFilters()[0]);
 
     ui->tabber->addTab(engine->contentWidget(),tr("Content","table-of-contents"));
     ui->tabber->addTab(engine->indexWidget(),tr("Index","keyword-index"));
