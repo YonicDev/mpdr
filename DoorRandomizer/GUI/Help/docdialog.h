@@ -20,7 +20,6 @@ public:
     ~DocDialog();
 private slots:
     void processUrl(QUrl);
-    void changeVersion(QString);
     void onBrowserRefresh();
     void on_home_button_clicked();
 
