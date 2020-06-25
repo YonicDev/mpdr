@@ -1,27 +1,27 @@
 body {
     font-family:sans-serif;
-    background-color:black;
+    background-color: Paleturquoise;
     background-image:url("bg.png");
-    color:white;
+    color:black;
 }
 
 h1,h2,h3 {
-    color:orange;
-    border-bottom:2px solid orange;
+    color:Teal;
+    border-bottom:2px solid Teal;
     padding:5px;
 }
 h2,h3 {
     border:none;
 }
 h4,h5,h6 {
-    color:#fcdb8f;
+    color:#44788e;
 }
 .mono {
     font-family: monospace;
 }
 
 a, a:active, a:visited {
-    color:deepskyblue;
+    color:DodgerBlue;
     text-decoration: none;
 }
 a:hover {
@@ -50,6 +50,30 @@ figcaption {
 figcaption.imgver {
     font-family: monospace;
     font-size:9pt;
-    color:rgb(180,244,255);
+    color:Teal;
     font-style: normal;
+}
+
+table.randostacking {
+    width: 100%;
+    text-align:center;
+    border-collapse: collapse;
+    border:2px solid black;
+}
+
+table.randostacking td, table.randostacking th{
+    border: 1px solid black;
+}
+
+table.randostacking td.yes {
+    background-color:rgba(0,255,0,0.25);
+}
+table.randostacking td.imp {
+    background-color:rgba(0,0,255,0.25);
+}
+table.randostacking td.rsk {
+    background-color:rgba(255,255,0,0.25);
+}
+table.randostacking td.no {
+    background-color:rgba(255,0,0,0.25);
 }

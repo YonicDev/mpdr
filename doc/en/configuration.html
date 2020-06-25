@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Configuration | MPDR Documentation v0.2</title>
+		<title>Configuration | MPDR Documentation v0.3</title>
 		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -21,7 +21,7 @@
 					will only contain blue and purple doors, and each will have the same chance of being blue or purple.</p>
 					<p>Because they are percentages, <b>the sum of all weights on each area must equal exactly 100.</b></p>
 				<h2>Advanced properties</h2>
-				<p>These properties can be controlled from the windows that pop up from the Advanced settings buttons in the main window.</p>
+				<p>These properties can be controlled from the windows that pop up from the buttons in the Advanced settings section of the main window.</p>
 				<h3>Excluded doors</h3>
 					<center><img src="./2-interface-4.png"/></center>
 					<p>You can choose which doors shall not be randomized. All excluded doors will have the same color as they would in the original game.</p>
@@ -34,7 +34,6 @@
 					<div class="ambox"><b>NOTE:</b> The Power Suit is always enabled, and the Phazon Beam is always enabled if the Phazon Suit is enabled.</div>
 					<p>Missiles are expressed in total ammount of missiles, and the arrow buttons add or subtract 5 to that amount.</p>
 					<p>The maximum of each of the expansions is the same as the original game (250 missiles, 14 energy tanks and 8 power bombs).</p>
-					<p>Ignore the string of 0s and 1s at the end; it's for debug purposes and will be removed in upcoming updates.</p>
 				<h3>Patch settings</h3>
 					<p>These settings are for miscellaneous patches that are meant for difficulty settings and shortcuts for speedrunners.</p>
 					<center><img class="responsive" style="max-width:654px" src="./2-interface-3.png"/></center>
@@ -54,12 +53,21 @@
 								only the Varia Suit does.</li>
 							<li><b>Damage reduction:</b> If you select "Always use the most powerful", you use the resistance given by the strongest suit you've collected, regardless of what suits you have.
 							"Stack with suits" computes the total resistance given by each individual suit.</li>
-							<li><b>Power bomb lock-picking:</b> (Not implemented yet) If you enable this option, you can use Power Bombs to open a door of any color.</li>
+							<li><b>Power bomb lock-picking:</b> If you enable this option, you can use Power Bombs to open a door of any color.</li>
+							<li><b>Super Metroid doors:</b> (Not implemented yet) Any non-blue door will turn blue upon opening.</li>
 						</ul>
 						<p>By default it uses the same settings as the original game: Only the Varia Suit grants protection for extreme heat and the strongest suit's protection is always used.</p>
+					<h4>Door modifications</h4>
+					<div class="ambox warning"><b>WARNING:</b> These patches are experimental and might cause MPDR or a randomized game to crash.</div>
+					<p>These settings can enable randomizing certain doors.</p>
+					<ul>
+						<li><b>Enable one-way door randomization:</b> Transforms the one-way door that connects the Vault with the Main Plaza in Chozo Ruins, enabling its randomization.</li>
+						<li><b>Randomize vertical doors:</b> (Not implemented yet) Enables randomization for doors placed on the ground and the ceiling.
+					</ul>
 					<h4>Miscellaneous patches</h4>
 					<p>These patches are merely aesthetical.</p>
 					<ul>
+						<li><b>Patch map:</b> Patch the door icons in the world map so that they match their actual color. By default, it is enabled.
 						<li><b>Fix Flaaghra music files:</b> In the 0-00 version, the Flaaghra music uses a shortened version. By using a Metroid Prime Trilogy disc file, MPDR will copy the full theme for Flaaghra so that it can be heard in that version.</li>
 						<li><b>Keep Attract Mode:</b> If active, the videos that show on the title screen after a while will not be erased.</li>
 					</ul>
