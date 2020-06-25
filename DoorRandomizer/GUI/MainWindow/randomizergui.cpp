@@ -136,18 +136,21 @@ void RandomizerGUI::on_actionOpen_preset_triggered()
         } else {
             switch(parse) {
                 case -1:
+                    QApplication::beep();
                     QMessageBox::critical(this,tr("Error"),
                       //: This pops up when a JSON file doesn't match a MPDR preset format.
                       //~ Context Error message
                       tr("This is not a MPDR preset."));
                 break;
                 case -2:
+                    QApplication::beep();
                     QMessageBox::critical(this,tr("Error"),
                       //: This pops up when an MPDR preset has data that doesn't match what an MPDR preset of its version should have.
                       //~ Context Error message
                       tr("Error parsing the MPDR preset."));
                 break;
                 case -3:
+                    QApplication::beep();
                     QMessageBox::critical(this,tr("Error"),
                       //: This pops up when an MPDR preset has invalid data.
                       //~ Context Error message
@@ -157,6 +160,7 @@ void RandomizerGUI::on_actionOpen_preset_triggered()
         }
         preset_file.close();
     } else {
+        QApplication::beep();
         QMessageBox::critical(this,tr("Error"),
            //: This pops up when a file could not be opened. It could be any kind of file, but we refer to it as a preset regardless.
            //~ Context Error message
@@ -242,6 +246,7 @@ void RandomizerGUI::process_message(QJsonObject data) {
             taskbar_progress->stop();
         #endif
         ui->progressBar->setMaximum(100);
+        QApplication::beep();
         QMessageBox::critical(this,tr("Error"),tr("An error has occurred while patching:\n") + message);
         qDebug() << message;
         #ifdef WIN32

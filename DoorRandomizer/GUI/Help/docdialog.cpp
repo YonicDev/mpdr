@@ -20,6 +20,7 @@ DocDialog::DocDialog(QWidget *parent) :
              //: %1 = Already translated system language name.
              tr("No documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
     if(engine->currentFilter() != QString("MPDR v")+MPDR_VERSION) {
+        QApplication::beep();
         if(QMessageBox::warning(this,tr("MPDR Documentation"),
             //: %1 = Already translated system language name.
             tr("The documentation for your system language (%1) is outdated.\nWould you like to show the English documentation instead?").arg(QLocale::system().nativeLanguageName()),
@@ -63,10 +64,12 @@ void DocDialog::loadDocs(bool critical,QString window_text) {
         engine = new QHelpEngine(doc_path,this);
     } else {
         if(critical) {
+            QApplication::beep();
             QMessageBox::critical(this,tr("MPDR Documentation"),window_text);
             delete this;
         } else {
             language = "en";
+            QApplication::beep();
             QMessageBox::warning(this,tr("MPDR Documentation"),window_text);
             loadDocs(true,tr("The English documentation could not be loaded!"));
         }
@@ -85,10 +88,12 @@ void DocDialog::loadDocs(bool critical,QString window_text) {
             qDebug() << "Docs found in local files.";
         } else {
             if(critical) {
+                QApplication::beep();
                 QMessageBox::critical(this,tr("MPDR Documentation"),window_text);
                 delete this;
             } else {
                 language = "en";
+                QApplication::beep();
                 QMessageBox::warning(this,tr("MPDR Documentation"),window_text);
                 loadDocs(true,tr("The English documentation could not be loaded!"));
             }
@@ -119,9 +124,11 @@ void DocDialog::loadDocs(bool critical,QString window_text) {
                 qDebug() << "Docs found in system images";
             } else {
                 if(critical) {
+                    QApplication::beep();
                     QMessageBox::critical(this,tr("MPDR Documentation"),window_text);
                     delete this;
                 } else {
+                    QApplication::beep();
                     QMessageBox::warning(this,tr("MPDR Documentation"),window_text);
                     language = "en";
                     loadDocs(true,tr("The English documentation could not be loaded!"));
