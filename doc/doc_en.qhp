@@ -12,7 +12,7 @@
         <toc>
             <section title="What's new" ref="en/whatsnew.html"/>
             <section title="Requirements" ref="en/requirements.html"/>
-            <section title="Compatibility with other randomizers" ref="en/stacking.html"/>
+            <section title="Compatibility with modded games" ref="en/stacking.html"/>
             <section title="User Interface" ref="en/interface.html"/>
             <section title="Configuring MPDR" ref="en/configuration.html">
                 <section title="Excluding doors" ref="en/exclusion.html"/>

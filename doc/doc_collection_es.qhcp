@@ -2,8 +2,8 @@
 <QHelpCollectionProject version="1.0">
     <assistant>
         <title>MPDR help</title>
-        <startPage>qthelp://yonicstudios.com.mpdr.0.2/doc/en/index.html</startPage>
-        <homePage>qthelp://yonicstudios.com.mpdr.0.2/doc/en/index.html</homePage>
+        <startPage>qthelp://yonicstudios.com.mpdr/doc/es/index.html</startPage>
+        <homePage>qthelp://yonicstudios.com.mpdr/doc/es/index.html</homePage>
         <applicationIcon>mpdr-qt.svg</applicationIcon>
         <enableFilterFunctionality>true</enableFilterFunctionality>
         <currentFilter>MPDR v0.3</currentFilter>

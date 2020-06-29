@@ -2,7 +2,7 @@
 <QtHelpProject version="1.0">
     <namespace>yonicstudios.com.mpdr</namespace>
     <virtualFolder>doc</virtualFolder>
-    <customFilter name="MPDR v0.2">
+    <customFilter name="MPDR v0.3">
         <filterAttribute>mpdr</filterAttribute>
         <filterAttribute>0.3</filterAttribute>
     </customFilter>
@@ -12,6 +12,7 @@
         <toc>
             <section title="Novedades" ref="es/whatsnew.html"/>
             <section title="Prerrequisitos" ref="es/requirements.html"/>
+            <section title="Compatibilidad con juegos modificados" ref="es/stacking.html"/>
             <section title="Interfaz de usuario" ref="es/interface.html"/>
             <section title="Configurando MPDR" ref="es/configuration.html">
                 <section title="Excluyendo puertas" ref="es/exclusion.html"/>
@@ -27,6 +28,7 @@
             <keyword name="exclusión" ref="es/exclusion.html"/>
             <keyword name="características" ref="es/whatsnew.html"/>
             <keyword name="faq" ref="es/faq.html"/>
+            <keyword name="stacking" ref="es/stacking.html"/>
         </keywords>
         <files>
             <file>common/*</file>

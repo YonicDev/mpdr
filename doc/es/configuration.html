@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Configuración | Documentación de MPDR v0.2</title>
+		<title>Configuración | Documentación de MPDR v0.3</title>
 		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -30,15 +30,14 @@
 					<div class="ambox">Estas puertas son las únicas a las que no se les puede volver a incluir para ser randomizadas.</div>
 					<p>Para más información, consulta el apartado <a href="./exclusion.html">Excluyendo puertas</a>.</p>
 			    <h3>Mejoras iniciales</h3>
-					<center><img class="responsive" style="max-width:531px" src="./2-interface-2.png"/></center>
+					<center><img src="./2-interface-2.png"/></center>
 					<p>Puedes escoger con qué mejoras comenzar al aterrizar en la Superficie de Tallon.</p>
 					<div class="ambox"><b>NOTE:</b> El Traje siempre estará activado, y el Rayo de Phazon se activará automáticamente si el Traje Phazon también lo está.</div>
 					<p>Los misiles se expresan en su cantidad total, y las flechas añaden o restan 5 unidades a esa cantidad.</p>
 					<p>El máximo para las expansiones es el mismo que en el juego original (250 misiles, 14 tanques de energía y 8 bombas de energía).</p>
-					<p>Puedes ignorar el campo de 0s y 1s; sirve para funciones de testeo y será eliminado en futuras versiones.</p>
 				<h3>Ajustes de parches</h3>
 					<p>Los ajustes de esta ventana configuran las modificaciones que ajustan la dificultad del juego y varios atajos para los speedrunners.</p>
-					<center><img class="responsive" style="max-width:654px" src="./2-interface-3.png"/></center>
+					<center><img src="./2-interface-3.png"/></center>
 					<h4>Saltar secuencias</h4>
 						<p>Estos ajustes permiten saltarse ciertos elementos del juego.</p>
 						<ul>
@@ -53,16 +52,23 @@
 							<li><b>Protección al calor extremo</b> Se puede escoger entre otorgar protección con cualquier traje salvo el Traje más básico, o que solo lo haga el Traje Climático.</li>
 							<li><b>Resistencia:</b> Si seleccionas "Usar el más resistente", utilizas la resistencia al daño equivalente al traje más resistente en el juego original, independientemente de qué trajes lleves.
 							"Combinar resistencias" calcula la resistencia al daño dada por cada traje obtenido.</li>
-							<li><b>Bomba Ganzúa:</b> (Aún no implementado) Si activas esta opción, podrás abrir cualquier puerta con una Bomba de Energía.</li>
+							<li><b>Bomba Ganzúa:</b> Si activas esta opción, podrás abrir cualquier puerta con una Bomba de Energía.</li>
+							<li><b>Super puertas:</b> (No implementado aún) Si activas esta opción, las puertas que no sean azules se volverán de color azul al abrirlas por primera vez.</li>
 						</ul>
 						<p>Por defecto utiliza las opciones originales del juego: Solo el Traje Climático da protección al calor extremo y siempre se usa el traje más resistente para la reducción de daño.</p>
+					<h4>Randomización de puertas</h4>
+					<div class="ambox warning"><b>ATENCIÓN:</b> Estos parches son experimentales, y pueden causar que se cuelge MPDR o el propio juego.</div>
+					<p>Estos ajustes permiten randomizar cierto tipo de puertas.</p>
+					<ul>
+						<li><b>Puertas de una sola dirección:</b> Convierte la puerta de una sola dirección que conecta el Panteón con la Plaza principal en las Ruinas Chozo, permitiendo su randomización.</li>
+						<li><b>Puertas verticales:</b> (No implementado aún) Permite randomizar todas las puertas que se encuentran en el suelo o en el techo.
+					</ul>
 					<h4>Otras opciones</h4>
 					<p>Estos parches son puramente estéticos.</p>
 					<ul>
+						<li><b>Parchear iconos del mapa:</b> Modifica los iconos de las puertas del mapa para que muestren el color correcto. Por defecto está activado.
 						<li><b>Arreglar música de Flaaghra:</b> En la versión 0-00, la música de Flaaghra está incompleta. Usando un disco de Metroid Prime Trilogy, es posible reemplazarlo por el tema completo.</li>
 						<li><b>Mantener vídeos de título:</b> Si se activa, los vídeos que aparecen en la pantalla de título tras dejarlo estar un rato no serán eliminados.</li>
 					</ul>
 	</body>
-
-	<script></script>
 </html>
