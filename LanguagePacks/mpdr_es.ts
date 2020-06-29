@@ -9,11 +9,6 @@
         <translation>Acerca de MPDR</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/About/aboutdialog.ui" line="41"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MPDR version 0.2&lt;br/&gt;MIT License YonicStudios 2019&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/YonicDev/mpdr-qt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://discord.gg/9Wxb37&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Modding Discord&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;http://discord.gg/WWGcay6&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Randomizer Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../DoorRandomizer/GUI/About/aboutdialog.ui" line="65"/>
         <source>OK</source>
         <translation>Aceptar</translation>
@@ -23,28 +18,28 @@
     <name>DocDialog</name>
     <message>
         <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="14"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="26"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="71"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="81"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="86"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="115"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="118"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="24"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="68"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="73"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="92"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="97"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="128"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="132"/>
         <source>MPDR Documentation</source>
         <translation>Documentación de MPDR</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="137"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="131"/>
         <source>Version:</source>
         <translation>Versión:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="173"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.ui" line="177"/>
         <source>Double click a topic to view its contents.</source>
         <translation>Haz doble clic sobre un tema para ver su contenido.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="22"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="73"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="21"/>
         <source>No documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
         <translation type="unfinished">No se encuentra la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
@@ -54,26 +49,33 @@
         <translation type="obsolete">No se ha podido cargar la documentación. ¡Asegúrate de que la aplicación está instalada con make install!</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="28"/>
         <source>The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.</source>
         <extracomment>%1 = Already translated system language name.</extracomment>
-        <translation type="unfinished">No se ha podido encontrar la última versión de la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
+        <translation type="obsolete">No se ha podido encontrar la última versión de la documentación para tu idioma del sistema (%1). Se mostrará la documentación en inglés.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="30"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="87"/>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="120"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="26"/>
+        <source>The documentation for your system language (%1) is outdated.
+Would you like to show the English documentation instead?</source>
+        <extracomment>%1 = Already translated system language name.</extracomment>
+        <translation type="unfinished">La documentación para tu idioma del sistema (%1) no pertenece a la última versión. ¿Quieres mostrar la documentación en inglés?</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="29"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="74"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="98"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="134"/>
         <source>The English documentation could not be loaded!</source>
         <translation type="unfinished">¡No se ha podido cargar la documentación en inglés!</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="40"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="36"/>
         <source>Content</source>
         <comment>table-of-contents</comment>
         <translation>Contenidos</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="41"/>
+        <location filename="../DoorRandomizer/GUI/Help/docdialog.cpp" line="37"/>
         <source>Index</source>
         <comment>keyword-index</comment>
         <translation>Índice</translation>
@@ -414,52 +416,77 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
     <message>
         <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="152"/>
         <source>Super Metroid-like doors</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Súper puertas</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="164"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="170"/>
+        <source>Door modifications (experimental)</source>
+        <translation type="unfinished">Opciones experimentales</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="176"/>
+        <source>This will enable randomizing the door leading to the Vault in Chozo Ruins&apos; Main Plaza.</source>
+        <translation type="unfinished">Esta opción convierte las puertas de una sola dirección en puertas de dos direcciones, permitiendo que se puedan randomizar.</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="179"/>
+        <source>Enable one-way door randomization</source>
+        <translation type="unfinished">Randomizar puertas de una dirección</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="189"/>
+        <source>Enable vertical door randomization</source>
+        <translation type="unfinished">Randomizar puertas en el suelo o el techo</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="199"/>
         <source>Misc</source>
         <translation type="unfinished">Otras opciones</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="170"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="222"/>
         <source>Fix Flaahgra music files</source>
         <extracomment>Either &quot;to fix broken music files&quot; or &quot;to use the full version of Flaahgra&apos;s song&quot;</extracomment>
         <translation type="unfinished">Arreglar música de Flaahgra</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="249"/>
+        <source>Patch area maps</source>
+        <translation type="unfinished">Parchear iconos del mapa</translation>
     </message>
     <message>
         <source>Fix Flaaghra music files</source>
         <translation type="obsolete">Arreglar música de Flaahgra</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="177"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="205"/>
         <source>Metroid Prime Trilogy disk:</source>
         <extracomment>Where is the Metroid Prime Trilogy disk?</extracomment>
         <translation type="unfinished">Disco de Metroid Prime Trilogy:</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="187"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="232"/>
         <source>Either American or European version</source>
         <translation type="unfinished">Versión Americana o Europea</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="197"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="215"/>
         <source>Browse...</source>
         <translation type="unfinished">Examinar...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="204"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.ui" line="239"/>
         <source>Keep Attract mode</source>
         <extracomment>To keep a series of videos that can be seen in the title screen after not pressing anything for a while.</extracomment>
         <translation type="unfinished">Mantener vídeos de título</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="65"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="71"/>
         <source>Select a Metroid Prime NTSC 0-00/0-02  disc image</source>
         <translation type="unfinished">Selecciona una imagen de disco de Metroid Prime NTSC 0-00 o 0-02</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="65"/>
+        <location filename="../DoorRandomizer/GUI/PatchSettings/patchsettingspanel.cpp" line="71"/>
         <source>Standard disk images (*.iso *.gcm)</source>
         <translation type="unfinished">Imagen estándar de disco (*.iso *.gcm)</translation>
     </message>
@@ -707,66 +734,80 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <translation type="obsolete">Selecciona una imagen de disco de Metroid Prime NTSC 0-00</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="90"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="91"/>
         <source>Standard disk images (*.iso *.gcm)</source>
         <translation type="unfinished">Imagen estándar de disco (*.iso *.gcm)</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="90"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="91"/>
         <source>Select a Metroid Prime NTSC 0-00/0-02  disc image</source>
         <translation type="unfinished">Selecciona una imagen de disco de Metroid Prime NTSC 0-00 o 0-02</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="97"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="98"/>
         <source>Choose where to save the patched image</source>
         <translation type="unfinished">Selecciona dónde guardar la imagen parcheada</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="97"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="98"/>
         <source>ISO disk image (*.iso)</source>
         <translation type="unfinished">Imagen de disco estándar (*.iso)</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="126"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="127"/>
         <source>Open a preset file...</source>
         <translation type="unfinished">Selecciona un perfil...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="126"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="169"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="127"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="174"/>
         <source>Preset files (*.json)</source>
         <translation type="unfinished">Archivos de perfil (*.json)</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="138"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="144"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="150"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="159"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="180"/>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="244"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="140"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="147"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="154"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="164"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="185"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="250"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="141"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="143"/>
         <source>This is not a MPDR preset.</source>
         <extracomment>This pops up when a JSON file doesn&apos;t match a MPDR preset format.</extracomment>
         <translation type="unfinished">Este no es un perfil de MPDR.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="147"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="150"/>
         <source>Error parsing the MPDR preset.</source>
         <extracomment>This pops up when an MPDR preset has data that doesn&apos;t match what an MPDR preset of its version should have.</extracomment>
         <translation type="unfinished">Ha habido un error procesando el perfil de MPDR.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="153"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="157"/>
         <source>Data within the MPDR profile might be corrupt.</source>
         <extracomment>This pops up when an MPDR preset has invalid data.</extracomment>
         <translation type="unfinished">Los datos del perfil MPDR podrían estar corruptos.</translation>
         <extra-Context>Error message</extra-Context>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="269"/>
+        <source>Warning</source>
+        <translation type="unfinished">Aviso</translation>
+    </message>
+    <message>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="269"/>
+        <source>The selected disk image is an item-randomized game.
+Patching this type of disk images is experimental.
+Some patch settings will not be applied.</source>
+        <translation type="unfinished">La imagen de disco seleccionada es un juego con objetos randomizados.
+Randomizar puertas en este tipo de imágenes es experimental.
+Algunos parches no serán aplicados.</translation>
     </message>
     <message>
         <source>MPDR presets of version 1 are currently unsupported.</source>
@@ -775,36 +816,36 @@ Here we refer to &quot;Morph Ball&quot; standalone upgrade</extracomment>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="162"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="167"/>
         <source>Could not open preset.</source>
         <extracomment>This pops up when a file could not be opened. It could be any kind of file, but we refer to it as a preset regardless.</extracomment>
         <translation type="unfinished">No se pudo abrir el archivo.</translation>
         <extra-Context>Error message</extra-Context>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="169"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="174"/>
         <source>Save preset file to...</source>
         <translation type="unfinished">Guardar perfil como...</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="180"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="185"/>
         <source>Could not save preset.</source>
         <translation type="unfinished">No se pudo guardar el perfil.</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="244"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="250"/>
         <source>An error has occurred while patching:
 </source>
         <translation type="unfinished">Ha habido un error al parchear:
 </translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="258"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="266"/>
         <source>Done</source>
         <translation type="unfinished">Listo</translation>
     </message>
     <message>
-        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="258"/>
+        <location filename="../DoorRandomizer/GUI/MainWindow/randomizergui.cpp" line="266"/>
         <source>Succesfully patched the game!</source>
         <translation type="unfinished">¡El juego se ha parcheado correctamente!</translation>
     </message>
