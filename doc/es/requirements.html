@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Prerrequisitos | Documentación de MPDR v0.3</title>
+		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>Prerrequisitos</h1>
+		<p>Para poder utilizar MPDR, necesitas una imagen de disco de Metroid Prime de la versión NTSC v1.00 o v1.02. En esta documentación no se trata el proceso de crear una, pero sí de cómo distinguir entre las diferentes versiones.</p>
+		<p>También puedes usar una imagen ya modificada. Esto se explica en el artículo <a href="stacking.html">Compatibilidad con juegos modificados</a>.
+		<h2>Averiguar la versión desde un disco</h2>
+		<figure>
+			<img src="../common/1-requirements-0.png"/>
+			<figcaption>Parte de atrás de un disco de Metroid Prime para GameCube</figcaption>
+		</figure>
+		<p>Es necesario encontrar el texto en el disco tal y como se indica en la imagen de arriba. El texto puede ser el siguiente:</p>
+		<ul>
+		    <li><b>DOL-GM8E:</b> Este disco es una copia NTSC (Americana) de Metroid Prime. Solo las versiones con un <b>0-00</b> (primera versión) o un <b>0-02</b> (Player's Choice) al final son compatibles con MPDR.</li>
+		    <li><b>DOL-GM8J:</b> Este disco es una copia JAP (Japonesa) de Metroid Prime. Esta versión no es compatible con MPDR.</li>
+		    <li><b>DOL-GM8P:</b> Este disco es una copia PAL (Europea) de Metroid Prime. Esta versión no es compatible con MPDR.</li>
+		</ul>
+		<h2>Averiguar la versión desde Dolphin</h2>
+		<figure>
+			<img src="./1-requirements-1.png"/>
+			<figcaption>Ventana de Propiedades de un juego de Metroid Prime en Dolphin.</figcaption>
+		</figure>
+		<p>Si ya dispones de una imagen de Metroid Prime (asumiendo que lo has creado tú mismo con una copia legítima) puedes usar Dolphin para comprobar la versión.</p>
+		<p>En Dolphin, haz click sobre la entrada de Metroid Prime y selecciona "Propiedades". Luego, selecciona la pestaña Información.</p>
+		<p>La Id. de juego es exactamente igual al texto que encontrarías en la parte trasera del disco, salvo por el número al final que puede ser ignorado.<br/>
+		Para averiguar la versión de la copia, el campo Revisión está relacionado con los números de este texto, por lo que 0 es 0-00 y 2 es 0-02.</p>
+		<h2>Verificar la integridad del archivo de disco</h2>
+		<p>Para confirmar con toda seguridad que tienes una imagen lícita de una versión compatible de Metroid Prime, se recomienda hacer un checksum MD5 en la imagen.
+		Esto también puede indicar si el archivo ha sido infectado.</p>
+		<p>Se puede hacer fácilmente en Dolphin pulsando en el botón Calcular mientras estás mirando las propiedades del archivo de disco de Metroid Prime.</p>
+		<p>Abajo tienes la lista de checksums de copias legítimas y compatibles con MPDR:</p>
+		<ul>
+		    <li><b>Versión 0-00 (v1.00):</b> <span class="mono">eeacd0ced8e2bae491eca14f141a4b7c</span></li>
+		    <li><b>Versión 0-02 (v1.02):</b> <span class="mono">fdfc41b8414dd7d24834c800f567c0f8</span></li>
+		</ul>
+	</body>
+
+	<script></script>
+</html>

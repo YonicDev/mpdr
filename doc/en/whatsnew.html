@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>What's new | MPDR Documentation v0.3</title>
+		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>What's new in MPDR v0.3</h1>
+		<p>These are the new features for MPDR version 0.3 and their corresponding subversions.</p>
+		<h2>Version 0.3</h2>
+			<h3>New RNG algorithm</h3>
+				<p>Version 0.3 uses a similar random number generator algorithm to syncathetic's original algorithm,
+				so seeds will now produce different results.</p>
+			<h3>Compatibility with other randomizers (Stacking)</h3>
+				<center><img src="../common/0-whatsnew-3.png"></center>
+				<p>From this version, you can use an already modified/randomized image of Metroid Prime, allowing for a combination
+				of another randomizer and MPDR. This is called <a href="stacking.html">Stacking</a>.</p>
+				<p>Currently, there is support only for BashPrime's randomizer version 2.0.</p>
+			<h3>Map patch</h3>
+				<center><img src="../common/0-whatsnew-1.png"></center>
+				<p>Now MPDR is able to edit the world map so that doors appear in the correct type. This can be disabled
+				in the Patches configuration window.</p>
+				<div class="ambox"><b>NOTE:</b> Doors with missile shields will be represented in the same color as their door,
+				and not grey like in the original game!</div>
+			<h3>One-way door randomization</h3>
+				<center><img src="../common/0-whatsnew-2.png"></center>
+	            <p>The one-way door that connects the Vault to the Main Plaza in Chozo Ruins can now be made two-way and in turn, randomized.</p>
+				<p>To do so, enable the experimental feature "One-way door randomization" in the Patches configuration window,
+				and in the Door Excluder, enable the randomization on that door.
+			<h3>Bug fixes</h3>
+				<ul>
+					<li>Doors will not have a slim chance of becoming blue if the door weight for blue doors is set to 0 anymore.</li>
+				</ul>
+	</body>
+</html>

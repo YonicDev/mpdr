@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+    <namespace>yonicstudios.com.mpdr</namespace>
+    <virtualFolder>doc</virtualFolder>
+    <customFilter name="MPDR v0.3">
+        <filterAttribute>mpdr</filterAttribute>
+        <filterAttribute>0.3</filterAttribute>
+    </customFilter>
+    <filterSection>
+        <filterAttribute>mpdr</filterAttribute>
+        <filterAttribute>0.3</filterAttribute>
+        <toc>
+            <section title="What's new" ref="en/whatsnew.html"/>
+            <section title="Requirements" ref="en/requirements.html"/>
+            <section title="Compatibility with modded games" ref="en/stacking.html"/>
+            <section title="User Interface" ref="en/interface.html"/>
+            <section title="Configuring MPDR" ref="en/configuration.html">
+                <section title="Excluding doors" ref="en/exclusion.html"/>
+            </section>
+            <section title="Configuration presets" ref="en/presets.html"/>
+            <section title="FAQ" ref="en/faq.html"/>
+            <section title="Upcoming features" ref="en/todo.html"/>
+        </toc>
+        <keywords>
+            <keyword name="preset" ref="en/presets.html"/>
+            <keyword name="ui" ref="en/interface.html"/>
+            <keyword name="exclude" ref="en/exclusion.html"/>
+            <keyword name="exclusion" ref="en/exclusion.html"/>
+            <keyword name="features" ref="en/whatsnew.html"/>
+            <keyword name="faq" ref="en/faq.html"/>
+            <keyword name="stacking" ref="en/stacking.html"/>
+        </keywords>
+        <files>
+            <file>common/*</file>
+            <file>en/*</file>
+        </files>
+    </filterSection>
+</QtHelpProject>

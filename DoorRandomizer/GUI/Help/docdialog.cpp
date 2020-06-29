@@ -1,5 +1,6 @@
 #include "docdialog.h"
 #include "ui_docdialog.h"
+#include "global.h"
 
 #include <QHelpContentWidget>
 #include <QHelpIndexWidget>
@@ -12,30 +13,25 @@ DocDialog::DocDialog(QWidget *parent) :
     ui(new Ui::DocDialog)
 {
 
-    const QString LATEST_VERSION = "0.2";
-
     language = QLocale::system().name();
     language.truncate(language.lastIndexOf("_"));
 
     loadDocs(false,
              //: %1 = Already translated system language name.
              tr("No documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
-
-    #if FALLBACK_DOCUMENTATION
-    if(engine->currentFilter() != "MPDR v"+LATEST_VERSION) {
-        QMessageBox::warning(this,tr("MPDR Documentation"),
+    if(engine->currentFilter() != QString("MPDR v")+MPDR_VERSION) {
+        QApplication::beep();
+        if(QMessageBox::warning(this,tr("MPDR Documentation"),
             //: %1 = Already translated system language name.
-            tr("The latest version of the documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
-        language="en";
-        loadDocs(true,tr("The English documentation could not be loaded!"));
+            tr("The documentation for your system language (%1) is outdated.\nWould you like to show the English documentation instead?").arg(QLocale::system().nativeLanguageName()),
+            QMessageBox::Yes|QMessageBox::No,QMessageBox::No) == QMessageBox::Yes) {
+            language = "en";
+            loadDocs(true,tr("The English documentation could not be loaded!"));
+        }
     }
-    #endif
 
     ui->setupUi(this);
-
-    ui->versionSelector->addItems(engine->customFilters());
-    ui->versionSelector->setCurrentText(engine->currentFilter());
-    connect(ui->versionSelector,SIGNAL(currentTextChanged(QString)),this,SLOT(changeVersion(QString)));
+    ui->version_label->setText(engine->customFilters()[0]);
 
     ui->tabber->addTab(engine->contentWidget(),tr("Content","table-of-contents"));
     ui->tabber->addTab(engine->indexWidget(),tr("Index","keyword-index"));
@@ -52,39 +48,55 @@ DocDialog::~DocDialog()
 }
 
 void DocDialog::loadDocs(bool critical,QString window_text) {
-    #ifdef WIN32
-    QString doc_path = QCoreApplication::applicationDirPath() + "/doc/doc_collection_"+language+".qhc";
-    #elif defined(Q_OS_MACOS)
-    QString doc_path = QCoreApplication::applicationDirPath() + "/../Resources/doc/doc_collection_"+language+".qhc";
+    #if defined(Q_OS_WIN)
+    QString doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
+    #elif __APPLE__
+    QString doc_path = dir_path + "/../Resources/doc/doc_collection_"+language+".qhc";
     #else
     QString doc_path = local_path + "/doc/doc_collection_"+language+".qhc";
     #endif
 
     QFileInfo trans_check(doc_path);
+    qDebug() << doc_path;
 
-    #ifdef WIN32
-    if(trans_check.exists() && trans_check.isFile())
-        engine = new QHelpEngine(doc_path,this);
-    else {
-        language = "en";
-        engine = new QHelpEngine(dir_path + "/doc/doc_collection_en.qhc",this);
-        QMessageBox::warning(this,tr("MPDR Documentation"),
-            //: %1 = Already translated system language name.
-            tr("No documentation for your system language could not be found (%1). The English documentation will be shown.").arg(QLocale::system().nativeLanguageName()));
-    }
-    #elif defined (Q_OS_MACOS)
+    #if defined(Q_OS_WIN)
     if(trans_check.exists() && trans_check.isFile()) {
         engine = new QHelpEngine(doc_path,this);
-        qDebug() << "Docs found in app files.";
     } else {
         if(critical) {
+            QApplication::beep();
             QMessageBox::critical(this,tr("MPDR Documentation"),window_text);
             delete this;
         } else {
             language = "en";
-            engine = new QHelpEngine(dir_path + "/doc/doc_collection_en.qhc",this);
+            QApplication::beep();
             QMessageBox::warning(this,tr("MPDR Documentation"),window_text);
             loadDocs(true,tr("The English documentation could not be loaded!"));
+        }
+    }
+    #elif defined(__APPLE__)
+    qDebug() << "Trying to load doc from app files at" << doc_path;
+    if(trans_check.exists() && trans_check.isFile()) {
+        engine = new QHelpEngine(doc_path,this);
+        qDebug() << "Docs found in app files.";
+    } else {
+        doc_path = dir_path + "/doc/doc_collection_"+language+".qhc";
+        qDebug() << "Not found in local files. Trying to load doc from AppImage at" << doc_path;
+        trans_check = QFileInfo(doc_path);
+        if(trans_check.exists() && trans_check.isFile()) {
+            engine = new QHelpEngine(doc_path,this);
+            qDebug() << "Docs found in local files.";
+        } else {
+            if(critical) {
+                QApplication::beep();
+                QMessageBox::critical(this,tr("MPDR Documentation"),window_text);
+                delete this;
+            } else {
+                language = "en";
+                QApplication::beep();
+                QMessageBox::warning(this,tr("MPDR Documentation"),window_text);
+                loadDocs(true,tr("The English documentation could not be loaded!"));
+            }
         }
     }
     #else
@@ -112,9 +124,11 @@ void DocDialog::loadDocs(bool critical,QString window_text) {
                 qDebug() << "Docs found in system images";
             } else {
                 if(critical) {
+                    QApplication::beep();
                     QMessageBox::critical(this,tr("MPDR Documentation"),window_text);
                     delete this;
                 } else {
+                    QApplication::beep();
                     QMessageBox::warning(this,tr("MPDR Documentation"),window_text);
                     language = "en";
                     loadDocs(true,tr("The English documentation could not be loaded!"));
@@ -130,14 +144,14 @@ void DocDialog::loadDocs(bool critical,QString window_text) {
 
 void DocDialog::processUrl(QUrl url) {
 
-    // Target url: file:///path/to/doc/#{version: taken from filter}/#{revision: taken from namespace}/#{language}/file.html
+    // Target url: file:///path/to/doc/#{language}/file.html
 
     QString unprocessed_url = url.toString();
 
     #if defined(WIN32)
         QString processed_url = "file:///";
         QString used_path = QCoreApplication::applicationDirPath();
-    #elif defined(Q_OS_MACOS)
+    #elif defined(__APPLE__)
         QString processed_url = "file://";
         QString used_path = QCoreApplication::applicationDirPath().append("/../Resources");
     #else
@@ -147,18 +161,9 @@ void DocDialog::processUrl(QUrl url) {
     int version_number_index = engine->currentFilter().length() - engine->currentFilter().lastIndexOf("v")-1;
     QString version_number = engine->currentFilter().right(version_number_index);
 
-    if(version_number!="0.1") {
-        QRegularExpression revision_regex("/doc/([0-9]\\.[0-9](?:\\.[0-9])?)");
-        QString revision_number = revision_regex.match(unprocessed_url).captured(1);
-
-        QRegularExpression file_regex("/doc/[0-9]\\.[0-9]\\.?[0-9]?/[a-z]{2}/(\\S+)");
-        QString filename = file_regex.match(unprocessed_url).captured(1);
-        processed_url += used_path + "/doc/" + version_number + "/" + revision_number + "/" + language + "/" + filename;
-    } else {
-        QRegularExpression file_regex("/doc/(\\S+)");
-        QString filename = file_regex.match(unprocessed_url).captured(1);
-        processed_url += used_path + "/doc/" + version_number + "/" + filename;
-    }
+    QRegularExpression file_regex("/doc/(\\S+)");
+    QString filename = file_regex.match(unprocessed_url).captured(1);
+    processed_url += used_path + "/doc/" + filename;
 
     qDebug() << processed_url;
 
@@ -166,33 +171,21 @@ void DocDialog::processUrl(QUrl url) {
     onBrowserRefresh();
 }
 
-void DocDialog::changeVersion(QString new_ver) {
-    engine->setCurrentFilter(new_ver);
-
-    int version_number_index = new_ver.length() - new_ver.lastIndexOf("v")-1;
-    QString version_number = new_ver.right(version_number_index);
-
-    homePage();
-}
-
 void DocDialog::homePage() {
     QString filter_text = engine->currentFilter();
     QString version_number = filter_text.right(filter_text.indexOf("v")-2);
-    qDebug() << filter_text;
-    #if defined(WIN32)
+    #if defined(Q_OS_WIN)
         QString schema = "file:///";
         QString used_path = QCoreApplication::applicationDirPath();
-    #elif defined(Q_OS_MACOS)
+    #elif defined(__APPLE__)
         QString schema = "file://";
         QString used_path = QCoreApplication::applicationDirPath().append("/../Resources");
     #else
         QString schema = "file://";
     #endif
-    if(version_number == "0.1")
-        ui->browser->setUrl(QUrl(schema+used_path+"/doc/"+version_number+"/index.html"));
-    else
-        ui->browser->setUrl(QUrl(schema+used_path+"/doc/"+version_number+"/"+version_number+"/"+language+"/index.html"));
-    qDebug() << schema+used_path+"/doc/"+version_number+"/"+version_number+"/"+language+"/index.html";
+    QString target_url = schema+used_path+"/doc/"+language+"/index.html";
+    ui->browser->setUrl(QUrl(target_url));
+    qDebug() << target_url;
 }
 
 

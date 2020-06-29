@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Stacking | MPDR Documentation v0.3</title>
+		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>Stacking: Support for modified games</h1>
+		<p>Since version 0.3, MPDR now supports Metroid Prime modified images.
+        The process of randomizing an already modified game is called <b>stacking</b>.</p>
+		<p>To stack a randomized game with MPDR, you simply select it as the input ISO and MPDR should be
+		able to recognize the modifications made.</p>
+		<p>Depending on the tools for making these modified images, MPDR will apply, import from the modified game, or ignore certain patches.</p>
+        <h2>Patches compatibility</h2>
+        <p>This table indicates which patches are available for each one of the officially supported randomizers in the latest version of MPDR:</p>
+        <ul>
+            <li><b>&#x2713; Yes</b>: You can use MPDR to apply this patch on a modified game.</li>
+            <li><b>&#x25c7; Imported</b>: MPDR will use the patch from the modified game.</li>
+			<li><b>- Ignored</b>: MPDR will not apply this patch on a modified game.</li>
+            <li><b>! Risky</b>: Either MPDR may not be able to function correctly with this patch applied, or the game might have a high chance of crashing, both depending on the settings of the modified game,</li>
+			<li><b>&#x2a2f; No</b>: MPDR will <i>definitely</i> not be able to function correctly with this patch enabled, or crashes the game constantly.
+		</ul>
+        <table class="randostacking">
+            <tr>
+                <th>Patch</th>
+                <th>BashPrime Item Randomizer 2.0</th>
+            </tr>
+            <tr>
+                <td>Starting pickups</td>
+                <td class="imp">&#x25c7; Imported</td>
+            </tr>
+            <tr>
+                <td>Map icons</td>
+                <td class="yes">&#x2713; Yes</td>
+            </tr>
+            <tr>
+                <td>Heat damage protection</td>
+                <td class="imp">&#x25c7; Imported</td>
+            </tr>
+			<tr>
+				<td>Damage reduction</td>
+				<td class="imp">&#x25c7; Imported</td>
+			</tr>
+			<tr>
+                <td>Power Bomb Lockpicking</td>
+                <td class="yes">&#x2713; Yes</td>
+            </tr>
+            <tr>
+                <td>Flaaghra music patch</td>
+                <td class="imp">&#x25c7; Imported</td>
+            </tr>
+			<tr>
+				<td>Skip item obtained messages</td>
+				<td class="imp">&#x25c7; Imported</td>
+			</tr>
+			<tr>
+                <td>Frigate skip</td>
+                <td class="imp">&#x25c7; Imported</td>
+            </tr>
+			<tr>
+                <td>Impact Crater skip</td>
+                <td class="yes">&#x2713; Yes</td>
+            </tr>
+			<tr>
+                <td>One-way door patch</td>
+                <td class="rsk">! Risky</td>
+            </tr>
+			<tr>
+                <td>Remove title videos</td>
+                <td class="ign">- Ignored</td>
+            </tr>
+        </table>
+	</body>
+</html>

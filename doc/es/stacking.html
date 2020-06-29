@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Stacking | Documentación de MPDR v0.3</title>
+		<link type="text/css" href="../common/common.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>Stacking: Soporte para juegos modificados</h1>
+		<p>Desde la versión 0.3, MPDR acepta imágnenes de disco modificadas de Metroid Prime.
+        El proceso de aleatorizar una imagen ya modificada se denomina <b>stacking</b>.</p>
+		<p>Para hacer stacking de un juego aleatorizado con MPDR, simplemente escoge una ISO compatible,
+		y MPDR debería reconocer el tipo de modificaciones realizadas y combinarlas.</p>
+		<p>Dependiendo de las herramientas usadas para crear estas imágenes modificadas, MPDR aplicará, importará del juego original, o ignorará algunos parches.</p>
+        <h2>Compatibilidad de parches</h2>
+        <p>Esta tabla muestra qué parches están disponibles para todas las herramientas oficialmente soportadas en la versión más reciente de MPDR:</p>
+        <ul>
+            <li><b>&#x2713; Sí</b>: Puedes usar MPDR para aplicar este parche en el juego modificado.</li>
+            <li><b>&#x25c7; Importado</b>: MPDR utilizará el parche equivalente del juego modificado.</li>
+			<li><b>- Ignorado</b>: MPDR no aplicará este parche en el juego modificado.</li>
+            <li><b>! Riesgo</b>: MPDR podría no dar el resultado esperado cuando este parche sea aplicado, dependiendo de la configuración del juego modificado. También puede ser que haya alto riesgo de que el juego se cuelgue.</li>
+			<li><b>&#x2a2f; No</b>: MPDR no dará definitivamente el resultado esperado cuando este parche sea aplicado, o colgará el juego de manera casi constante.
+		</ul>
+        <table class="randostacking">
+            <tr>
+                <th>Parche</th>
+                <th>BashPrime Item Randomizer 2.0</th>
+            </tr>
+            <tr>
+                <td>Mejoras iniciales</td>
+                <td class="imp">&#x25c7; Importado</td>
+            </tr>
+            <tr>
+                <td>Parche de mapa</td>
+                <td class="yes">&#x2713; Sí</td>
+            </tr>
+            <tr>
+                <td>Protección al calor extremo</td>
+                <td class="imp">&#x25c7; Importado</td>
+            </tr>
+			<tr>
+				<td>Resistencia de traje</td>
+				<td class="imp">&#x25c7; Importado</td>
+			</tr>
+			<tr>
+                <td>Bomba Ganzúa</td>
+                <td class="yes">&#x2713; Sí</td>
+            </tr>
+            <tr>
+                <td>Música de Flaahgra</td>
+                <td class="imp">&#x25c7; Importado</td>
+            </tr>
+			<tr>
+				<td>Saltar mensajes de mejora</td>
+				<td class="imp">&#x25c7; Importado</td>
+			</tr>
+			<tr>
+                <td>Saltar Fragata</td>
+                <td class="imp">&#x25c7; Importado</td>
+            </tr>
+			<tr>
+                <td>Saltar Cráter de Impacto</td>
+                <td class="yes">&#x2713; Sí</td>
+            </tr>
+			<tr>
+                <td>Puerta de una sola dirección</td>
+                <td class="rsk">! Riesgo</td>
+            </tr>
+			<tr>
+                <td>Eliminar vídeos de pantalla de título</td>
+                <td class="ign">- Ignorado</td>
+            </tr>
+        </table>
+	</body>
+</html>

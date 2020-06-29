@@ -2,21 +2,21 @@
 <QHelpCollectionProject version="1.0">
     <assistant>
         <title>MPDR help</title>
-        <startPage>qthelp://yonicstudios.com.mpdr.0.2/doc/en/index.html</startPage>
-        <homePage>qthelp://yonicstudios.com.mpdr.0.2/doc/en/index.html</homePage>
+        <startPage>qthelp://yonicstudios.com.mpdr/doc/es/index.html</startPage>
+        <homePage>qthelp://yonicstudios.com.mpdr/doc/es/index.html</homePage>
         <applicationIcon>mpdr-qt.svg</applicationIcon>
         <enableFilterFunctionality>true</enableFilterFunctionality>
-        <currentFilter>MPDR v0.2</currentFilter>
+        <currentFilter>MPDR v0.3</currentFilter>
     </assistant>
     <docFiles>
         <generate>
             <file>
-                <input>0.2/doc_es.qhp</input>
-                <output>0.2/doc_es.qch</output>
+                <input>doc_es.qhp</input>
+                <output>doc_es.qch</output>
             </file>
         </generate>
         <register>
-            <file>0.2/doc_es.qch</file>
+            <file>doc_es.qch</file>
         </register>
     </docFiles>
 </QHelpCollectionProject>

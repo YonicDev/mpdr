@@ -2,13 +2,9 @@
 
 This program allows you to change the types of doors in Metroid Prime randomly.
 
-This is the Qt version of MPDR, which will eventually replace the previous version working in wxWidgets.
-
-> **NOTE:** From version 0.3 onward, the wxWidgets repository will be deleted and be replaced with this repository (mpdr-qt), which will be renamed to mpdr.
-
 ## Supported platforms
 
-Currently, MPDR supports the following **64-bit** systems:
+MPDR supports the following **64-bit** systems:
 
 * **Windows 7** and newer.
 * **mac OS High Sierra (10.13)** and newer.
@@ -32,14 +28,14 @@ These adjust the chance of any door to be that particular color, and are given i
 
 Doors can also be excluded from the randomization process, having the same color as they do in the original game.
 
+The Power Bomb can be modified to open doors of any color, which is useful when getting stuck.
+
 You can save your configuration with JSON presets.
 
 ## Q & A
 
 * **Q: Can I use this with the [Metroid Prime Item Radomizer](https://github.com/etaylor8086/metroid-prime-randomizer)?**
-  * A: No, but it's possible that I might combine both randomizers in a single package. However, some versions might be able to use already modified disc images temporarily.
-* **Q: But can I use the save files from the Item Randomizer?**
-  * A: Yes, although this might be subject to change in the future.
+  * A: From version 0.3 onward, MPDR accepts item randomized games, although support is limited. For more information, check the Stacking article in the documentation.
 * **Q: Are all configurations clearable?**
   * A: In theory, yes, so long as the Blue door weight remains high enough.
 * **Q: Will you support Metroid Prime 2?**
@@ -66,25 +62,30 @@ To add a new language, you have two options:
 
 If you have an issue with translation such as requesting a disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
 
-To update an existing translation file, follow the same steps as if you were to generate one, but use the same filename as the one that exists.
+To update an existing translation file, follow the same steps as if you were to generate one, but use the same filename as the one that exists. Then clear the CMake configuration and rerun CMake again.
+
+> **Mac Users:** You might have to run `make install -DESTDIR=path/to/mpdr.app` to properly import the translations within the application.
 
 > **WARNING:** If you update the MPDR repository to a newer revision and you were required to rebuild the whole project (including randomprime), the translation files might be erased in the process! Hopefully, you can recover them by [reseting/discarding](https://git-scm.com/docs/git-reset) the change that causes them to be removed. *However, all local changes that weren't commited to the repository will be permanently lost.* So make sure you backup the files either way!
 
 ### Documentation
 
+From version 0.3 onward, MPDR holds a single version of the documentation for each language.
+
 #### New translations
 
 To translate the documentation regarding the latest version to a new language, you'll need to duplicate the following:
 
-* The `doc_collection_en.qhcp` located in the `doc` folder. In this file, you'll have to remove all the doc entries of the previous versions unless you want to translate them as well.
-* The `doc_en.qhp` located in the latest version folder in the `doc` directory.
-* The `en` folder located in the base version folder and the latest revision folder in the version directory.
+* `doc_collection_en.qhcp`
+* `doc_en.qhp`.
+* The `en` folder.
+All of these are located within the `doc` folder.
 
 The `en` in the the files' names and the `en` folder name must be replaced with the language code specified in the [ISO 639-1 list of codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) that matches the language you want to translate to.
 
-Afterwards, you can simply translate the html documents within the folder you've just duplicated. When you're done, modify the references to the files in both qhcp files. Then, you'll have to [build the project](https://github.com/YonicDev/mpdr-qt#build) to apply the new documentation.
+Afterwards, you can simply translate the html documents within the folder you've just duplicated. When you're done, modify the references to the files in both qhcp files if needed. Then, you'll have to [build the project](https://github.com/YonicDev/mpdr-qt#build) to apply the new documentation.
 
-The program should automatically be able to load the documentation set that matches the current system locale settings.
+The program should automatically be able to load the documentation set that matches the current system locale settings. MPDR will prompt an option to fallback to the English documentation if the latest version's translated documentations are not available.
 
 For more information on the help files, check [The Qt Help Framework](https://doc.qt.io/qt-5/qthelp-framework.html) documentation.
 
@@ -92,21 +93,13 @@ For more information on the help files, check [The Qt Help Framework](https://do
 
 #### Updating translations
 
-Version numbers are indicated by the format `v{major version}.{minor version}.{revision}`.
+Version numbers are indicated by the format `v{major version}.{minor version}`.
 
-If you are adding a new version to an existing translation regardless of major or minor, you'll have to update the `<currentFilter>` and `<namespace>` fields in the collection qhcp file, and the `<filterAttribute>` and the `<customFilter name="">` entries in the ***new version***'s documentation qhp file to the target version. Otherwise, the new documentation will not be displayed properly.
-
-On the other hand, if you are adding a new revision, you'll have to duplicate the contents of the `en` folder inside the revision folder (which is inside the version directory) and expand the qhp file that corresponds to the target version so that it incorporates the files on that new folder.
-
-The keywords should be updated to link to the newer articles as well!
-
-> **NOTE:** MPDR will fallback to the English documentation if the latest version's translated documentations are not available. Presently, this behavior can be disabled by setting the `FALLBACK_DOCUMENTATION` flag in docdialog.h to `0` at build time, but this can cause some functions of the documentation viewer to stop working correctly.
+To update an existing translation regardless of major or minor, you'll have to update the `<currentFilter>` and `<namespace>` fields in the collection qhcp file, and the `<filterAttribute>` and the `<customFilter name="">` entries in the ***new version***'s documentation qhp file to the target version. Otherwise, the new documentation will not be displayed properly.
 
 ## Build
 
 The following sections are meant for those who are interested in building the program from the source code rather than downloading it.
-
-Although MPDR has been designed to be cross-platform, the setup and build configurations have only been tested for Windows and Linux (Ubuntu).
 
 ### Requirements
 
