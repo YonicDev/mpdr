@@ -55,12 +55,12 @@ MPDR will automatically determine which language to use from the system's curren
 
 To add a new language, you have two options:
 
-* **Generate a fresh translation file by [building the project](https://github.com/YonicDev/mpdr-qt#build).** You'll have to modify the `CMakeLists.txt` before building the program. The file itself has guidelines on how to do it.
+* **Generate a fresh translation file by [building the project](https://github.com/YonicDev/mpdr#build).** You'll have to modify the `CMakeLists.txt` before building the program. The file itself has guidelines on how to do it.
 * **Copy one of the existing translation files.** This is only recommended to do in Release and Translator Friendly builds.
 
 > **NOTE:** The logs produced by the backend ([randomprime](https://github.com/YonicDev/randomprime), the actual randomizer) cannot be translated.
 
-If you have an issue with translation such as requesting a disambiguation, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) with the translation label.
+If you have an issue with translation such as requesting a disambiguation, [submit an issue](https://github.com/YonicDev/mpdr/issues/new) with the translation label.
 
 To update an existing translation file, follow the same steps as if you were to generate one, but use the same filename as the one that exists. Then clear the CMake configuration and rerun CMake again.
 
@@ -83,7 +83,7 @@ All of these are located within the `doc` folder.
 
 The `en` in the the files' names and the `en` folder name must be replaced with the language code specified in the [ISO 639-1 list of codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) that matches the language you want to translate to.
 
-Afterwards, you can simply translate the html documents within the folder you've just duplicated. When you're done, modify the references to the files in both qhcp files if needed. Then, you'll have to [build the project](https://github.com/YonicDev/mpdr-qt#build) to apply the new documentation.
+Afterwards, you can simply translate the html documents within the folder you've just duplicated. When you're done, modify the references to the files in both qhcp files if needed. Then, you'll have to [build the project](https://github.com/YonicDev/mpdr#build) to apply the new documentation.
 
 The program should automatically be able to load the documentation set that matches the current system locale settings. MPDR will prompt an option to fallback to the English documentation if the latest version's translated documentations are not available.
 
@@ -124,7 +124,7 @@ The following sections are meant for those who are interested in building the pr
 
 2. After that, go to the randomprime submodule and run `cargo build`. Due to an issue with the compilation procedure, this extra step must be taken.
 
-3. Once it's been compiled, return to the mpdr-qt folder and open the `CMakeLists.txt` file in Qt Creator to create the project. After configuring the project you simply have to hit the Build & Run button.
+3. Once it's been compiled, return to the mpdr folder and open the `CMakeLists.txt` file in Qt Creator to create the project. After configuring the project you simply have to hit the Build & Run button.
 
   * If you are prompted to select kits, you may select Clang/LLVM, an OS-specific kit (MSVC for Windows, and GCC for macOS and Linux), or both.
 
@@ -149,4 +149,4 @@ You can simply update the changes in the repository by performing a git pull. So
 5. Delete the build folders.
 6. Delete the repository and clone it again.
 
-If neither of these steps has worked, [submit an issue](https://github.com/YonicDev/mpdr-qt/issues/new) indicating your operating system and configuration, as well as all the steps you've made for configuring the whole thing.
+If neither of these steps has worked, [submit an issue](https://github.com/YonicDev/mpdr/issues/new) indicating your operating system and configuration, as well as all the steps you've made for configuring the whole thing.

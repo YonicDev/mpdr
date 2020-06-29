@@ -4,7 +4,7 @@
         <title>MPDR help</title>
         <startPage>qthelp://yonicstudios.com.mpdr/doc/es/index.html</startPage>
         <homePage>qthelp://yonicstudios.com.mpdr/doc/es/index.html</homePage>
-        <applicationIcon>mpdr-qt.svg</applicationIcon>
+        <applicationIcon>mpdr.svg</applicationIcon>
         <enableFilterFunctionality>true</enableFilterFunctionality>
         <currentFilter>MPDR v0.3</currentFilter>
     </assistant>

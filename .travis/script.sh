@@ -4,8 +4,8 @@ cargo build --release
 cd ../build
 if [ "$TRAVIS_OS_NAME" = "osx" ]; then
     cmake .. -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_PREFIX_PATH=/usr/local &&
-    make DESTDIR=./mpdr-qt.app install &&
-    /usr/local/opt/qt/bin/macdeployqt mpdr-qt.app -dmg -fs=APFS
+    make DESTDIR=./mpdr.app install &&
+    /usr/local/opt/qt/bin/macdeployqt mpdr.app -dmg -fs=APFS
 else
     cmake .. -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7 -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib &&
     cmake --build . --target all -j $(nproc) &&

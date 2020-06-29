@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(mpdr-qt LANGUAGES CXX)
+project(mpdr LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -49,7 +49,7 @@ qt5_add_resources(MPDR_SOURCES "${CMAKE_SOURCE_DIR}/mpdr.qrc")
 
 # add the executable
 if(MSVC)
-    add_executable(mpdr-qt
+    add_executable(mpdr
         WIN32
         ${MPDR_SOURCES}
         ${MPDR_FORMS}
@@ -58,7 +58,7 @@ if(MSVC)
         mpdr.rc
     )
 elseif(APPLE)
-    add_executable(mpdr-qt
+    add_executable(mpdr
         MACOSX_BUNDLE
         ${MPDR_SOURCES}
         ${MPDR_FORMS}
@@ -66,9 +66,9 @@ elseif(APPLE)
         ${QM_FILES}
         ${RESOURCE_FILES}
     )
-    set_target_properties(mpdr-qt PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/resources/Info.plist)
+    set_target_properties(mpdr PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/resources/Info.plist)
 elseif(UNIX)
-    add_executable(mpdr-qt
+    add_executable(mpdr
         ${MPDR_SOURCES}
         ${MPDR_FORMS}
         ${MPDR_HEADERS}
@@ -90,7 +90,7 @@ add_subdirectory(randomprime)
 if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS=1,_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING=1)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} /MD")
-    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT mpdr-qt)
+    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT mpdr)
 endif()
 
 #make install configuration
@@ -100,9 +100,9 @@ if(APPLE)
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION /Contents/Resources FILES_MATCHING PATTERN "*.qm")
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION /Contents/Resources)
 elseif(UNIX)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr-qt.svg DESTINATION share/icons/hicolor/scalable/apps/)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.svg DESTINATION share/icons/hicolor/scalable/apps/)
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/mpdr.desktop DESTINATION share/applications/)
-    install(TARGETS mpdr-qt DESTINATION bin)
+    install(TARGETS mpdr DESTINATION bin)
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc DESTINATION share/mpdr)
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/LanguagePacks DESTINATION share/mpdr FILES_MATCHING PATTERN "*.qm")
     install(DIRECTORY ${CMAKE_PREFIX_PATH}/share/qt/translations DESTINATION share/mpdr FILES_MATCHING PATTERN "qtbase_*")
@@ -118,12 +118,12 @@ file(GLOB DOC_PROJECTS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "doc/*.qhcp")
 if(MSVC)
     foreach(DOC_PROJECT ${DOC_PROJECTS})
         string(REPLACE ".qhcp" ".qhc" DOC_CONTENTS ${DOC_PROJECT})
-        add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o ${CMAKE_CURRENT_BINARY_DIR}/${DOC_CONTENTS})
+        add_custom_command(TARGET mpdr POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator.exe ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o ${CMAKE_CURRENT_BINARY_DIR}/${DOC_CONTENTS})
     endforeach()
 elseif(UNIX)
     foreach(DOC_PROJECT ${DOC_PROJECTS})
         string(REPLACE ".qhcp" ".qhc" DOC_CONTENTS ${DOC_PROJECT})
-        add_custom_command(TARGET mpdr-qt POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o "${CMAKE_CURRENT_BINARY_DIR}/${DOC_CONTENTS}")
+        add_custom_command(TARGET mpdr POST_BUILD COMMAND ${CMAKE_PREFIX_PATH}/bin/qhelpgenerator ARGS "${CMAKE_CURRENT_BINARY_DIR}/${DOC_PROJECT}" -o "${CMAKE_CURRENT_BINARY_DIR}/${DOC_CONTENTS}")
     endforeach()
 endif()
 
@@ -138,5 +138,5 @@ elseif(UNIX)
     set(RANDOMPRIME_LIB libdl.so pthread.so)
 endif()
 
-target_link_libraries(mpdr-qt PUBLIC Qt5::Widgets Qt5::Help Qt5::WebEngineWidgets randomprime ${RANDOMPRIME_LIB})
-target_include_directories(mpdr-qt PUBLIC ${MPDR_DIRS})
+target_link_libraries(mpdr PUBLIC Qt5::Widgets Qt5::Help Qt5::WebEngineWidgets randomprime ${RANDOMPRIME_LIB})
+target_include_directories(mpdr PUBLIC ${MPDR_DIRS})

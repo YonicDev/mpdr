@@ -17,7 +17,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
                                  "MIT License YonicStudios 2020</p>"
                                  "<p>Using randomprime version %2<br/>"
                                  "MIT License aprilwade (syncathetic) 2020</p>"
-                                 "<p><a href=\"https://github.com/YonicDev/mpdr-qt\"><span style=\" text-decoration: underline; color:#007af4;\">GitHub</span></a>"
+                                 "<p><a href=\"https://github.com/YonicDev/mpdr\"><span style=\" text-decoration: underline; color:#007af4;\">GitHub</span></a>"
                                  " | <a href=\"https://discord.gg/9Wxb37\"><span style=\" text-decoration: underline; color:#007af4;\">Modding Discord</span></a>"
                                  " | <a href=\"http://discord.gg/WWGcay6\"><span style=\" text-decoration: underline; color:#007af4;\">Randomizer Discord</span></a></p>"
                                  "</body></html>").arg(MPDR_VERSION).arg(RANDOMPRIME_VERSION);

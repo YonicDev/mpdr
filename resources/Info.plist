@@ -21,7 +21,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>mpdr-qt</string>
+	<string>mpdr</string>
 	<key>CFBundleIconFile</key>
 	<string>mpdr</string>
 	<key>CFBundleDisplayName</key>
